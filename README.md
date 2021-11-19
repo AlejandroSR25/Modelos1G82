@@ -1,2 +1,3 @@
 # Modelos1G82
-Repositorio de los proyectos solicitados en el espacio académico de modelos 1 gr82
+Integrantes del grupo:
+- Dylan Alejandro Solarte Rincon (20201020088)
