@@ -3,12 +3,16 @@ public class Honda extends Moto implements IMotoGasolina{
   int kilometraje;
   int gasolina;
 
-
+//Constructor
   public Honda(){
     this.kilometraje=0;
     this.gasolina=100;
   }
 
+  /**Constructor con parametros
+  * @param kilometraje	
+  * @param gasolina
+  */
   public Honda(int kilometraje, int gasolina){
     this.kilometraje=kilometraje;
     this.gasolina=gasolina;
@@ -37,6 +41,9 @@ public class Honda extends Moto implements IMotoGasolina{
   }
   
   //Metodo que suma a la variable gasolina.
+  /*
+  * @param cantidad_tanqueo
+  */
   @Override
   public void tanquear(int cantidad_tanqueo){
     this.gasolina += cantidad_tanqueo;
