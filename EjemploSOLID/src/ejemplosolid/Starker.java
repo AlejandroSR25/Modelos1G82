@@ -27,7 +27,7 @@ public class Starker extends Moto implements IMotoElectrica{
   }
 
   @Override
-  //Metodo conducir 
+  //Metodo que al llamarse resta carga a la bateria y suma kilometraje, en caso de que no haya carga se pedira por consola una cantidad a cargarr y se llamara la funcion cargarBateria()
   public void conducir(){
     if(this.porcentaje_bateria>0){
       this.kilometraje+=10;
