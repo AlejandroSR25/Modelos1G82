@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//Clase con metodos static para la lectura de datos por consola.
 public class Leer{
   static Scanner sc = new Scanner(System.in);
 
