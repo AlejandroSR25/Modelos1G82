@@ -44,7 +44,7 @@ public class Kawasaki extends Moto implements IMotoGasolina{
   }
   
   //Metodo que suma a la variable gasolina.
-   /
+   /*
   * @param cantidad_tanqueo
   */
   @Override
