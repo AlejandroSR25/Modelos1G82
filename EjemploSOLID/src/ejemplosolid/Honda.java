@@ -25,7 +25,7 @@ public class Honda extends Moto implements IMotoGasolina{
       this.gasolina-=10;
     }
     else{
-      System.out.println("No hay suficiente combustible, ingrese la cantidad a tanquear\n");
+      System.out.println("No hay suficiente combustible, por favor ingrese la cantidad a tanquear\n");
       int cantidad_tanqueo = Integer.parseInt(Leer.leer());
       tanquear(cantidad_tanqueo);
       System.out.println("Tanqueo exitoso, se procedera a conducir el vehiculo");
@@ -36,7 +36,6 @@ public class Honda extends Moto implements IMotoGasolina{
   @Override
   public void tanquear(int cantidad_tanqueo){
     this.gasolina += cantidad_tanqueo;
-    System.out.println("XD");
     if(this.gasolina>100){
       this.gasolina=100;
     }
