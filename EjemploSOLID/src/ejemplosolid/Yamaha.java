@@ -1,24 +1,34 @@
+//Clase que hereda de Moto e implementa la interfaz IMotoGasolina
 public class Yamaha extends Moto implements IMotoGasolina{
   int kilometraje;
   int gasolina;
 
-
+//Constructor
   public Yamaha(){
     this.kilometraje=0;
     this.gasolina=100;
   }
 
+  /**Constructor con parametros
+  *
+  *
+  * @param kilometraje
+	* @param gasolina
+  */
+	 
   public Yamaha(int kilometraje, int gasolina){
     this.kilometraje=kilometraje;
     this.gasolina=gasolina;
   }
 
+  //Metodo Mostrar kilometraje 
   @Override
   public int mostrarKilometraje(){
     return this.kilometraje;
   }
 
   @Override
+  //Metodo conducir
   public void conducir(){
     if(this.gasolina>0){
       this.kilometraje+=10;
@@ -34,6 +44,11 @@ public class Yamaha extends Moto implements IMotoGasolina{
   }
   
   @Override
+  /**Metodo tanquear
+  *
+  *
+  * @param cantidad_tanqueo
+  */
   public void tanquear(int cantidad_tanqueo){
     this.gasolina += cantidad_tanqueo;
     if(this.gasolina>100)
