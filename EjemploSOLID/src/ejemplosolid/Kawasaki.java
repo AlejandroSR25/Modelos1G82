@@ -1,3 +1,4 @@
+//Clase que hereda de Moto e implementa la interfaz IMotoGasolina
 public class Kawasaki extends Moto implements IMotoGasolina{
   int kilometraje;
   int gasolina;
