@@ -1,15 +1,21 @@
-//Clase que hereda de Moto e implementa la interfaz IMotoGasolina
 public class Kawasaki extends Moto implements IMotoGasolina{
   int kilometraje;
   int gasolina;
 
-
+//Constructor
   public Kawasaki(){
     this.kilometraje=0;
     this.gasolina=100;
 
   }
-
+  
+  
+/**Constructor con parametros
+  *
+  *
+  * @param kilometraje	
+  * @param gasolina
+  */
   public Kawasaki(int kilometraje, int gasolina){
     this.kilometraje=kilometraje;
     this.gasolina=gasolina;
@@ -38,6 +44,9 @@ public class Kawasaki extends Moto implements IMotoGasolina{
   }
   
   //Metodo que suma a la variable gasolina.
+   /
+  * @param cantidad_tanqueo
+  */
   @Override
   public void tanquear(int cantidad_tanqueo){
     this.gasolina += cantidad_tanqueo;
