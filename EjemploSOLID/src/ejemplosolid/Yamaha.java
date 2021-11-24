@@ -21,14 +21,14 @@ public class Yamaha extends Moto implements IMotoGasolina{
     this.gasolina=gasolina;
   }
 
-  //Metodo Mostrar kilometraje 
+  //Metodo que retorna el valor del atributo kilometraje.
   @Override
   public int mostrarKilometraje(){
     return this.kilometraje;
   }
 
   @Override
-  //Metodo conducir
+  //Metodo que al llamarse resta gasolina y suma kilometraje, en caso de que no haya gasolina se pedira por consola una cantidad a tanquear y se llamara la funcion tanquear()
   public void conducir(){
     if(this.gasolina>0){
       this.kilometraje+=10;
