@@ -6,5 +6,5 @@ Se creo una clase abstracta llamada Moto, con su respectivo metodo de comportami
 
 En la clase Main se instancian los objetos de las motos en un array de tipo Moto, luego en un for each se recorre el arreglo y se ejecutan los metodos de cada objeto.
 
-A continuacion se puede visualizar el diagrama UML del proyecto.
+En el siguiente enlace se puede visualizar el diagrama UML del proyecto: https://prnt.sc/20spvrz
 
