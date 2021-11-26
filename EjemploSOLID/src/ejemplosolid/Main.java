@@ -1,3 +1,4 @@
+//En esta clase se puede evidenciar los principios de Liskov Substitution y Dependency Inversion.
 class Main {
   public static void main(String[] args) {
     
