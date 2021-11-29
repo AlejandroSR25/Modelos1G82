@@ -1,4 +1,7 @@
-//En esta clase se puede evidenciar los principios de Liskov Substitution y Dependency Inversion.
+/*En esta clase se puede evidenciar los principios de Liskov Substitution y Dependency Inversion.
+ * @author: Dylan Solarte, Sergio Sierra, Cristian Agudelo
+ * @version: 29/11/2021/A
+ */
 class Main {
   public static void main(String[] args) {
     
