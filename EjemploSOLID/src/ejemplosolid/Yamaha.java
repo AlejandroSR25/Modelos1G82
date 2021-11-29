@@ -1,4 +1,7 @@
-//Clase que hereda de Moto e implementa la interfaz IMotoGasolina
+/*Clase que hereda de Moto e implementa la interfaz IMotoGasolina
+ * @author: Dylan Solarte, Sergio Sierra, Cristian Agudelo
+ * @version: 29/11/2021/A
+ */
 public class Yamaha extends Moto implements IMotoGasolina{
   int kilometraje;
   int gasolina;
@@ -9,26 +12,27 @@ public class Yamaha extends Moto implements IMotoGasolina{
     this.gasolina=100;
   }
 
-  /**Constructor con parametros
-  *
-  *
+  /*Constructor con parametros
   * @param kilometraje
-	* @param gasolina
-  */
-	 
+  * @param gasolina
+  */	 
   public Yamaha(int kilometraje, int gasolina){
     this.kilometraje=kilometraje;
     this.gasolina=gasolina;
   }
 
-  //Metodo que retorna el valor del atributo kilometraje.
-  @Override
+  /*Metodo que retorna el valor del atributo kilometraje.
+  * @Override
+  * @return int
+  */
   public int mostrarKilometraje(){
     return this.kilometraje;
   }
 
-  @Override
-  //Metodo que al llamarse resta gasolina y suma kilometraje, en caso de que no haya gasolina se pedira por consola una cantidad a tanquear y se llamara la funcion tanquear()
+  
+  /*Metodo que al llamarse resta gasolina y suma kilometraje, en caso de que no haya gasolina se pedira por consola una cantidad a tanquear y se llamara la funcion tanquear()
+  * @Override
+  */
   public void conducir(){
     if(this.gasolina>0){
       this.kilometraje+=10;
@@ -43,10 +47,9 @@ public class Yamaha extends Moto implements IMotoGasolina{
     }
   }
   
-  @Override
-  /**Metodo tanquear
-  *
-  *
+  
+  /*Metodo tanquear
+  * @Override
   * @param cantidad_tanqueo
   */
   public void tanquear(int cantidad_tanqueo){
