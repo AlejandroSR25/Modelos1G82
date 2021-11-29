@@ -1,4 +1,7 @@
-//Clase que hereda de Moto e implementa la interfaz IMotoGasolina
+/*Clase que hereda de Moto e implementa la interfaz IMotoGasolina
+ * @author: Dylan Solarte, Sergio Sierra, Cristian Agudelo
+ * @version: 29/11/2021/A
+ */
 public class Starker extends Moto implements IMotoElectrica{
   int kilometraje;
   int porcentaje_bateria;
@@ -9,9 +12,7 @@ public class Starker extends Moto implements IMotoElectrica{
     this.porcentaje_bateria=100;
   }
 
-   /**Constructor con parametros
-  *
-  *
+   /*Constructor con parametros
   * @param kilometraje	
   * @param porcentaje_bateria
   */
@@ -20,14 +21,19 @@ public class Starker extends Moto implements IMotoElectrica{
     this.porcentaje_bateria=porcentaje_bateria;
   }
 
-  @Override
-  //Metodo Mostrar kilometraje 
+  
+  /*Metodo Mostrar kilometraje 
+  * @Override
+  * @return int
+  */
   public int mostrarKilometraje(){
     return this.kilometraje;
   }
 
-  @Override
-  //Metodo que al llamarse resta carga a la bateria y suma kilometraje, en caso de que no haya carga se pedira por consola una cantidad a cargarr y se llamara la funcion cargarBateria()
+  
+  /*Metodo que al llamarse resta carga a la bateria y suma kilometraje, en caso de que no haya carga se pedira por consola una cantidad a cargarr y se llamara la funcion cargarBateria()
+  * @Override
+  */
   public void conducir(){
     if(this.porcentaje_bateria>0){
       this.kilometraje+=10;
@@ -42,10 +48,9 @@ public class Starker extends Moto implements IMotoElectrica{
     }
   }
 
-  @Override
-  /**Metodo cargarBateria
-  *
-  *
+  
+  /*Metodo cargarBateria
+  * @Override
   * @param cantidad_carga
   */
   public void cargarBateria(int cantidad_carga){
