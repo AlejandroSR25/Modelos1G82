@@ -1,4 +1,7 @@
-//Clase que hereda de Moto e implementa la interfaz IMotoGasolina
+/*Clase que hereda de Moto e implementa la interfaz IMotoGasolina
+ * @author: Dylan Solarte, Sergio Sierra, Cristian Agudelo
+ * @version: 29/11/2021/A
+ */
 public class Honda extends Moto implements IMotoGasolina{
   int kilometraje;
   int gasolina;
@@ -20,6 +23,7 @@ public class Honda extends Moto implements IMotoGasolina{
   
   //Metodo que retorna el valor del atributo kilometraje.
   @Override
+  @return int
   public int mostrarKilometraje(){
     return this.kilometraje;
   }
