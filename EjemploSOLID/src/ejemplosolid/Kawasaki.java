@@ -23,15 +23,17 @@ public class Kawasaki extends Moto implements IMotoGasolina{
     this.gasolina=gasolina;
   }
   
-  //Metodo que retorna el valor del atributo kilometraje.
-  @Override
-  @retrun int
+  /*Metodo que retorna el valor del atributo kilometraje.
+  * @Override
+  * @retrun int
+  */
   public int mostrarKilometraje(){
     return this.kilometraje;
   }
   
-  //Metodo que al llamarse resta gasolina y suma kilometraje, en caso de que no haya gasolina se pedira por consola una cantidad a tanquear y se llamara la funcion tanquear().
-  @Override
+  /*Metodo que al llamarse resta gasolina y suma kilometraje, en caso de que no haya gasolina se pedira por consola una cantidad a tanquear y se llamara la funcion tanquear().
+  * @Override
+  */
   public void conducir(){
     if(this.gasolina>0){
       this.kilometraje+=10;
@@ -46,11 +48,10 @@ public class Kawasaki extends Moto implements IMotoGasolina{
     }
   }
   
-  //Metodo que suma a la variable gasolina.
-   /*
+  /*Metodo que suma a la variable gasolina.
+  * @Override
   * @param cantidad_tanqueo
   */
-  @Override
   public void tanquear(int cantidad_tanqueo){
     this.gasolina += cantidad_tanqueo;
     if(this.gasolina>100)
