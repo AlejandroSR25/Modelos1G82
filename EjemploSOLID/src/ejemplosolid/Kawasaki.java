@@ -1,3 +1,7 @@
+/*Clase que hereda de Moto e implementa la interfaz IMotoGasolina
+ * @author: Dylan Solarte, Sergio Sierra, Cristian Agudelo
+ * @version: 29/11/2021/A
+ */
 public class Kawasaki extends Moto implements IMotoGasolina{
   int kilometraje;
   int gasolina;
@@ -11,8 +15,6 @@ public class Kawasaki extends Moto implements IMotoGasolina{
   
   
 /**Constructor con parametros
-  *
-  *
   * @param kilometraje	
   * @param gasolina
   */
@@ -23,6 +25,7 @@ public class Kawasaki extends Moto implements IMotoGasolina{
   
   //Metodo que retorna el valor del atributo kilometraje.
   @Override
+  @retrun int
   public int mostrarKilometraje(){
     return this.kilometraje;
   }
