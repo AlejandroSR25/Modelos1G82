@@ -75,6 +75,7 @@ class Elfo(Personaje):
         self.escudo_path = "../Imagenes/Escudo_elfos.jpg"
         self.montura_path = "../Imagenes/Caballo.jpg"
 
+
     #Setters
     def setGenero(self, genero):
         self.genero = genero
