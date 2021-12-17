@@ -351,6 +351,7 @@ class Interfaz():
                 self.lista_hobbits.append(hobbit.clone())
         self.actualizarEtiquetas()
 
+
     def iniciarInterfaz(self):
         '''Funcion para iniciar la interfaz'''
         self.raiz.mainloop()
