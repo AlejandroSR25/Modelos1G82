@@ -12,21 +12,21 @@ class Creador(ABC):
 
 
 class CreadorHumano(Creador):
-    def factory_method(self):
-        return Humano()
+    def factory_method(self, genero):
+        return Humano(genero)
 
 class CreadorElfo(Creador):
-    def factory_method(self):
-        return Elfo()
+    def factory_method(self, genero):
+        return Elfo(genero)
 
 class CreadorEnano(Creador):
-    def factory_method(self):
-        return Enano()
+    def factory_method(self, genero):
+        return Enano(genero)
 
 class CreadorOrco(Creador):
-    def factory_method(self):
-        return Orco()
+    def factory_method(self, genero):
+        return Orco(genero)
 
 class CreadorHobbit(Creador):
-    def factory_method(self):
-        return Hobbit()
+    def factory_method(self, genero):
+        return Hobbit(genero)

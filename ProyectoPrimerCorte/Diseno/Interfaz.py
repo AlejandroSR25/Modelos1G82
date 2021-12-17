@@ -8,7 +8,7 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 from Logica.ImgLoadRel import ImgRelativeLoad
-
+from Logica.Creadores import *
 
 class Interfaz():
     def __init__(self):
@@ -150,7 +150,11 @@ class Interfaz():
                 80, 75, image=self.loadedimage_armadura)
 
     def actualizarImagenes(self):
-        pass
+        if self.sv_raza.get() == 'Elfo':
+            creador_elfo = CreadorElfo()
+            elfo = creador_elfo.factory_method(self.radioValue.get())
+            self.selectorImagen("../Imagenes/Elfo_H.png",
+                            "Personaje", 150, 300)
         
 
     

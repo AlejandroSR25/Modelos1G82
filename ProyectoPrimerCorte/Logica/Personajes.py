@@ -116,9 +116,9 @@ class Elfo(Personaje):
 
     def avatarGenero(self, genero):
         if genero == 'H':
-            return '../Imagenes/Elfo_H.png'
+            return "../Imagenes/Elfo_H.png"
         else:
-            return '../Imagenes/Elfo_M.png'
+            return "../Imagenes/Elfo_M.png"
 
     #Metodo Clonacion
 
@@ -178,7 +178,7 @@ class Enano(Personaje):
         if genero == 'H':
             return ''
         else:
-            return ''
+            return '../Imagenes/Enano_F.png'
     
     #Metodo Clonacion
 
