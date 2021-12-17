@@ -16,10 +16,10 @@ class Humano(Personaje):
         self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero(genero)
-        self.arma_path = ""
-        self.armadura_path = ""
-        self.escudo_path = ""
-        self.montura_path = ""
+        self.arma_path = "../Imagenes/Arma_humano.png"
+        self.armadura_path = "../Imagenes/Armadura_humano.png"
+        self.escudo_path = "../Imagenes/Escudo_humano.png"
+        self.montura_path = "../Imagenes/Caballo.jpg"
 
     #Setters
     def setGenero(self, genero):
@@ -60,6 +60,12 @@ class Humano(Personaje):
     def getMonturaPath(self):
         return self.montura_path    
 
+    def avatarGenero(self, genero):
+        if genero == 'H':
+            return "../Imagenes/Humano_H.jpg"
+        else:
+            return "../Imagenes/Humano_M.png"
+
     #Metodo Clonacion
 
     def clone(self):
@@ -71,10 +77,9 @@ class Elfo(Personaje):
         self.genero = genero
         self.avatar_path = self.avatarGenero(genero)
         self.arma_path = "../Imagenes/Arco.png"
-        self.armadura_path = "../Imagenes/Armadura_elfo.jpg"
+        self.armadura_path = "../Imagenes/Armadura_elfos.jpg"
         self.escudo_path = "../Imagenes/Escudo_elfos.jpg"
         self.montura_path = "../Imagenes/Caballo.jpg"
-
 
     #Setters
     def setGenero(self, genero):
@@ -131,10 +136,10 @@ class Enano(Personaje):
         self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero(genero)
-        self.arma_path = ""
-        self.armadura_path = ""
-        self.escudo_path = ""
-        self.montura_path = ""
+        self.arma_path = "../Imagenes/Arma_enano.png"
+        self.armadura_path = "../Imagenes/Armadura_enano.png"
+        self.escudo_path = "../Imagenes/Escudo_enano.png"
+        self.montura_path = "../Imagenes/Montura_enano.jpg"
 
     #Setters
     def setGenero(self, genero):
@@ -177,9 +182,9 @@ class Enano(Personaje):
     
     def avatarGenero(self, genero):
         if genero == 'H':
-            return ''
+            return '../Imagenes/Enano_H.png'
         else:
-            return '../Imagenes/Enano_F.png'
+            return '../Imagenes/Enano_M.png'
     
     #Metodo Clonacion
 
@@ -190,10 +195,10 @@ class Orco(Personaje):
         self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero(genero)
-        self.arma_path = ""
-        self.armadura_path = ""
-        self.escudo_path = ""
-        self.montura_path = ""
+        self.arma_path = "../Imagenes/Arma_orco.png"
+        self.armadura_path = "../Imagenes/Armadura_orco.png"
+        self.escudo_path = "../Imagenes/Escudo_orco.png"
+        self.montura_path = "../Imagenes/Montura_orco.png"
 
     #Setters
     def setGenero(self, genero):
@@ -236,9 +241,9 @@ class Orco(Personaje):
 
     def avatarGenero(self, genero):
         if genero == 'H':
-            return ''
+            return '../Imagenes/Orco_H.png'
         else:
-            return ''
+            return '../Imagenes/Orco_M.png'
     
     #Metodo Clonacion
 
@@ -250,10 +255,10 @@ class Hobbit(Personaje):
         self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero(genero)
-        self.arma_path = ""
-        self.armadura_path = ""
-        self.escudo_path = ""
-        self.montura_path = ""
+        self.arma_path = "../Imagenes/Arma_hobbit.png"
+        self.armadura_path = "../Imagenes/Armadura_hobbit.png"
+        self.escudo_path = "../Imagenes/Escudo_hobbit.png"
+        self.montura_path = "../Imagenes/Montura_hobbit.png"
 
     #Setters
     def setGenero(self, genero):
@@ -296,9 +301,9 @@ class Hobbit(Personaje):
 
     def avatarGenero(self, genero):
         if genero == 'H':
-            return ''
+            return '../Imagenes/Hobbit_H.png'
         else:
-            return ''
+            return '../Imagenes/Hobbit_M.png'
     
     #Metodo Clonacion
 

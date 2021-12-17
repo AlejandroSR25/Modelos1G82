@@ -17,6 +17,13 @@ class Interfaz():
         self.raiz.resizable(0, 0)
         self.raiz.configure(bg='white')
         self.raiz.title('AplicaciónPersonajes')
+
+        self.lista_humanos = []
+        self.lista_elfos = []
+        self.lista_enanos = []
+        self.lista_orcos = []
+        self.lista_hobbits = []
+
         self.iniciarWidgets()
 
     def iniciarWidgets(self):
@@ -34,7 +41,7 @@ class Interfaz():
             x=250, y=10, width=310, height=50)
 
         # Boton Crear
-        self.button1 = ttk.Button(self.pestaña_creacion, text="Crear")
+        self.button1 = ttk.Button(self.pestaña_creacion, text="Crear", command= self.crearPersonajes)
         self.button1.place(x=700, y=530, width=50, height=30)
 
         # Label seleccion raza
@@ -118,6 +125,75 @@ class Interfaz():
         self.pestaña_inventario = tk.Frame(self.nb, bg="beige")
         self.nb.add(self.pestaña_inventario, text='Inventario de personajes')
 
+        #label titulo
+        self.label_titulo_pestaña_2 = ttk.Label(self.pestaña_creacion, text="Seleccion de Personajes", font=("Heebo", 20, 'bold'), background="beige")
+        self.label_titulo_pestaña_2.place(x=250, y=10, width=310, height=50)
+
+        # Label subtitulo humanos
+        self.label_humano = ttk.Label(self.pestaña_inventario, text=f'Humanos x {len(self.lista_humanos)}', font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_humano.place(
+            x=135, y=200, width=120, height=30)
+
+        # Imagen humanos
+        self.canv_humano_p2 = Canvas(self.pestaña_inventario, bg='white')
+        self.canv_humano_p2.place(x=100, y=40, width=150, height=150)
+        self.loadedimage_humano_p2 = ImgRelativeLoad.loadRelImages(
+                "../Imagenes/Humano_H.jpg", 100, 125)
+        self.canv_humano_p2.create_image(
+                85, 75, image=self.loadedimage_humano_p2)
+
+        # Label subtitulo elfos
+        self.label_elfo = ttk.Label(self.pestaña_inventario, text=f'Elfos x {len(self.lista_elfos)}', font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_elfo.place(
+            x=350, y=200, width=120, height=30)
+
+        # Imagen elfos
+        self.canv_elfo_p2 = Canvas(self.pestaña_inventario, bg='white')
+        self.canv_elfo_p2.place(x=325, y=40, width=150, height=150)
+        self.loadedimage_elfo_p2 = ImgRelativeLoad.loadRelImages(
+                "../Imagenes/Elfo_H.png", 125, 150)
+        self.canv_elfo_p2.create_image(
+                75, 75, image=self.loadedimage_elfo_p2)
+
+        # Label subtitulo Enanos
+        self.label_enano = ttk.Label(self.pestaña_inventario, text=f'Enanos x {len(self.lista_enanos)}', font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_enano.place(
+            x=575, y=200, width=120, height=30)
+
+        # Imagen Enanos
+        self.canv_enano_p2 = Canvas(self.pestaña_inventario, bg='white')
+        self.canv_enano_p2.place(x=550, y=40, width=150, height=150)
+        self.loadedimage_enano_p2 = ImgRelativeLoad.loadRelImages(
+                "../Imagenes/Enano_H.png", 100, 125)
+        self.canv_enano_p2.create_image(
+                85, 75, image=self.loadedimage_enano_p2)
+
+        # Label subtitulo Orcos
+        self.label_orco = ttk.Label(self.pestaña_inventario, text=f'Orcos x {len(self.lista_orcos)}', font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_orco.place(
+            x=230, y=500, width=120, height=30)
+
+        # Imagen Orcos
+        self.canv_orco_p2 = Canvas(self.pestaña_inventario, bg='white')
+        self.canv_orco_p2.place(x=210, y=350, width=150, height=150)
+        self.loadedimage_orco_p2 = ImgRelativeLoad.loadRelImages(
+                "../Imagenes/Orco_H.png", 100, 125)
+        self.canv_orco_p2.create_image(
+                85, 75, image=self.loadedimage_orco_p2)
+
+        # Label subtitulo Hobbit
+        self.label_hobbit = ttk.Label(self.pestaña_inventario, text=f'Hobbit x {len(self.lista_hobbits)}', font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_hobbit.place(
+            x=460, y=500, width=120, height=30)
+
+        # Imagen Hobbit
+        self.canv_hobbit_p2 = Canvas(self.pestaña_inventario, bg='white')
+        self.canv_hobbit_p2.place(x=440, y=350, width=150, height=150)
+        self.loadedimage_hobbit_p2 = ImgRelativeLoad.loadRelImages(
+                "../Imagenes/Hobbit_H.png", 100, 125)
+        self.canv_hobbit_p2.create_image(
+                85, 75, image=self.loadedimage_hobbit_p2)
+
     def selectorImagen(self, ruta, tipo, resizex, resizey):
         if tipo == 'Personaje':
             self.canv_personaje = Canvas(self.pestaña_creacion, bg='white')
@@ -162,6 +238,13 @@ class Interfaz():
                 ruta, resizex, resizey)
             self.canv_armadura.create_image(
                 80, 75, image=self.loadedimage_armadura)
+
+    def actualizarEtiquetas(self):
+        self.label_humano['text'] = f'Humanos x {len(self.lista_humanos)}'
+        self.label_elfo['text'] = f'Elfos x {len(self.lista_elfos)}'
+        self.label_enano['text'] = f'Enanos x {len(self.lista_enanos)}'
+        self.label_orco['text'] = f'Orcos x {len(self.lista_orcos)}'
+        self.label_hobbit['text'] = f'Hobbit x {len(self.lista_hobbits)}'
 
     def actualizarImagenes(self):
         if self.sv_raza.get() == 'Humano':
@@ -235,33 +318,32 @@ class Interfaz():
                             "Montura", 100, 100)
 
     def crearPersonajes(self):
-        listapj = []
         if self.sv_raza.get() == 'Humano':
             creador_humano = CreadorHumano()
             humano = creador_humano.factory_method(self.radioValue.get())
             for i in range(self.valorspin.get()):
-                listapj.append(humano.clone())
+                self.lista_humanos.append(humano.clone())
         elif self.sv_raza.get() == 'Elfo':
             creador_elfo = CreadorElfo()
             elfo = creador_elfo.factory_method(self.radioValue.get())
             for i in range(self.valorspin.get()):
-                listapj.append(elfo.clone())
+                self.lista_elfos.append(elfo.clone())
         elif self.sv_raza.get() == 'Enano':
             creador_enano = CreadorEnano()
             enano = creador_enano.factory_method(self.radioValue.get())
             for i in range(self.valorspin.get()):
-                listapj.append(enano.clone())
+                self.lista_enanos.append(enano.clone())
         elif self.sv_raza.get() == 'Orco':
             creador_orco = CreadorOrco()
             orco = creador_orco.factory_method(self.radioValue.get())
             for i in range(self.valorspin.get()):
-                listapj.append(orco.clone())
+                self.lista_orcos.append(orco.clone())
         elif self.sv_raza.get() == 'Hobbit':
             creador_hobbit = CreadorHobbit()
-            hobbit = creador_hobbit.factory_method(self.radioValuH.get())
+            hobbit = creador_hobbit.factory_method(self.radioValue.get())
             for i in range(self.valorspin.get()):
-                listapj.append(hobbit.clone())
-        return listapj
+                self.lista_hobbits.append(hobbit.clone())
+        self.actualizarEtiquetas()
 
     def iniciarInterfaz(self):
         self.raiz.mainloop()
