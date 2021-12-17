@@ -13,7 +13,7 @@ class Personaje(ABC):
 
 class Humano(Personaje):
     def __init__(self, genero):
-        self.vida = 0
+        self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero
         self.arma_path = ""
@@ -67,13 +67,13 @@ class Humano(Personaje):
 
 class Elfo(Personaje):
     def __init__(self, genero):
-        self.vida = 0
+        self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero
-        self.arma_path = ""
-        self.armadura_path = ""
-        self.escudo_path = ""
-        self.montura_path = ""
+        self.arma_path = "../Imagenes/Arco.png"
+        self.armadura_path = "../Imagenes/"
+        self.escudo_path = "../Imagenes/Escudo_elfos.jpg"
+        self.montura_path = "../Imagenes/Caballo.jpg"
 
     #Setters
     def setGenero(self, genero):
@@ -116,9 +116,9 @@ class Elfo(Personaje):
 
     def avatarGenero(self, genero):
         if genero == 'H':
-            return ''
+            return '../Imagenes/Elfo_H.png'
         else:
-            return ''
+            return '../Imagenes/Elfo_M.png'
 
     #Metodo Clonacion
 
@@ -127,7 +127,7 @@ class Elfo(Personaje):
 
 class Enano(Personaje):
     def __init__(self, genero):
-        self.vida = 0
+        self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero
         self.arma_path = ""
@@ -186,7 +186,7 @@ class Enano(Personaje):
         return deepcopy(self)
 class Orco(Personaje):
     def __init__(self, genero):
-        self.vida = 0
+        self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero
         self.arma_path = ""
@@ -246,7 +246,7 @@ class Orco(Personaje):
 
 class Hobbit(Personaje):
     def __init__(self, genero):
-        self.vida = 0
+        self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero
         self.arma_path = ""

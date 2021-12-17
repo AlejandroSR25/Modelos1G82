@@ -151,6 +151,8 @@ class Interfaz():
 
     def actualizarImagenes(self):
         pass
+        
+
     
     def iniciarInterfaz(self):
         self.raiz.mainloop()
