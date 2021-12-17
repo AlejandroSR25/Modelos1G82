@@ -12,6 +12,7 @@ from Logica.Creadores import *
 
 class Interfaz():
     def __init__(self):
+        '''Funcion para iniciar lña interfaz'''
         self.raiz = Tk()
         self.raiz.geometry('800x600')
         self.raiz.resizable(0, 0)
@@ -27,6 +28,7 @@ class Interfaz():
         self.iniciarWidgets()
 
     def iniciarWidgets(self):
+        '''Funcion para iniciar los widgets'''
         # Creacion Notebook
         self.nb = ttk.Notebook(self.raiz)
         self.nb.pack(fill='both', expand='yes')
@@ -195,6 +197,7 @@ class Interfaz():
                 85, 75, image=self.loadedimage_hobbit_p2)
 
     def selectorImagen(self, ruta, tipo, resizex, resizey):
+        '''Funcion para mostrar las imagenes'''
         if tipo == 'Personaje':
             self.canv_personaje = Canvas(self.pestaña_creacion, bg='white')
             self.canv_personaje.place(x=100, y=150, width=200, height=340)
@@ -240,6 +243,7 @@ class Interfaz():
                 80, 75, image=self.loadedimage_armadura)
 
     def actualizarEtiquetas(self):
+        '''Funcion para actualizar las etiquetas del frame'''
         self.label_humano['text'] = f'Humanos x {len(self.lista_humanos)}'
         self.label_elfo['text'] = f'Elfos x {len(self.lista_elfos)}'
         self.label_enano['text'] = f'Enanos x {len(self.lista_enanos)}'
@@ -247,6 +251,7 @@ class Interfaz():
         self.label_hobbit['text'] = f'Hobbit x {len(self.lista_hobbits)}'
 
     def actualizarImagenes(self):
+        '''Funcion para actuaizar las imagenes'''
         if self.sv_raza.get() == 'Humano':
             creador_humano = CreadorHumano()
             humano = creador_humano.factory_method(self.radioValue.get())
@@ -318,6 +323,7 @@ class Interfaz():
                             "Montura", 100, 100)
 
     def crearPersonajes(self):
+        '''Funcion para crear los personajes'''
         if self.sv_raza.get() == 'Humano':
             creador_humano = CreadorHumano()
             humano = creador_humano.crear_personaje(self.radioValue.get())
@@ -346,4 +352,5 @@ class Interfaz():
         self.actualizarEtiquetas()
 
     def iniciarInterfaz(self):
+        '''Funcion para iniciar la interfaz'''
         self.raiz.mainloop()

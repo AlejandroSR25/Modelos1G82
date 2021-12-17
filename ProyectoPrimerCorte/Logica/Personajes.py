@@ -315,6 +315,7 @@ class Orco(Personaje):
 
 class Hobbit(Personaje):
     def __init__(self, genero):
+        '''Funcion para inicializar el Hobbit'''
         self.vida = 100
         self.genero = genero
         self.avatar_path = self.avatarGenero(genero)
@@ -325,44 +326,57 @@ class Hobbit(Personaje):
 
     #Setters
     def setGenero(self, genero):
+        '''Funcion set del atributo'''
         self.genero = genero
 
     def setAvatarPath(self, avatar_path):
+        '''Funcion set del atributo'''
         self.avatar_path = avatar_path
 
     def setArmaPath(self, arma_path):
+        '''Funcion set del atributo'''
         self.arma_path = arma_path
     
     def setArmaduraPath(self, armadura_path):
+        '''Funcion set del atributo'''
         self.armadura_path = armadura_path
 
     def setEscudoPath(self, escudo_path):
+        '''Funcion set del atributo'''
         self.escudo_path = escudo_path
 
     def setMonturaPath(self, montura_path):
+        '''Funcion set del atributo'''
         self.montura_path = montura_path
 
     #Getters
 
     def getGenero(self):
+        '''Funcion get del atributo'''
         return self.genero
 
     def getAvatarPath(self):
+        '''Funcion get del atributo'''
         return self.avatar_path
 
     def getArmaPath(self):
+        '''Funcion get del atributo'''
         return self.arma_path
     
     def getArmaduraPath(self):
+        '''Funcion get del atributo'''
         return self.armadura_path
 
     def getEscudoPath(self):
+        '''Funcion get del atributo'''
         return self.escudo_path
 
     def getMonturaPath(self):
+        '''Funcion get del atributo'''
         return self.montura_path    
 
     def avatarGenero(self, genero):
+        '''Funcion para definir la ruta dependiendo del genero'''
         if genero == 'H':
             return '../Imagenes/Hobbit_H.png'
         else:
@@ -371,4 +385,5 @@ class Hobbit(Personaje):
     #Metodo Clonacion
 
     def clone(self):
+        '''Funcion para clonar'''
         return deepcopy(self)
