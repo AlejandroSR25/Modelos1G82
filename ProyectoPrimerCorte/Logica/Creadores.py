@@ -3,13 +3,13 @@ from Personajes import *
 
 
 class Creador(ABC):
-'''Clase creador para la fabrica'''
+    '''Clase creador para la fabrica'''
     def crear_personaje(self):
         '''Funcion de crear los personajes'''
         return self.factory_method()
 
     @abstractmethod
-    def factory_method(self):
+    def factory_method(self, genero):
         '''Metodo abstracto'''
         pass
 
