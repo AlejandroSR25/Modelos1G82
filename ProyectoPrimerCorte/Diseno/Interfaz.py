@@ -8,7 +8,6 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 from Logica.ImgLoadRel import ImgRelativeLoad
-from Logica.Fabrica import *
 
 
 class Interfaz():
@@ -151,14 +150,7 @@ class Interfaz():
                 80, 75, image=self.loadedimage_armadura)
 
     def actualizarImagenes(self):
-        self.pjC = PjCreator(self.sv_raza.get(), self.radioValue.get())
-        self.pj = self.pjC.retrieve_pj()
-        self.selectorImagen(self.pj.getAvatarPath, "Personaje", 150, 250)
-        self.selectorImagen(self.pj.getArmaPath, "Arma", 150, 250)
-        self.selectorImagen(self.pj.getArmaduraPath, "Armadura", 150, 250)
-        self.selectorImagen(self.pj.getEscudoPath, "Escudo", 150, 250)
-        self.selectorImagen(self.pj.getMonturaPath, "Montura", 150, 250)
-
+        pass
     
     def iniciarInterfaz(self):
         self.raiz.mainloop()
