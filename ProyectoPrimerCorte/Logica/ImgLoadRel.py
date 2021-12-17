@@ -2,7 +2,7 @@ from tkinter import *
 import os
 from PIL import Image, ImageTk
 
-
+#Clase hecha para obtener un objeto PhotoImage, ya que al intentarlo de otras formas no se lograba obtener con la ruta correcta
 class ImgRelativeLoad:
     @staticmethod
     def loadRelImages(relativepath, resizex, resizey):
