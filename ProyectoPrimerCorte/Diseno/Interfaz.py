@@ -12,7 +12,7 @@ from Logica.Creadores import *
 
 class Interfaz():
     def __init__(self):
-        '''Funcion para iniciar lña interfaz'''
+        '''Funcion para iniciar la interfaz'''
         self.raiz = Tk()
         self.raiz.geometry('800x600')
         self.raiz.resizable(0, 0)
