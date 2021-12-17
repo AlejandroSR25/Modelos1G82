@@ -114,6 +114,10 @@ class Interfaz():
         self.selectorImagen(
             "..\Imagenes\montura_default.jpg", "Montura", 150, 150)
 
+        #Pestaña personajes creados
+        self.pestaña_inventario = tk.Frame(self.nb, bg="beige")
+        self.nb.add(self.pestaña_inventario, text='Inventario de personajes')
+
     def selectorImagen(self, ruta, tipo, resizex, resizey):
         if tipo == 'Personaje':
             self.canv_personaje = Canvas(self.pestaña_creacion, bg='white')
@@ -160,6 +164,20 @@ class Interfaz():
                 80, 75, image=self.loadedimage_armadura)
 
     def actualizarImagenes(self):
+        if self.sv_raza.get() == 'Humano':
+            creador_humano = CreadorHumano()
+            humano = creador_humano.factory_method(self.radioValue.get())
+            self.selectorImagen(humano.getAvatarPath(),
+                            "Personaje", 150, 250)
+            self.selectorImagen(humano.getEscudoPath(),
+                            "Escudo", 100, 100)
+            self.selectorImagen(humano.getArmaPath(),
+                            "Arma", 100, 100)
+            self.selectorImagen(humano.getArmaduraPath(),
+                            "Armadura", 100, 100)
+            self.selectorImagen(humano.getMonturaPath(),
+                            "Montura", 100, 100)
+
         if self.sv_raza.get() == 'Elfo':
             creador_elfo = CreadorElfo()
             elfo = creador_elfo.factory_method(self.radioValue.get())
@@ -173,6 +191,77 @@ class Interfaz():
                             "Armadura", 100, 100)
             self.selectorImagen(elfo.getMonturaPath(),
                             "Montura", 100, 100)
+        
+        if self.sv_raza.get() == 'Hobbit':
+            creador_hobbit = CreadorHobbit()
+            hobbit = creador_hobbit.factory_method(self.radioValue.get())
+            self.selectorImagen(hobbit.getAvatarPath(),
+                            "Personaje", 150, 250)
+            self.selectorImagen(hobbit.getEscudoPath(),
+                            "Escudo", 100, 100)
+            self.selectorImagen(hobbit.getArmaPath(),
+                            "Arma", 100, 100)
+            self.selectorImagen(hobbit.getArmaduraPath(),
+                            "Armadura", 100, 100)
+            self.selectorImagen(hobbit.getMonturaPath(),
+                            "Montura", 100, 100)
+
+        if self.sv_raza.get() == 'Orco':
+            creador_orco = CreadorOrco()
+            orco = creador_orco.factory_method(self.radioValue.get())
+            self.selectorImagen(orco.getAvatarPath(),
+                            "Personaje", 150, 250)
+            self.selectorImagen(orco.getEscudoPath(),
+                            "Escudo", 100, 100)
+            self.selectorImagen(orco.getArmaPath(),
+                            "Arma", 100, 100)
+            self.selectorImagen(orco.getArmaduraPath(),
+                            "Armadura", 100, 100)
+            self.selectorImagen(orco.getMonturaPath(),
+                            "Montura", 100, 100)
+            
+        if self.sv_raza.get() == 'Enano':
+            creador_enano = CreadorEnano()
+            enano = creador_enano.factory_method(self.radioValue.get())
+            self.selectorImagen(enano.getAvatarPath(),
+                            "Personaje", 150, 250)
+            self.selectorImagen(enano.getEscudoPath(),
+                            "Escudo", 100, 100)
+            self.selectorImagen(enano.getArmaPath(),
+                            "Arma", 100, 100)
+            self.selectorImagen(enano.getArmaduraPath(),
+                            "Armadura", 100, 100)
+            self.selectorImagen(enano.getMonturaPath(),
+                            "Montura", 100, 100)
+
+    def crearPersonajes(self):
+        listapj = []
+        if self.sv_raza.get() == 'Humano':
+            creador_humano = CreadorHumano()
+            humano = creador_humano.factory_method(self.radioValue.get())
+            for i in range(self.valorspin.get()):
+                listapj.append(humano.clone())
+        elif self.sv_raza.get() == 'Elfo':
+            creador_elfo = CreadorElfo()
+            elfo = creador_elfo.factory_method(self.radioValue.get())
+            for i in range(self.valorspin.get()):
+                listapj.append(elfo.clone())
+        elif self.sv_raza.get() == 'Enano':
+            creador_enano = CreadorEnano()
+            enano = creador_enano.factory_method(self.radioValue.get())
+            for i in range(self.valorspin.get()):
+                listapj.append(enano.clone())
+        elif self.sv_raza.get() == 'Orco':
+            creador_orco = CreadorOrco()
+            orco = creador_orco.factory_method(self.radioValue.get())
+            for i in range(self.valorspin.get()):
+                listapj.append(orco.clone())
+        elif self.sv_raza.get() == 'Hobbit':
+            creador_hobbit = CreadorHobbit()
+            hobbit = creador_hobbit.factory_method(self.radioValuH.get())
+            for i in range(self.valorspin.get()):
+                listapj.append(hobbit.clone())
+        return listapj
 
     def iniciarInterfaz(self):
         self.raiz.mainloop()
