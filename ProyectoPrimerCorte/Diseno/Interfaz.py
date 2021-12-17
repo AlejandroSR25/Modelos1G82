@@ -29,14 +29,17 @@ class Interfaz():
         self.nb.add(self.pestaña_creacion, text='Crear Personaje')
 
         # Label titulo
-        self.label_titulo = ttk.Label(self.pestaña_creacion, text="Seleccion de Personajes", font=("Heebo", 20, 'bold'), background="beige").place(
+        self.label_titulo = ttk.Label(self.pestaña_creacion, text="Seleccion de Personajes", font=("Heebo", 20, 'bold'), background="beige")
+        self.label_titulo.place(
             x=250, y=10, width=310, height=50)
 
         # Boton Crear
-        self.button1 = ttk.Button(self.pestaña_creacion, text="Crear").place(x=700, y=530, width=50, height=30)
+        self.button1 = ttk.Button(self.pestaña_creacion, text="Crear")
+        self.button1.place(x=700, y=530, width=50, height=30)
 
         # Label seleccion raza
-        self.label_raza = ttk.Label(self.pestaña_creacion, text="Seleccione la raza", font=("Heebo", 12), background="beige").place(
+        self.label_raza = ttk.Label(self.pestaña_creacion, text="Seleccione la raza", font=("Heebo", 12), background="beige")
+        self.label_raza.place(
             x=100, y=70, width=200, height=30)
 
         # Combobox de razas
@@ -51,21 +54,25 @@ class Interfaz():
 
         # Radiobutton Hombre
         self.radio1 = Radiobutton(self.pestaña_creacion, text="H",
-                                  variable=self.radioValue, value='H', background="beige").place(x=350, y=100, width=80, height=30)
-
+                                  variable=self.radioValue, value='H', background="beige", command= self.actualizarImagenes)
+        self.radio1.place(x=350, y=100, width=80, height=30)
         # Radiobutton Mujer
-        self.radio1 = Radiobutton(self.pestaña_creacion, text="M",
-                                  variable=self.radioValue, value="M", background="beige").place(x=450, y=100, width=80, height=30)
+        self.radio2 = Radiobutton(self.pestaña_creacion, text="M",
+                                  variable=self.radioValue, value="M", background="beige", command= self.actualizarImagenes)
+        self.radio2.place(x=450, y=100, width=80, height=30)
 
         # Label y Spinbox Seleccion numero de personajes a crear
         self.label_numero = tk.Label(
-            self.pestaña_creacion, text='Numero a crear:', bg="beige").place(x=550, y=100, width=100, height=30)
+            self.pestaña_creacion, text='Numero a crear:', bg="beige")
+        self.label_numero.place(x=550, y=100, width=100, height=30)
         self.valorspin = tk.IntVar()
-        self.spinbox_numero = tk.Spinbox(self.pestaña_creacion, from_=1, to=20, bg="beige", state='readonly', wrap='true', textvariable= self.valorspin).place(
+        self.spinbox_numero = tk.Spinbox(self.pestaña_creacion, from_=1, to=20, bg="beige", state='readonly', wrap='true', textvariable= self.valorspin)
+        self.spinbox_numero.place(
             x=650, y=100, width=50, height=30)
 
         # Label subtitulo personaje
-        self.label_personaje = ttk.Label(self.pestaña_creacion, text="Personaje", font=("Heebo", 12), background="beige").place(
+        self.label_personaje = ttk.Label(self.pestaña_creacion, text="Personaje", font=("Heebo", 12), background="beige")
+        self.label_personaje.place(
             x=160, y=500, width=75, height=30)
 
         # Imagen defautl personaje
@@ -73,7 +80,8 @@ class Interfaz():
                             "Personaje", 150, 300)
 
         # Label subtitulo escudo
-        self.label_escudo = ttk.Label(self.pestaña_creacion, text="Escudo", font=("Heebo", 12), background="beige", anchor=CENTER).place(
+        self.label_escudo = ttk.Label(self.pestaña_creacion, text="Escudo", font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_escudo.place(
             x=360, y=300, width=75, height=30)
 
         # Imagen default Escudo
@@ -81,7 +89,8 @@ class Interfaz():
             "..\Imagenes\Escudo_default.png", "Escudo", 100, 100)
 
         # Label subtitulo Armadura
-        self.label_armadura = ttk.Label(self.pestaña_creacion, text="Armadura", font=("Heebo", 12), background="beige", anchor=CENTER).place(
+        self.label_armadura = ttk.Label(self.pestaña_creacion, text="Armadura", font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_armadura.place(
             x=560, y=300, width=75, height=30)
 
         # Imagen default Armadura
@@ -89,7 +98,8 @@ class Interfaz():
             "..\Imagenes\Armadura_default.png", "Armadura", 100, 100)
 
         # Label subtitulo Arma
-        self.label_arma = ttk.Label(self.pestaña_creacion, text="Arma", font=("Heebo", 12), background="beige", anchor=CENTER).place(
+        self.label_arma = ttk.Label(self.pestaña_creacion, text="Arma", font=("Heebo", 12), background="beige", anchor=CENTER)
+        self.label_arma.place(
             x=360, y=500, width=75, height=30)
 
         # Imagen default Arma
@@ -106,7 +116,6 @@ class Interfaz():
 
     def selectorImagen(self, ruta, tipo, resizex, resizey):
         if tipo == 'Personaje':
-
             self.canv_personaje = Canvas(self.pestaña_creacion, bg='white')
             self.canv_personaje.place(x=100, y=150, width=200, height=340)
 
@@ -114,6 +123,7 @@ class Interfaz():
                 ruta, resizex, resizey)
             self.canv_personaje.create_image(
                 100, 175, image=self.loadedimage_pj)
+
 
         if tipo == 'Montura':
             self.canv_montura = Canvas(self.pestaña_creacion, bg='white')
@@ -153,9 +163,16 @@ class Interfaz():
         if self.sv_raza.get() == 'Elfo':
             creador_elfo = CreadorElfo()
             elfo = creador_elfo.factory_method(self.radioValue.get())
-            self.selectorImagen("../Imagenes/Elfo_H.png",
-                            "Personaje", 150, 300)
-        
+            self.selectorImagen(elfo.getAvatarPath(),
+                            "Personaje", 150, 250)
+            self.selectorImagen(elfo.getEscudoPath(),
+                            "Escudo", 100, 100)
+            self.selectorImagen(elfo.getArmaPath(),
+                            "Arma", 100, 100)
+            self.selectorImagen(elfo.getArmaduraPath(),
+                            "Armadura", 100, 100)
+            self.selectorImagen(elfo.getMonturaPath(),
+                            "Montura", 75, 75)
 
     
     def iniciarInterfaz(self):

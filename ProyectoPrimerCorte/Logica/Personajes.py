@@ -15,7 +15,7 @@ class Humano(Personaje):
     def __init__(self, genero):
         self.vida = 100
         self.genero = genero
-        self.avatar_path = self.avatarGenero
+        self.avatar_path = self.avatarGenero(genero)
         self.arma_path = ""
         self.armadura_path = ""
         self.escudo_path = ""
@@ -69,9 +69,9 @@ class Elfo(Personaje):
     def __init__(self, genero):
         self.vida = 100
         self.genero = genero
-        self.avatar_path = self.avatarGenero
+        self.avatar_path = self.avatarGenero(genero)
         self.arma_path = "../Imagenes/Arco.png"
-        self.armadura_path = "../Imagenes/"
+        self.armadura_path = "../Imagenes/Armadura_elfo.jpg"
         self.escudo_path = "../Imagenes/Escudo_elfos.jpg"
         self.montura_path = "../Imagenes/Caballo.jpg"
 
@@ -130,7 +130,7 @@ class Enano(Personaje):
     def __init__(self, genero):
         self.vida = 100
         self.genero = genero
-        self.avatar_path = self.avatarGenero
+        self.avatar_path = self.avatarGenero(genero)
         self.arma_path = ""
         self.armadura_path = ""
         self.escudo_path = ""
@@ -189,7 +189,7 @@ class Orco(Personaje):
     def __init__(self, genero):
         self.vida = 100
         self.genero = genero
-        self.avatar_path = self.avatarGenero
+        self.avatar_path = self.avatarGenero(genero)
         self.arma_path = ""
         self.armadura_path = ""
         self.escudo_path = ""
@@ -249,7 +249,7 @@ class Hobbit(Personaje):
     def __init__(self, genero):
         self.vida = 100
         self.genero = genero
-        self.avatar_path = self.avatarGenero
+        self.avatar_path = self.avatarGenero(genero)
         self.arma_path = ""
         self.armadura_path = ""
         self.escudo_path = ""
