@@ -5,4 +5,4 @@ Este programa utiliza los patrones de Factory Method y Prototype para ser capaz 
 Para la ejecucion del programa es necesario instalar Pillow con el comando pip install Pillow o pip install PIL.
 
 **DIAGRAMA UML**
-![alt text](https://github.com/AlejandroSR25/Modelos1G82/blob/main/ProyectoPrimerCorte/UML.png)
+![alt text](https://github.com/AlejandroSR25/Modelos1G82/blob/main/ProyectoPrimerCorte/UML_PP.png)
