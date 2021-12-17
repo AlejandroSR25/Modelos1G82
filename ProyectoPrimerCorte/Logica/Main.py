@@ -6,6 +6,6 @@ sys.path.append(parentdir)
 from Diseno import Interfaz
 
 if __name__ == "__main__":
-'''Se inicializa la interfaz'''
+    '''Se inicializa la interfaz'''
     interfaz = Interfaz.Interfaz()
     interfaz.iniciarInterfaz()

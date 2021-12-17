@@ -320,27 +320,27 @@ class Interfaz():
     def crearPersonajes(self):
         if self.sv_raza.get() == 'Humano':
             creador_humano = CreadorHumano()
-            humano = creador_humano.factory_method(self.radioValue.get())
+            humano = creador_humano.crear_personaje(self.radioValue.get())
             for i in range(self.valorspin.get()):
                 self.lista_humanos.append(humano.clone())
         elif self.sv_raza.get() == 'Elfo':
             creador_elfo = CreadorElfo()
-            elfo = creador_elfo.factory_method(self.radioValue.get())
+            elfo = creador_elfo.crear_personaje(self.radioValue.get())
             for i in range(self.valorspin.get()):
                 self.lista_elfos.append(elfo.clone())
         elif self.sv_raza.get() == 'Enano':
             creador_enano = CreadorEnano()
-            enano = creador_enano.factory_method(self.radioValue.get())
+            enano = creador_enano.crear_personaje(self.radioValue.get())
             for i in range(self.valorspin.get()):
                 self.lista_enanos.append(enano.clone())
         elif self.sv_raza.get() == 'Orco':
             creador_orco = CreadorOrco()
-            orco = creador_orco.factory_method(self.radioValue.get())
+            orco = creador_orco.crear_personaje(self.radioValue.get())
             for i in range(self.valorspin.get()):
                 self.lista_orcos.append(orco.clone())
         elif self.sv_raza.get() == 'Hobbit':
             creador_hobbit = CreadorHobbit()
-            hobbit = creador_hobbit.factory_method(self.radioValue.get())
+            hobbit = creador_hobbit.crear_personaje(self.radioValue.get())
             for i in range(self.valorspin.get()):
                 self.lista_hobbits.append(hobbit.clone())
         self.actualizarEtiquetas()
