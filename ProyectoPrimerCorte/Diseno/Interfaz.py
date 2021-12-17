@@ -172,8 +172,7 @@ class Interfaz():
             self.selectorImagen(elfo.getArmaduraPath(),
                             "Armadura", 100, 100)
             self.selectorImagen(elfo.getMonturaPath(),
-                            "Montura", 75, 75)
+                            "Montura", 100, 100)
 
-    
     def iniciarInterfaz(self):
         self.raiz.mainloop()
