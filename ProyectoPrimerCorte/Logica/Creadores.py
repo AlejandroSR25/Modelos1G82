@@ -4,9 +4,9 @@ from Personajes import *
 
 class Creador(ABC):
     '''Clase creador para la fabrica'''
-    def crear_personaje(self):
+    def crear_personaje(self, genero):
         '''Funcion de crear los personajes'''
-        return self.factory_method()
+        return self.factory_method(genero)
 
     @abstractmethod
     def factory_method(self, genero):
