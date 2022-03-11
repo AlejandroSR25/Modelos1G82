@@ -4,6 +4,7 @@ public class ArchivoTexto {
     
     private String nombre;
     
+    /*Receptor*/
     public ArchivoTexto(String nombre){
         this.nombre = nombre;
     }

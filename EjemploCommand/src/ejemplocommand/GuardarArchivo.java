@@ -1,6 +1,6 @@
 package ejemplocommand;
 
-
+/*Comando o Operacion*/
 public class GuardarArchivo implements Operacion{
     
     private ArchivoTexto archivo;
