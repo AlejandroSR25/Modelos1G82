@@ -12,6 +12,7 @@ public class ProyectoCineJungla {
     public static void main(String[] args) {
         MainPage Mp = new MainPage();
         Mp.setVisible(true);
+        Mp.setSize(1920, 1080);
     }
     
 }

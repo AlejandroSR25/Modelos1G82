@@ -44,6 +44,7 @@ public class MainPage extends javax.swing.JFrame {
         setExtendedState(6);
         setResizable(false);
         setSize(new java.awt.Dimension(1920, 1080));
+        getContentPane().setLayout(null);
 
         Cartelera.setBackground(new java.awt.Color(229, 227, 227));
         Cartelera.setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -80,10 +81,11 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Cartelera, java.awt.BorderLayout.CENTER);
+        getContentPane().add(Cartelera);
+        Cartelera.setBounds(0, 120, 1920, 960);
 
         Encabezado.setBackground(new java.awt.Color(189, 40, 47));
         Encabezado.setPreferredSize(new java.awt.Dimension(1920, 120));
@@ -93,6 +95,9 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/UserIcon/UserIcon.png"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel5MouseEntered(evt);
             }
@@ -184,7 +189,8 @@ public class MainPage extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        getContentPane().add(Encabezado, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(Encabezado);
+        Encabezado.setBounds(0, 0, 1920, 120);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,8 +221,8 @@ public class MainPage extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         getContentPane().removeAll();
-        getContentPane().add(Encabezado, java.awt.BorderLayout.PAGE_START);
-        getContentPane().add(new Comida());
+        getContentPane().add(Encabezado).setBounds(0, 0, 1920, 120);
+        getContentPane().add(new Comida()).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
         
@@ -225,8 +231,8 @@ public class MainPage extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         getContentPane().removeAll();
-        getContentPane().add(Encabezado, java.awt.BorderLayout.PAGE_START);
-        getContentPane().add(Cartelera, java.awt.BorderLayout.CENTER);
+        getContentPane().add(Encabezado).setBounds(0, 0, 1920, 120);
+        getContentPane().add(Cartelera).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -234,6 +240,11 @@ public class MainPage extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        UserSign frame_user_login = new UserSign();
+        frame_user_login.setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
