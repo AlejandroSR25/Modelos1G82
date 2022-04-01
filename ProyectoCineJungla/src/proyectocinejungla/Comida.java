@@ -31,25 +31,16 @@ public class Comida extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(229, 227, 227));
-        setPreferredSize(new java.awt.Dimension(1920, 2000));
+        setPreferredSize(new java.awt.Dimension(1920, 960));
+        setRequestFocusEnabled(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel2.setText("COMIDAS");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 260, 60));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1720, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 716, Short.MAX_VALUE)
-        );
-
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1720, 2000));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 730));
     }// </editor-fold>//GEN-END:initComponents
 
 

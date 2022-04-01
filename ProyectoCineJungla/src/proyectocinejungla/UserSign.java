@@ -117,7 +117,7 @@ public class UserSign extends javax.swing.JFrame {
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
+                        .addGap(97, 97, 97)
                         .addComponent(jLabel3)))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
