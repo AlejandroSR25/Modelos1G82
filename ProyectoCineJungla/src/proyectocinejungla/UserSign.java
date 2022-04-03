@@ -135,7 +135,7 @@ public class UserSign extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 400, 400);
+        jPanel1.setBounds(0, 0, 400, 419);
 
         pack();
         setLocationRelativeTo(null);

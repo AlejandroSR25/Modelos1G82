@@ -16,8 +16,12 @@ public class MainPage extends javax.swing.JFrame {
     /**
      * Creates new form MainPage
      */
+    
+    private BD baseDatos;
+    
     public MainPage() {
         initComponents();
+        cartelera();
     }
 
     /**
@@ -91,7 +95,7 @@ public class MainPage extends javax.swing.JFrame {
         flowLayout1.setAlignOnBaseline(true);
         jPanel3.setLayout(flowLayout1);
 
-        for(int i=0;i<3;i++){
+        /*for(int i=0;i<3;i++){
             jPanel3.add(new ProductoConcretoPanel(new Pelicula("Morbius "+ (i+1), "/Imagenes/Productos/Pelicula/IMGMorbius.jpg", "Desc")));
         }
 
@@ -105,7 +109,7 @@ public class MainPage extends javax.swing.JFrame {
                     }
                 });
             }
-        }
+        }*/
 
         javax.swing.GroupLayout carteleraLayout = new javax.swing.GroupLayout(cartelera);
         cartelera.setLayout(carteleraLayout);
@@ -144,6 +148,7 @@ public class MainPage extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Header.png"))); // NOI18N
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/UserIcon/UserIcon.png"))); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -157,6 +162,7 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/Cartelera_button.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.setEnabled(false);
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -171,6 +177,7 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/Comidas_button.png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.setEnabled(false);
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -189,6 +196,7 @@ public class MainPage extends javax.swing.JFrame {
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Titan", "Unicentro", "Plaza Central", "Gran Estación", "Embajador", "Las Americas" }));
         jComboBox1.setToolTipText("");
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBox1.setFocusable(false);
         jComboBox1.setOpaque(false);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -400,4 +408,26 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
+
+
+    public void cartelera()
+    {
+        for(int i=0;i<4;i++){
+            jPanel3.add(new ProductoConcretoPanel(new Pelicula("Morbius "+ (i+1), "/Imagenes/Productos/Pelicula/4.jpg", "Desc")));
+        }
+
+        
+        Component[] cmp = jPanel3.getComponents();
+
+        for(int i=0;i<4;i++){
+            if(cmp[i] instanceof javax.swing.JPanel){
+                cmp[i].setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        JPanelPeliculaMouseClicked(evt);
+                    }
+                });
+            }
+        }
+    }
 }
