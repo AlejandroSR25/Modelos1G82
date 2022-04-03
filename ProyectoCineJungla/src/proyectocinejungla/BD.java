@@ -54,6 +54,25 @@ public final class BD {
         }
         return sillas;
     }
+    
+    public List<String> cartelera() {
+        List<String> cartelera = new ArrayList<String>();
+        ResultSet result = null;
+        
+        try {
+            PreparedStatement st = connect.prepareStatement("select Id, Nombre, Descripcion, Puntuación from Pelicula");
+            result = st.executeQuery();
+            while (result.next()) {
+                cartelera.add(result.getString("Id"));
+                cartelera.add(result.getString("Nombre"));
+                cartelera.add(result.getString("Descripcion"));
+                cartelera.add(result.getString("Puntuación"));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return cartelera;
+    }
 
     public static BD getInstance() {
         if (instancia == null) {

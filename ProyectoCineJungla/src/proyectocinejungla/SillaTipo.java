@@ -6,6 +6,9 @@
 package proyectocinejungla;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,7 +20,18 @@ public class SillaTipo {
     private String tipo;
     private String estado;
     private String url;
+    public static List<Image> imagenes = new ArrayList<>();
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    
+    
     public SillaTipo(String tipo, String estado) {
         this.tipo = tipo;
         this.estado = estado;
@@ -25,7 +39,9 @@ public class SillaTipo {
 
     public void draw(Graphics g, int x, int y) {
         direccion();
-        g.drawImage(new ImageIcon(url).getImage(), x, y, null);
+        Image img = new ImageIcon(url).getImage();
+        imagenes.add(img);
+        g.drawImage(img, x, y, null);
     }
 
     public void direccion() {
@@ -37,9 +53,13 @@ public class SillaTipo {
             } else {
                 url += "sillaPreferencial.png";
             }
-            
+
         } else {
-            url += "sillaSelecionada.png";
+            if (estado.equals("Seleccionada")) {
+                url += "sillaSelecionada.png";
+            } else {
+                url += "sillaOcupada.png";
+            }
         }
 
     }

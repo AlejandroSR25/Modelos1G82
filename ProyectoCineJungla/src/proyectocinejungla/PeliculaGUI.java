@@ -16,8 +16,12 @@ public class PeliculaGUI extends javax.swing.JPanel {
     /**
      * Creates new form Comida
      */
-    public PeliculaGUI() {
+    Pelicula peli;
+    
+    public PeliculaGUI(Pelicula peli) {
         initComponents();
+        this.peli= peli;
+        info();
     }
 
     /**
@@ -36,14 +40,8 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -71,55 +69,45 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jLabel3.setBounds(20, 590, 360, 100);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.GridLayout(12, 0, 30, 10));
+        jPanel1.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("TITAN");
+        jLabel4.setText("DESCRIPCION");
         jPanel1.add(jLabel4);
+        jLabel4.setBounds(0, 0, 1270, 45);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setMinimumSize(new java.awt.Dimension(10, 400));
+        jPanel2.setLayout(new java.awt.GridLayout());
+
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setColumns(10);
+        jTextArea1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(51, 51, 51));
+        jTextArea1.setRows(5);
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setCaretColor(new java.awt.Color(51, 51, 51));
+        jTextArea1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextArea1.setEnabled(false);
+        jTextArea1.setSelectedTextColor(new java.awt.Color(51, 51, 51));
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel2.add(jScrollPane2);
+
         jPanel1.add(jPanel2);
-
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("UNICENTRO");
-        jPanel1.add(jLabel5);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jPanel4);
-
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("PLAZA CENTRAL");
-        jPanel1.add(jLabel6);
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jPanel5);
-
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("GRAN ESTACION");
-        jPanel1.add(jLabel7);
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jPanel6);
-
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("EMBAJADOR");
-        jPanel1.add(jLabel8);
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jPanel7);
+        jPanel2.setBounds(0, 55, 1270, 300);
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("LAS AMERICAS");
+        jLabel9.setText("FUNCIONES");
         jPanel1.add(jLabel9);
+        jLabel9.setBounds(0, 370, 1270, 45);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jPanel8);
+        jPanel8.setBounds(0, 165, 1270, 45);
 
         jPanel3.add(jPanel1);
         jPanel1.setBounds(420, 30, 1270, 650);
@@ -140,18 +128,32 @@ public class PeliculaGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    
+    public void info()
+    {
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(peli.directorio_img))); // NOI18N
+        jLabel1.setText("");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(20, 30, 360, 550);
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText(peli.nombre);
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(20, 590, 360, 100);
+        
+         jTextArea1.append(peli.descripcion);
+         jTextArea1.setLineWrap(true);
+    }
+
 }

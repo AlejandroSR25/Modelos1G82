@@ -16,6 +16,20 @@ public class Silla {
     private int y;
     private SillaTipo type;
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public SillaTipo getType() {
+        return type;
+    }
+
+    
+    
     public Silla(int x, int y, SillaTipo type) {
         this.x = x;
         this.y = y;

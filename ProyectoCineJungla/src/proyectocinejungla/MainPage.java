@@ -6,6 +6,8 @@
 package proyectocinejungla;
 
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,6 +20,8 @@ public class MainPage extends javax.swing.JFrame {
      */
     
     private BD baseDatos;
+    
+    List<Pelicula> peliculas = new ArrayList<>();
     
     public MainPage() {
         initComponents();
@@ -349,11 +353,11 @@ public class MainPage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt){
+    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli){
         if(cartelera.isEnabled()){
             getContentPane().removeAll();
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
-            getContentPane().add(new PeliculaGUI()).setBounds(0, 120, 1920, 960);
+            getContentPane().add(new PeliculaGUI(peli)).setBounds(0, 120, 1920, 960);
             getContentPane().revalidate();
             getContentPane().repaint();
         }
@@ -413,22 +417,38 @@ public class MainPage extends javax.swing.JFrame {
 
     public void cartelera()
     {
-        for(int i=0;i<4;i++){
-            jPanel3.add(new ProductoConcretoPanel(new Pelicula("Morbius "+ (i+1), "/Imagenes/Productos/Pelicula/4.jpg", "Desc")));
+        baseDatos=BD.getInstance();
+        List<String> id = new ArrayList<>();
+        List<String> nombre = new ArrayList<>();
+        List<String> descrip = new ArrayList<>();
+        for (int i = 0; i < baseDatos.cartelera().size(); i += 4) {
+            id.add(baseDatos.cartelera().get(i));
+        }
+        for (int i = 1; i < baseDatos.cartelera().size(); i += 4) {
+            nombre.add(baseDatos.cartelera().get(i));
+        }
+        for (int i = 2; i < baseDatos.cartelera().size(); i += 4) {
+            descrip.add(baseDatos.cartelera().get(i));
+        }
+        for(int i=0;i<id.size();i++){
+            jPanel3.add(new ProductoConcretoPanel(new Pelicula(nombre.get(i), "/Imagenes/Productos/Pelicula/"+id.get(i) +".jpg", descrip.get(i))));
+            peliculas.add(new Pelicula(nombre.get(i), "/Imagenes/Productos/Pelicula/"+id.get(i) +".jpg", descrip.get(i)));
         }
 
         
         Component[] cmp = jPanel3.getComponents();
 
         for(int i=0;i<4;i++){
+            Pelicula aux =peliculas.get(i);
             if(cmp[i] instanceof javax.swing.JPanel){
                 cmp[i].setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        JPanelPeliculaMouseClicked(evt);
+                        JPanelPeliculaMouseClicked(evt, aux);
                     }
                 });
             }
         }
     }
 }
+
