@@ -6,6 +6,7 @@
 package proyectocinejungla;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,6 @@ import javax.swing.JPanel;
  */
 public class Sala extends JPanel {
 
-   
     private List<Silla> sillas = new ArrayList<>();
 
     public void plantSilla(int fila, int columna, String tipoSil, String estado) {
@@ -32,8 +32,8 @@ public class Sala extends JPanel {
         for (Silla silla : sillas) {
             silla.draw(g);
         }
+        
         repaint();
     }
-    
-    
+
 }

@@ -25,7 +25,6 @@ public class SillaTipo {
 
     public void draw(Graphics g, int x, int y) {
         direccion();
-        System.out.print(url + "\n");
         g.drawImage(new ImageIcon(url).getImage(), x, y, null);
     }
 

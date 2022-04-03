@@ -293,7 +293,8 @@ public class MainPage extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         getContentPane().removeAll();
         getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
-        getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
+        //getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
+        getContentPane().add(new SillasPanel()).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
         

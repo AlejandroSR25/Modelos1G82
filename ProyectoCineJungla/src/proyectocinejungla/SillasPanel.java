@@ -5,8 +5,8 @@
  */
 package proyectocinejungla;
 
-
 import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,24 +75,17 @@ public class SillasPanel extends javax.swing.JPanel {
         List<String> numero = new ArrayList<>();
         List<String> tipos = new ArrayList<>();
         List<String> estados = new ArrayList<>();
-        for (int i = 0; i < 180; i+=3) {
-            
+        for (int i = 0; i < 180; i += 3) {
             numero.add(sillas.get(i));
-
         }
-        for (int i = 1; i < 180; i+=3) {
-            
+        for (int i = 1; i < 180; i += 3) {
             tipos.add(sillas.get(i));
-
         }
-        for (int i = 2; i < 180; i+=3) {
-            
+        for (int i = 2; i < 180; i += 3) {
             estados.add(sillas.get(i));
-
         }
         for (int i = 0; i < 60; i++) {
-            sala.plantSilla(cambioColumna(numero.get(i)),cambioFila(numero.get(i)) , tipos.get(i), estados.get(i));
-
+            sala.plantSilla(cambioColumna(numero.get(i)), cambioFila(numero.get(i)), tipos.get(i), estados.get(i));
         }
         
         sala.setBounds(280, 110, 880, 530);
@@ -100,56 +93,56 @@ public class SillasPanel extends javax.swing.JPanel {
         jPanel3.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 15, 880, 750));
 
     }
-    public int cambioFila(String silla)
-    {
+
+    public int cambioFila(String silla) {
         char columna = silla.charAt(1);
-        switch(columna){
+        switch (columna) {
             case 'A':
                 return INICIO_Y;
             case 'B':
-                return (INICIO_Y+50+DESP_Y);
+                return (INICIO_Y + 50 + DESP_Y);
             case 'C':
-                return INICIO_Y+ ((50+DESP_Y)*2);
+                return INICIO_Y + ((50 + DESP_Y) * 2);
             case 'D':
-                return INICIO_Y+ ((50+DESP_Y)*3);
+                return INICIO_Y + ((50 + DESP_Y) * 3);
             case 'E':
-                return INICIO_Y+ ((50+DESP_Y)*4);
+                return INICIO_Y + ((50 + DESP_Y) * 4);
             case 'F':
-                return INICIO_Y+ ((50+DESP_Y)*5);
-            case 'G': 
-                return INICIO_Y+ ((50+DESP_Y)*6);
+                return INICIO_Y + ((50 + DESP_Y) * 5);
+            case 'G':
+                return INICIO_Y + ((50 + DESP_Y) * 6);
             case 'H':
-                return INICIO_Y+ ((50+DESP_Y)*7);
+                return INICIO_Y + ((50 + DESP_Y) * 7);
         }
         return 0;
-        
+
     }
-    public int cambioColumna(String silla)
-    {
+
+    public int cambioColumna(String silla) {
         char fila = silla.charAt(2);
-        int ent = Character.getNumericValue(fila); 
-        switch(ent){
+        int ent = Character.getNumericValue(fila);
+        switch (ent) {
             case 1:
                 return INICIO_X_P;
             case 2:
-                return INICIO_X_P+50+DESP_X;
+                return INICIO_X_P + 50 + DESP_X;
             case 3:
                 return INICIO_X_G;
             case 4:
-                return INICIO_X_G+DESP_X+50;
+                return INICIO_X_G + DESP_X + 50;
             case 5:
-                return INICIO_X_G+ ((50+DESP_X)*2);
+                return INICIO_X_G + ((50 + DESP_X) * 2);
             case 6:
-                return INICIO_X_G+ ((50+DESP_X)*3);
+                return INICIO_X_G + ((50 + DESP_X) * 3);
             case 7:
-                return INICIO_X_G+ ((50+DESP_X)*4);
-            case 8: 
+                return INICIO_X_G + ((50 + DESP_X) * 4);
+            case 8:
                 return INICIO2_X_P;
             case 9:
-                return INICIO2_X_P+50+DESP_X;
+                return INICIO2_X_P + 50 + DESP_X;
         }
         return 0;
-        
+
     }
-    
+
 }
