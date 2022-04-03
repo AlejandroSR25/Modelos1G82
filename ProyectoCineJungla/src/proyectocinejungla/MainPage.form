@@ -86,11 +86,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="Cartelera">
+    <Container class="javax.swing.JPanel" name="cartelera">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="e3" green="e3" red="e5" type="rgb"/>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1920, 960]"/>
         </Property>
@@ -106,11 +107,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="260" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="260" max="-2" attributes="0"/>
+                  <EmptySpace pref="1560" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" pref="1720" max="-2" attributes="0"/>
+                      <EmptySpace pref="100" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="100" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -119,9 +124,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel3" min="-2" pref="731" max="-2" attributes="0"/>
-                  <EmptySpace pref="100" max="32767" attributes="0"/>
+                  <EmptySpace pref="837" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" pref="731" max="-2" attributes="0"/>
+                      <EmptySpace pref="115" max="32767" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,7 +152,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="for(int i=0;i&lt;3;i++){&#xa;    jPanel3.add(new ProductoConcretoPanel(new Pelicula(&quot;Morbius &quot;+ (i+1), &quot;/Imagenes/Productos/Pelicula/IMGMorbius.jpg&quot;, &quot;Desc&quot;)));&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="for(int i=0;i&lt;3;i++){&#xa;    jPanel3.add(new ProductoConcretoPanel(new Pelicula(&quot;Morbius &quot;+ (i+1), &quot;/Imagenes/Productos/Pelicula/IMGMorbius.jpg&quot;, &quot;Desc&quot;)));    &#xa;}&#xa;&#xa;Component[] cmp = jPanel3.getComponents();&#xa;        &#xa;for(int i=0;i&lt;3;i++){&#xa;    if(cmp[i] instanceof javax.swing.JPanel){&#xa;        cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {&#xa;            public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;                JPanelPeliculaMouseClicked(evt);&#xa;            }&#xa;        });&#x9;&#xa;    }&#xa;}"/>
           </AuxValues>
           <LayoutCode>
             <CodeStatement>
@@ -213,7 +223,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="Encabezado">
+    <Container class="javax.swing.JPanel" name="encabezado">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2f" green="28" red="bd" type="rgb"/>
@@ -265,12 +275,10 @@
                               <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel7" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

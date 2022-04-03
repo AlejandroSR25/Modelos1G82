@@ -5,6 +5,8 @@
  */
 package proyectocinejungla;
 
+import java.awt.Component;
+
 /**
  *
  * @author USUARIO
@@ -29,10 +31,10 @@ public class MainPage extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        Cartelera = new javax.swing.JPanel();
+        cartelera = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        Encabezado = new javax.swing.JPanel();
+        encabezado = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -77,8 +79,9 @@ public class MainPage extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 120, 1920, 960);
 
-        Cartelera.setBackground(new java.awt.Color(229, 227, 227));
-        Cartelera.setPreferredSize(new java.awt.Dimension(1920, 960));
+        cartelera.setBackground(new java.awt.Color(229, 227, 227));
+        cartelera.setEnabled(false);
+        cartelera.setPreferredSize(new java.awt.Dimension(1920, 960));
 
         jLabel2.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel2.setText("EN CARTELERA");
@@ -92,32 +95,50 @@ public class MainPage extends javax.swing.JFrame {
             jPanel3.add(new ProductoConcretoPanel(new Pelicula("Morbius "+ (i+1), "/Imagenes/Productos/Pelicula/IMGMorbius.jpg", "Desc")));
         }
 
-        javax.swing.GroupLayout CarteleraLayout = new javax.swing.GroupLayout(Cartelera);
-        Cartelera.setLayout(CarteleraLayout);
-        CarteleraLayout.setHorizontalGroup(
-            CarteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CarteleraLayout.createSequentialGroup()
+        Component[] cmp = jPanel3.getComponents();
+
+        for(int i=0;i<3;i++){
+            if(cmp[i] instanceof javax.swing.JPanel){
+                cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        JPanelPeliculaMouseClicked(evt);
+                    }
+                });
+            }
+        }
+
+        javax.swing.GroupLayout carteleraLayout = new javax.swing.GroupLayout(cartelera);
+        cartelera.setLayout(carteleraLayout);
+        carteleraLayout.setHorizontalGroup(
+            carteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(carteleraLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addGroup(CarteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1720, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1560, Short.MAX_VALUE))
+            .addGroup(carteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(carteleraLayout.createSequentialGroup()
+                    .addGap(100, 100, 100)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(100, Short.MAX_VALUE)))
         );
-        CarteleraLayout.setVerticalGroup(
-            CarteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CarteleraLayout.createSequentialGroup()
+        carteleraLayout.setVerticalGroup(
+            carteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(carteleraLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(837, Short.MAX_VALUE))
+            .addGroup(carteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(carteleraLayout.createSequentialGroup()
+                    .addGap(114, 114, 114)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(115, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(Cartelera);
-        Cartelera.setBounds(0, 120, 1920, 960);
+        getContentPane().add(cartelera);
+        cartelera.setBounds(0, 120, 1920, 960);
 
-        Encabezado.setBackground(new java.awt.Color(189, 40, 47));
-        Encabezado.setPreferredSize(new java.awt.Dimension(1920, 120));
+        encabezado.setBackground(new java.awt.Color(189, 40, 47));
+        encabezado.setPreferredSize(new java.awt.Dimension(1920, 120));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Header.png"))); // NOI18N
@@ -190,11 +211,11 @@ public class MainPage extends javax.swing.JFrame {
         jLabel4.setVisible(false);;
         jLabel7.setVisible(false);
 
-        javax.swing.GroupLayout EncabezadoLayout = new javax.swing.GroupLayout(Encabezado);
-        Encabezado.setLayout(EncabezadoLayout);
-        EncabezadoLayout.setHorizontalGroup(
-            EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EncabezadoLayout.createSequentialGroup()
+        javax.swing.GroupLayout encabezadoLayout = new javax.swing.GroupLayout(encabezado);
+        encabezado.setLayout(encabezadoLayout);
+        encabezadoLayout.setHorizontalGroup(
+            encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(encabezadoLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
@@ -211,29 +232,28 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(121, 121, 121))
         );
-        EncabezadoLayout.setVerticalGroup(
-            EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EncabezadoLayout.createSequentialGroup()
-                .addGroup(EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EncabezadoLayout.createSequentialGroup()
+        encabezadoLayout.setVerticalGroup(
+            encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(encabezadoLayout.createSequentialGroup()
+                .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encabezadoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(EncabezadoLayout.createSequentialGroup()
+                    .addGroup(encabezadoLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addGroup(EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(23, 23, 23))
         );
 
-        getContentPane().add(Encabezado);
-        Encabezado.setBounds(0, 0, 1920, 120);
+        getContentPane().add(encabezado);
+        encabezado.setBounds(0, 0, 1920, 120);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -264,7 +284,7 @@ public class MainPage extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         getContentPane().removeAll();
-        getContentPane().add(Encabezado).setBounds(0, 0, 1920, 120);
+        getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
         getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
@@ -274,8 +294,8 @@ public class MainPage extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         getContentPane().removeAll();
-        getContentPane().add(Encabezado).setBounds(0, 0, 1920, 120);
-        getContentPane().add(Cartelera).setBounds(0, 120, 1920, 960);
+        getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
+        getContentPane().add(cartelera).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -291,7 +311,8 @@ public class MainPage extends javax.swing.JFrame {
             jLabel4.setVisible(false);
             jLabel7.setEnabled(false);
             jLabel7.setVisible(false);
-            
+            cartelera.setEnabled(false);
+                        
             getContentPane().revalidate();
             getContentPane().repaint();
             
@@ -305,7 +326,8 @@ public class MainPage extends javax.swing.JFrame {
             jLabel4.setVisible(true);
             jLabel7.setEnabled(true);
             jLabel7.setVisible(true);
-            
+            cartelera.setEnabled(true);
+                        
             getContentPane().revalidate();
             getContentPane().repaint();
         }            
@@ -314,8 +336,20 @@ public class MainPage extends javax.swing.JFrame {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         UserSign frame_user_login = new UserSign();
         frame_user_login.setVisible(true);
+        
+        
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt){
+        if(cartelera.isEnabled()){
+            getContentPane().removeAll();
+            getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
+            getContentPane().add(new PeliculaGUI()).setBounds(0, 120, 1920, 960);
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -352,8 +386,8 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Cartelera;
-    private javax.swing.JPanel Encabezado;
+    private javax.swing.JPanel cartelera;
+    private javax.swing.JPanel encabezado;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
