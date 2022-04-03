@@ -46,6 +46,7 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -124,11 +125,18 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jPanel1.setBounds(420, 30, 1270, 650);
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 730));
+
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PeliculaGUI/Estrella Dorada.png"))); // NOI18N
+        jLabel10.setText("PUNTUA LA PELICULA");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 890, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

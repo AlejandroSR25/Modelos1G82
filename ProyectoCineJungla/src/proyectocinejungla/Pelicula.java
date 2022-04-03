@@ -1,17 +1,17 @@
 package proyectocinejungla;
 
-public class Comida implements Producto{
+public class Pelicula implements Producto{
     
     String nombre;
     String directorio_img;
     String descripcion;
     
-    public Comida(String nombre, String directorio_img, String descripcion){
+    public Pelicula(String nombre, String directorio_img, String descripcion){
         this.nombre = nombre;
         this.directorio_img = directorio_img;
         this.descripcion = descripcion;
     }
-    
+
     @Override
     public String getDirectorio() {
         return this.directorio_img;

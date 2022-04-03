@@ -27,6 +27,8 @@ public class MainPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         Cartelera = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -37,6 +39,7 @@ public class MainPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -46,6 +49,34 @@ public class MainPage extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(null);
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0, 95));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("SELECCIONA UN MULTIPLEX");
+        jLabel8.setPreferredSize(new java.awt.Dimension(700, 60));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(686, 686, 686)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(534, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(450, 450, 450)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(450, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 120, 1920, 960);
+
         Cartelera.setBackground(new java.awt.Color(229, 227, 227));
         Cartelera.setPreferredSize(new java.awt.Dimension(1920, 960));
 
@@ -53,6 +84,13 @@ public class MainPage extends javax.swing.JFrame {
         jLabel2.setText("EN CARTELERA");
 
         jPanel3.setPreferredSize(new java.awt.Dimension(1720, 2000));
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 75, 50);
+        flowLayout1.setAlignOnBaseline(true);
+        jPanel3.setLayout(flowLayout1);
+
+        for(int i=0;i<3;i++){
+            jPanel3.add(new ProductoConcretoPanel(new Pelicula("Morbius "+ (i+1), "/Imagenes/Productos/Pelicula/IMGMorbius.jpg", "Desc")));
+        }
 
         javax.swing.GroupLayout CarteleraLayout = new javax.swing.GroupLayout(Cartelera);
         Cartelera.setLayout(CarteleraLayout);
@@ -98,6 +136,7 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/Cartelera_button.png"))); // NOI18N
+        jLabel3.setEnabled(false);
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -111,6 +150,7 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/Comidas_button.png"))); // NOI18N
+        jLabel4.setEnabled(false);
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -140,6 +180,16 @@ public class MainPage extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("MULTIPLEX");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Estrella Roja.png"))); // NOI18N
+        jLabel7.setText("PUNTUA NUESTROS SERVICIOS");
+        jLabel7.setEnabled(false);
+
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);;
+        jLabel7.setVisible(false);
+
         javax.swing.GroupLayout EncabezadoLayout = new javax.swing.GroupLayout(Encabezado);
         Encabezado.setLayout(EncabezadoLayout);
         EncabezadoLayout.setHorizontalGroup(
@@ -147,15 +197,17 @@ public class MainPage extends javax.swing.JFrame {
             .addGroup(EncabezadoLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(54, 54, 54)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel4)
-                .addGap(132, 132, 132)
+                .addGap(82, 82, 82)
                 .addComponent(jLabel5)
                 .addGap(121, 121, 121))
         );
@@ -167,17 +219,17 @@ public class MainPage extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(EncabezadoLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EncabezadoLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(21, 21, 21))
+                        .addGap(24, 24, 24)
+                        .addGroup(EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(EncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(23, 23, 23))
         );
 
         getContentPane().add(Encabezado);
@@ -213,7 +265,7 @@ public class MainPage extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         getContentPane().removeAll();
         getContentPane().add(Encabezado).setBounds(0, 0, 1920, 120);
-        getContentPane().add(new Comida()).setBounds(0, 120, 1920, 960);
+        getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
         
@@ -229,7 +281,34 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        if(jComboBox1.getSelectedItem() == jComboBox1.getItemAt(0)){
+            
+            getContentPane().add(jPanel1, 0);
+            
+            jLabel3.setEnabled(false);
+            jLabel3.setVisible(false);
+            jLabel4.setEnabled(false);
+            jLabel4.setVisible(false);
+            jLabel7.setEnabled(false);
+            jLabel7.setVisible(false);
+            
+            getContentPane().revalidate();
+            getContentPane().repaint();
+            
+        }else{
+            
+            getContentPane().remove(jPanel1);
+
+            jLabel3.setEnabled(true);
+            jLabel3.setVisible(true);
+            jLabel4.setEnabled(true);
+            jLabel4.setVisible(true);
+            jLabel7.setEnabled(true);
+            jLabel7.setVisible(true);
+            
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }            
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -282,6 +361,9 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
