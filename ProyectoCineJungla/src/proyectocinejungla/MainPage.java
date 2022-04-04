@@ -23,9 +23,10 @@ public class MainPage extends javax.swing.JFrame {
      */
     
     private BD baseDatos;
-    private Sesion sesion = Sesion.getInstance();;
+    private Sesion sesion = Sesion.getInstance();
     private JFrame frame;
-    
+    public static int cine; 
+    public static int puntCine;  
     List<Pelicula> peliculas = new ArrayList<>();
     
     public MainPage() {

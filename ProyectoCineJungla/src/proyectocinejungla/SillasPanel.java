@@ -23,11 +23,14 @@ public class SillasPanel extends javax.swing.JPanel {
     private static final int INICIO_Y = 53;
     private static final int DESP_X = 16;
     private static final int DESP_Y = 26;
+    private int funcion;
 
     /**
      * Creates new form Comida
      */
-    public SillasPanel() {
+    public SillasPanel(int funcion) {
+        
+        this.funcion=funcion;
         initComponents();
         iniciar();
     }
