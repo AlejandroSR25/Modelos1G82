@@ -28,6 +28,10 @@ public class Silla {
         return type;
     }
 
+    public void setType(SillaTipo type) {
+        this.type = type;
+    }
+
     
     
     public Silla(int x, int y, SillaTipo type) {

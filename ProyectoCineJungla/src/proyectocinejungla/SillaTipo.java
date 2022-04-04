@@ -18,20 +18,19 @@ import javax.swing.ImageIcon;
 public class SillaTipo {
 
     private String tipo;
-    private String estado;
-    private String url;
-    public static List<Image> imagenes = new ArrayList<>();
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    private  String estado;
+    private  String url;
 
     public String getEstado() {
         return estado;
     }
 
-    
-    
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+   
+
     public SillaTipo(String tipo, String estado) {
         this.tipo = tipo;
         this.estado = estado;
@@ -39,28 +38,28 @@ public class SillaTipo {
 
     public void draw(Graphics g, int x, int y) {
         direccion();
-        Image img = new ImageIcon(url).getImage();
-        imagenes.add(img);
-        g.drawImage(img, x, y, null);
+        g.drawImage(new ImageIcon(url).getImage(), x, y, null);
     }
 
     public void direccion() {
         url = "";
         url = "src\\Imagenes\\";
-        if (estado.equals("Libre")) {
-            if (tipo.equals("General")) {
-                url += "sillaGeneral.png";
-            } else {
-                url += "sillaPreferencial.png";
-            }
-
-        } else {
-            if (estado.equals("Seleccionada")) {
+        switch (estado) {
+            case "Libre":
+                if (tipo.equals("General")) {
+                    url += "sillaGeneral.png";
+                } else {
+                    url += "sillaPreferencial.png";
+                }
+                break;
+            case "Seleccionada":
                 url += "sillaSelecionada.png";
-            } else {
+                break;
+            case "Ocupada":
                 url += "sillaOcupada.png";
-            }
+                break;
         }
+       
 
     }
 

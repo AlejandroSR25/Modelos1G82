@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class Sala extends JPanel {
 
-    private static List<Silla> sillas = new ArrayList<>();
+    private  List<Silla> sillas = new ArrayList<>();
     private static List<JLabel> accio = new ArrayList<>();
     Presionar pre = new Presionar();
 
@@ -28,7 +28,7 @@ public class Sala extends JPanel {
         return accio;
     }
 
-    public static List<Silla> getSillas() {
+    public  List<Silla> getSillas() {
         return sillas;
     }
     

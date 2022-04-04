@@ -22,17 +22,18 @@ import java.text.AttributedCharacterIterator;
  * @author User
  */
 public class Presionar implements MouseListener {
+    
+    
+    private BD baseDatos = BD.getInstance();
 
     @Override
     public void mouseClicked(MouseEvent me) {
         for (int i = 0; i < 60; i++) {
             if (me.getSource().equals(Sala.getAccio().get(i))) {
-                if (Sala.getSillas().get(i).getType().getEstado().equals("Libre")) {
-                    Sala.getSillas().get(i).getType().setEstado("Seleccionada");
-                } else {
-                    Sala.getSillas().get(i).getType().setEstado("Libre");
-                }
-
+                System.out.print(i);
+                baseDatos.modifEstado("Seleccionada", "1A2", "1");
+                SillasPanel.getSala().repaint();
+                break;
             }
         }
 

@@ -64,13 +64,17 @@ public class SillasPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-    Sala sala = new Sala();
+    private static Sala sala = new Sala();
 
+    public static Sala getSala() {
+        return sala;
+    }
+
+    
+    
     public void iniciar() {
         int x = 0;
         int y = 0;
-        String tipo = "";
-        String estado = "";
         List<String> sillas = baseDatos.sala();
         List<String> numero = new ArrayList<>();
         List<String> tipos = new ArrayList<>();
