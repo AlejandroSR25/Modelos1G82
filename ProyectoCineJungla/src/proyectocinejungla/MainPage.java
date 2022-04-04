@@ -347,7 +347,7 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        UserSign frame_user_login = new UserSign();
+        Login frame_user_login = new Login();
         frame_user_login.setVisible(true);
         
         
