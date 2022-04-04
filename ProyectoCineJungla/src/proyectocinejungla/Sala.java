@@ -31,8 +31,7 @@ public class Sala extends JPanel {
     public List<Silla> getSillas() {
         return sillas;
     }
-    
-    
+
     public void plantSilla(int fila, int columna, String tipoSil, String estado) {
         SillaTipo tipo = FabricaSilla.getSillaTipo(tipoSil, estado);
         Silla silla = new Silla(fila, columna, tipo);
@@ -46,20 +45,24 @@ public class Sala extends JPanel {
             //System.out.print(silla.getType().getEstado());
         }
         acciones();
-        
+
     }
 
-    
-    
     public void acciones() {
         for (int i = 0; i < 60; i++) {
-            JLabel accion = new JLabel();
-            accion.setBounds(sillas.get(i).getX(), sillas.get(i).getY(), 50, 50);
-            accion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            this.add(accion);
-            accio.add(accion);
-            
-            accion.addMouseListener(pre);
+            if (sillas.get(i).getType().getEstado().equals("Ocupada")) {
+                JLabel accion = new JLabel();
+                accion.setBounds(sillas.get(i).getX(), sillas.get(i).getY(), 50, 50);
+                accio.add(accion);
+            } else {
+                JLabel accion = new JLabel();
+                accion.setBounds(sillas.get(i).getX(), sillas.get(i).getY(), 50, 50);
+                accion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                this.add(accion);
+                accio.add(accion);
+                accion.addMouseListener(pre);
+            }
+
         }
     }
 

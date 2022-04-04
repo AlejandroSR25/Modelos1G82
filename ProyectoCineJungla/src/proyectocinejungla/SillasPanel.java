@@ -17,9 +17,9 @@ import java.util.List;
 public class SillasPanel extends javax.swing.JPanel {
 
     private BD baseDatos = BD.getInstance();
-    private static final int INICIO_X_P = 130;
-    private static final int INICIO2_X_P = 724;
-    private static final int INICIO_X_G = 328;
+    private static final int INICIO_X_P = 118;
+    private static final int INICIO2_X_P = 712;
+    private static final int INICIO_X_G = 316;
     private static final int INICIO_Y = 53;
     private static final int DESP_X = 16;
     private static final int DESP_Y = 26;
@@ -46,6 +46,7 @@ public class SillasPanel extends javax.swing.JPanel {
 
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        imgG = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -58,11 +59,16 @@ public class SillasPanel extends javax.swing.JPanel {
 
         jPanel3.setPreferredSize(new java.awt.Dimension(1720, 2000));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        imgG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sillaG.png"))); // NOI18N
+        jPanel3.add(imgG, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, 100));
+
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 780));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imgG;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
