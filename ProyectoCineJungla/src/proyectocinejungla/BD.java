@@ -36,12 +36,12 @@ public final class BD {
         }
     }
 
-    public List<String> sala() {
+    public List<String> sala(int funcion, int cine) {
         List<String> sillas = new ArrayList<String>();
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement("select Silla, Tipo, Estado from Cine1 where Funcion = '1'");
+            PreparedStatement st = connect.prepareStatement("select Silla, Tipo, Estado from Cine" +cine+" where Funcion ="+funcion);
             result = st.executeQuery();
             while (result.next()) {
                 sillas.add(result.getString("Silla"));
@@ -78,7 +78,7 @@ public final class BD {
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement("select Nombre, Puntuacion from Cine jungla where Id="+id);
+            PreparedStatement st = connect.prepareStatement("select Nombre, Puntuacion from [Cine Jungla] where Id="+id);
             result = st.executeQuery();
             while (result.next()) {
                 datos.add(result.getString("Nombre"));

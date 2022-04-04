@@ -24,10 +24,16 @@ public class MainPage extends javax.swing.JFrame {
     private BD baseDatos;
     private Sesion sesion = Sesion.getInstance();
     private JFrame frame;
-    public static int cine;
-    public static int puntCine;
+    private static int cineId;
+    private static int puntCine;
     List<Pelicula> peliculas = new ArrayList<>();
 
+    public static int getCineId() {
+        return cineId;
+    }
+
+    
+    
     public MainPage() {
         this.frame = this;
         initComponents();
@@ -337,7 +343,7 @@ public class MainPage extends javax.swing.JFrame {
             for (int i = 0; i < datos.size(); i += 2) {
                 nombre.add(datos.get(i));
             }
-            cine =jComboBox1.getSelectedIndex();
+            cineId =jComboBox1.getSelectedIndex();
 
             getContentPane().remove(jPanel1);
 

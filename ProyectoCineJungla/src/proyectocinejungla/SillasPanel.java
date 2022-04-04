@@ -81,7 +81,7 @@ public class SillasPanel extends javax.swing.JPanel {
         sala.getSillas().clear();
         int x = 0;
         int y = 0;
-        List<String> sillas = baseDatos.sala();
+        List<String> sillas = baseDatos.sala(funcion,MainPage.getCineId());
         List<String> numero = new ArrayList<>();
         List<String> tipos = new ArrayList<>();
         List<String> estados = new ArrayList<>();
