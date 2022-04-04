@@ -73,6 +73,9 @@ public class SillasPanel extends javax.swing.JPanel {
     
     
     public void iniciar() {
+        sala = new Sala();
+        sala.getAccio().clear();
+        sala.getSillas().clear();
         int x = 0;
         int y = 0;
         List<String> sillas = baseDatos.sala();

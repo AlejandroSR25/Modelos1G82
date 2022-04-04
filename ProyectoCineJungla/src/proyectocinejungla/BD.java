@@ -130,6 +130,24 @@ public final class BD {
         
     }
     
+    
+    public List<String> pelicula(int pelicula) {
+        List<String> funciones = new ArrayList<String>();
+        ResultSet result = null;
+
+        try {
+            PreparedStatement st = connect.prepareStatement("select [Hora Funcion], Id from Funcion where Pelicula="+pelicula);
+            result = st.executeQuery();
+            while (result.next()) {
+                funciones.add(result.getString("Hora Funcion"));
+                funciones.add(result.getString("Id"));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return funciones;
+    }
+    
 
     public static BD getInstance() {
         if (instancia == null) {

@@ -1,12 +1,16 @@
 package proyectocinejungla;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author USUARIO
@@ -17,11 +21,16 @@ public class PeliculaGUI extends javax.swing.JPanel {
      * Creates new form Comida
      */
     Pelicula peli;
-    
-    public PeliculaGUI(Pelicula peli) {
+    private BD baseDatos = BD.getInstance();
+    private JFrame frame;
+    private static List<JButton> botones = new ArrayList<>();
+
+    public PeliculaGUI(Pelicula peli, JFrame frame) {
         initComponents();
-        this.peli= peli;
+        this.frame = frame;
+        this.peli = peli;
         info();
+        funciones();
     }
 
     /**
@@ -44,6 +53,7 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
@@ -80,7 +90,7 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setMinimumSize(new java.awt.Dimension(10, 400));
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(10);
@@ -109,6 +119,10 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jPanel1.add(jPanel8);
         jPanel8.setBounds(0, 165, 1270, 45);
 
+        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(0, 430, 1270, 80);
+
         jPanel3.add(jPanel1);
         jPanel1.setBounds(420, 30, 1270, 650);
 
@@ -132,14 +146,13 @@ public class PeliculaGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
-    
-    public void info()
-    {
+    public void info() {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(peli.directorio_img))); // NOI18N
         jLabel1.setText("");
@@ -151,9 +164,33 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jLabel3.setText(peli.nombre);
         jPanel3.add(jLabel3);
         jLabel3.setBounds(20, 590, 360, 100);
-        
-         jTextArea1.append(peli.descripcion);
-         jTextArea1.setLineWrap(true);
+
+        jTextArea1.append(peli.descripcion);
+        jTextArea1.setLineWrap(true);
+    }
+
+    public void funciones() {
+        char pelicu = peli.getDirectorio_img().charAt(peli.getDirectorio_img().length() - 5);
+        List<String> funci = baseDatos.pelicula(Character.getNumericValue(pelicu));
+        for (int i = 0; i < funci.size(); i += 2) {
+            JButton boton = new JButton();
+            boton.setBackground(new java.awt.Color(255, 255, 255));
+            boton.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+            boton.setText(funci.get(i));
+            boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            boton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    frame.getContentPane().removeAll();
+                    frame.getContentPane().add(MainPage.getEncabezado()).setBounds(0, 0, 1920, 120);
+                    frame.getContentPane().add(new SillasPanel()).setBounds(0, 120, 1920, 960);
+                    frame.getContentPane().revalidate();
+                    frame.getContentPane().repaint();
+                }
+            });
+            jPanel4.add(boton);
+            botones.add(boton);
+        }
+
     }
 
 }

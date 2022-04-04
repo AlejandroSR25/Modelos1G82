@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class Sala extends JPanel {
 
-    private  List<Silla> sillas = new ArrayList<>();
+    private List<Silla> sillas = new ArrayList<>();
     private static List<JLabel> accio = new ArrayList<>();
     Presionar pre = new Presionar();
 
@@ -28,7 +28,7 @@ public class Sala extends JPanel {
         return accio;
     }
 
-    public  List<Silla> getSillas() {
+    public List<Silla> getSillas() {
         return sillas;
     }
     
@@ -52,7 +52,6 @@ public class Sala extends JPanel {
     
     
     public void acciones() {
-        
         for (int i = 0; i < 60; i++) {
             JLabel accion = new JLabel();
             accion.setBounds(sillas.get(i).getX(), sillas.get(i).getY(), 50, 50);

@@ -30,9 +30,19 @@ public class Presionar implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         for (int i = 0; i < 60; i++) {
             if (me.getSource().equals(Sala.getAccio().get(i))) {
-                System.out.print(i);
-                baseDatos.modifEstado("Seleccionada", "1A2", "1");
-                SillasPanel.getSala().repaint();
+                if(SillasPanel.getSala().getSillas().get(i).getType().getEstado().equals("Libre"))
+                {
+                     //baseDatos.modifEstado("Seleccionada", Sala.getAccio().get(i).getText(), 1);
+                     SillasPanel.getSala().getSillas().get(i).getType().setEstado("Seleccionada");
+                     SillasPanel.getSala().repaint();
+                     
+                }else{
+                    SillasPanel.getSala().getSillas().get(i).getType().setEstado("Libre");
+                     //baseDatos.modifEstado("Libre", Sala.getAccio().get(i).getText(), 1);
+                     SillasPanel.getSala().repaint();
+                     //SillasPanel.getSala().getContentPane().revalidate();
+                     
+                }
                 break;
             }
         }

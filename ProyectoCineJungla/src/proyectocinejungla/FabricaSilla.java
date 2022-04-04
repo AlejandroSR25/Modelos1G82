@@ -14,14 +14,8 @@ import java.util.Map;
  */
 public class FabricaSilla {
 
-    static Map<String, SillaTipo> sillaTipo = new HashMap<>();
-
     public static SillaTipo getSillaTipo(String tipo, String estado) {
-        SillaTipo result = sillaTipo.get(tipo);
-        if (result == null) {
-            result = new SillaTipo(tipo,estado);
-            sillaTipo.put(tipo, result);
-        }
+        SillaTipo result = new SillaTipo(tipo, estado);
         return result;
     }
 }

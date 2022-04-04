@@ -8,6 +8,8 @@ package proyectocinejungla;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,16 +18,18 @@ import java.util.List;
 public class MainPage extends javax.swing.JFrame {
 
     /**
+     * 
      * Creates new form MainPage
      */
     
     private BD baseDatos;
     private Sesion sesion = Sesion.getInstance();;
-    
+    private JFrame frame;
     
     List<Pelicula> peliculas = new ArrayList<>();
     
     public MainPage() {
+        this.frame=this;
         initComponents();
         cartelera();
     }
@@ -101,21 +105,7 @@ public class MainPage extends javax.swing.JFrame {
         flowLayout1.setAlignOnBaseline(true);
         jPanel3.setLayout(flowLayout1);
 
-        /*for(int i=0;i<3;i++){
-            jPanel3.add(new ProductoConcretoPanel(new Pelicula("Morbius "+ (i+1), "/Imagenes/Productos/Pelicula/IMGMorbius.jpg", "Desc")));
-        }
-
-        Component[] cmp = jPanel3.getComponents();
-
-        for(int i=0;i<3;i++){
-            if(cmp[i] instanceof javax.swing.JPanel){
-                cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
-                    public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        JPanelPeliculaMouseClicked(evt);
-                    }
-                });
-            }
-        }*/
+        
 
         javax.swing.GroupLayout carteleraLayout = new javax.swing.GroupLayout(cartelera);
         cartelera.setLayout(carteleraLayout);
@@ -299,11 +289,9 @@ public class MainPage extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         getContentPane().removeAll();
         getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
-        //getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
-        getContentPane().add(new SillasPanel()).setBounds(0, 120, 1920, 960);
+        getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
-        
         
     }//GEN-LAST:event_jLabel4MouseClicked
 
@@ -315,6 +303,12 @@ public class MainPage extends javax.swing.JFrame {
         getContentPane().repaint();
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    public static JPanel getEncabezado() {
+        return encabezado;
+    }
+
+    
+    
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         if(jComboBox1.getSelectedItem() == jComboBox1.getItemAt(0)){
             
@@ -358,11 +352,11 @@ public class MainPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli){
+    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli, JFrame frame){
         if(cartelera.isEnabled()){
             getContentPane().removeAll();
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
-            getContentPane().add(new PeliculaGUI(peli)).setBounds(0, 120, 1920, 960);
+            getContentPane().add(new PeliculaGUI(peli, this)).setBounds(0, 120, 1920, 960);
             getContentPane().revalidate();
             getContentPane().repaint();
         }
@@ -405,7 +399,7 @@ public class MainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cartelera;
-    private javax.swing.JPanel encabezado;
+    private static javax.swing.JPanel encabezado;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -449,7 +443,7 @@ public class MainPage extends javax.swing.JFrame {
                 cmp[i].setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        JPanelPeliculaMouseClicked(evt, aux);
+                        JPanelPeliculaMouseClicked(evt, aux, frame);
                     }
                 });
             }
