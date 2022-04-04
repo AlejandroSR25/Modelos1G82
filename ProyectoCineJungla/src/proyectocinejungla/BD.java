@@ -72,6 +72,23 @@ public final class BD {
         }
         return cartelera;
     }
+    
+    public List<String> cine(int id) {
+        List<String> datos = new ArrayList<String>();
+        ResultSet result = null;
+
+        try {
+            PreparedStatement st = connect.prepareStatement("select Nombre, Puntuacion from Cine jungla where Id="+id);
+            result = st.executeQuery();
+            while (result.next()) {
+                datos.add(result.getString("Nombre"));
+                datos.add(result.getString("Puntuacion"));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return datos;
+    }
 
     public void modifEstado(String estado, String silla, String funcion) {
         

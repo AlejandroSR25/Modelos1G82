@@ -18,19 +18,18 @@ import javax.swing.JPanel;
 public class MainPage extends javax.swing.JFrame {
 
     /**
-     * 
+     *
      * Creates new form MainPage
      */
-    
     private BD baseDatos;
     private Sesion sesion = Sesion.getInstance();
     private JFrame frame;
-    public static int cine; 
-    public static int puntCine;  
+    public static int cine;
+    public static int puntCine;
     List<Pelicula> peliculas = new ArrayList<>();
-    
+
     public MainPage() {
-        this.frame=this;
+        this.frame = this;
         initComponents();
         cartelera();
     }
@@ -293,7 +292,7 @@ public class MainPage extends javax.swing.JFrame {
         getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
-        
+
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -308,13 +307,12 @@ public class MainPage extends javax.swing.JFrame {
         return encabezado;
     }
 
-    
-    
+
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        if(jComboBox1.getSelectedItem() == jComboBox1.getItemAt(0)){
-            
+        if (jComboBox1.getSelectedItem() == jComboBox1.getItemAt(0)) {
+
             getContentPane().add(jPanel1, 0);
-            
+
             jLabel3.setEnabled(false);
             jLabel3.setVisible(false);
             jLabel4.setEnabled(false);
@@ -322,12 +320,25 @@ public class MainPage extends javax.swing.JFrame {
             jLabel7.setEnabled(false);
             jLabel7.setVisible(false);
             cartelera.setEnabled(false);
-                        
+
             getContentPane().revalidate();
             getContentPane().repaint();
+
+        } else {
+
+            baseDatos = BD.getInstance();
+            List<String> datos = baseDatos.cine(jComboBox1.getSelectedIndex());
             
-        }else{
-            
+            List<String> nombre = new ArrayList<>();
+            List<String> puntuacion = new ArrayList<>();
+            for (int i = 1; i < datos.size(); i += 2) {
+                puntuacion.add(datos.get(i));
+            }
+            for (int i = 0; i < datos.size(); i += 2) {
+                nombre.add(datos.get(i));
+            }
+            cine =jComboBox1.getSelectedIndex();
+
             getContentPane().remove(jPanel1);
 
             jLabel3.setEnabled(true);
@@ -337,24 +348,24 @@ public class MainPage extends javax.swing.JFrame {
             jLabel7.setEnabled(true);
             jLabel7.setVisible(true);
             cartelera.setEnabled(true);
-                        
+
             getContentPane().revalidate();
             getContentPane().repaint();
-        }            
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        
-        if(!sesion.isLogged()){
+
+        if (!sesion.isLogged()) {
             Login frame_user_login = new Login();
             frame_user_login.setVisible(true);
             this.setEnabled(false);
-        }else{
+        } else {
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli, JFrame frame){
-        if(cartelera.isEnabled()){
+    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli, JFrame frame) {
+        if (cartelera.isEnabled()) {
             getContentPane().removeAll();
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
             getContentPane().add(new PeliculaGUI(peli, this)).setBounds(0, 120, 1920, 960);
@@ -362,7 +373,7 @@ public class MainPage extends javax.swing.JFrame {
             getContentPane().repaint();
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -414,10 +425,8 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-
-    public void cartelera()
-    {
-        baseDatos=BD.getInstance();
+    public void cartelera() {
+        baseDatos = BD.getInstance();
         List<String> id = new ArrayList<>();
         List<String> nombre = new ArrayList<>();
         List<String> descrip = new ArrayList<>();
@@ -430,17 +439,16 @@ public class MainPage extends javax.swing.JFrame {
         for (int i = 2; i < baseDatos.cartelera().size(); i += 4) {
             descrip.add(baseDatos.cartelera().get(i));
         }
-        for(int i=0;i<id.size();i++){
-            jPanel3.add(new ProductoConcretoPanel(new Pelicula(nombre.get(i), "/Imagenes/Productos/Pelicula/"+id.get(i) +".jpg", descrip.get(i))));
-            peliculas.add(new Pelicula(nombre.get(i), "/Imagenes/Productos/Pelicula/"+id.get(i) +".jpg", descrip.get(i)));
+        for (int i = 0; i < id.size(); i++) {
+            jPanel3.add(new ProductoConcretoPanel(new Pelicula(nombre.get(i), "/Imagenes/Productos/Pelicula/" + id.get(i) + ".jpg", descrip.get(i))));
+            peliculas.add(new Pelicula(nombre.get(i), "/Imagenes/Productos/Pelicula/" + id.get(i) + ".jpg", descrip.get(i)));
         }
 
-        
         Component[] cmp = jPanel3.getComponents();
 
-        for(int i=0;i<4;i++){
-            Pelicula aux =peliculas.get(i);
-            if(cmp[i] instanceof javax.swing.JPanel){
+        for (int i = 0; i < 4; i++) {
+            Pelicula aux = peliculas.get(i);
+            if (cmp[i] instanceof javax.swing.JPanel) {
                 cmp[i].setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -451,4 +459,3 @@ public class MainPage extends javax.swing.JFrame {
         }
     }
 }
-
