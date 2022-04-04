@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,9 +30,6 @@ public final class BD {
         try {
             Class.forName("org.sqlite.JDBC");
             connect = DriverManager.getConnection(url);
-            if (connect != null) {
-                System.out.print("Conexion realizada");
-            }
         } catch (Exception x) {
 
             System.out.print(x);
@@ -87,11 +85,60 @@ public final class BD {
             System.err.println(ex.getMessage());
         }
     }
+    
+    public void Login(javax.swing.JTextField jtf, javax.swing.JPasswordField jpf, String person){
+        switch (person) {
+            case "User":
+                try {
+                    PreparedStatement st = connect.prepareStatement("SELECT Correo, Contraseña FROM Cliente");
+                    ResultSet result = st.executeQuery();
+
+                    while (result.next()) {
+                        String email = result.getString(1);
+                        String pw = result.getString(2);
+
+                        if (jtf.getText().equals(email) && String.valueOf(jpf.getPassword()).equals(pw)) {
+                            System.out.println("Exito");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectas");
+                        }
+                    }
+                } catch (SQLException ex) {
+                    System.err.println(ex.getMessage());
+                }
+                break;
+            case "Employee":
+                try {
+                    PreparedStatement st = connect.prepareStatement("SELECT Cedula, Contraseña FROM Empleado");
+                    ResultSet result = st.executeQuery();
+
+                    while (result.next()) {
+                        String cc = result.getString(1);
+                        String pw = result.getString(2);
+
+                        if (jtf.getText().equals(cc) && String.valueOf(jpf.getPassword()).equals(pw)) {
+                            System.out.println("Exito");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectas");
+                        }
+                    }
+                } catch (SQLException ex) {
+                    System.err.println(ex.getMessage());
+                }
+                break;
+        }
+        
+    }
+    
 
     public static BD getInstance() {
         if (instancia == null) {
             instancia = new BD();
         }
         return instancia;
+    }
+    
+    public Connection getConnect(){
+        return this.connect;
     }
 }

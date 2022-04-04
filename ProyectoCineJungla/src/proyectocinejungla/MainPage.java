@@ -20,6 +20,8 @@ public class MainPage extends javax.swing.JFrame {
      */
     
     private BD baseDatos;
+    private Sesion sesion = Sesion.getInstance();;
+    
     
     List<Pelicula> peliculas = new ArrayList<>();
     
@@ -347,10 +349,13 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Login frame_user_login = new Login();
-        frame_user_login.setVisible(true);
         
-        
+        if(!sesion.isLogged()){
+            Login frame_user_login = new Login();
+            frame_user_login.setVisible(true);
+            this.setEnabled(false);
+        }else{
+        }
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli){
