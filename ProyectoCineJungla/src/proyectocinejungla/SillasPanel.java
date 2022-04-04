@@ -47,6 +47,14 @@ public class SillasPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         imgG = new javax.swing.JLabel();
+        labelG = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        imgG1 = new javax.swing.JLabel();
+        labelG1 = new javax.swing.JLabel();
+        imgG2 = new javax.swing.JLabel();
+        labelG2 = new javax.swing.JLabel();
+        imgG3 = new javax.swing.JLabel();
+        labelG3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -61,7 +69,41 @@ public class SillasPanel extends javax.swing.JPanel {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sillaG.png"))); // NOI18N
-        jPanel3.add(imgG, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, 100));
+        jPanel3.add(imgG, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 100, 100));
+
+        labelG.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        labelG.setForeground(new java.awt.Color(0, 0, 0));
+        labelG.setText("Silla General");
+        jPanel3.add(labelG, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 100, 30));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Convencion");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 190, 30));
+
+        imgG1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sillaP.png"))); // NOI18N
+        jPanel3.add(imgG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 100, 100));
+
+        labelG1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        labelG1.setForeground(new java.awt.Color(0, 0, 0));
+        labelG1.setText("Silla Preferencial");
+        jPanel3.add(labelG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 130, 30));
+
+        imgG2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sillaS.png"))); // NOI18N
+        jPanel3.add(imgG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 100, 100));
+
+        labelG2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        labelG2.setForeground(new java.awt.Color(0, 0, 0));
+        labelG2.setText("Silla Seleccionada");
+        jPanel3.add(labelG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 140, 30));
+
+        imgG3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sillaO.png"))); // NOI18N
+        jPanel3.add(imgG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 100, 100));
+
+        labelG3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        labelG3.setForeground(new java.awt.Color(0, 0, 0));
+        labelG3.setText("Silla Ocupada");
+        jPanel3.add(labelG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 660, 120, 30));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 780));
     }// </editor-fold>//GEN-END:initComponents
@@ -69,8 +111,16 @@ public class SillasPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imgG;
+    private javax.swing.JLabel imgG1;
+    private javax.swing.JLabel imgG2;
+    private javax.swing.JLabel imgG3;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel labelG;
+    private javax.swing.JLabel labelG1;
+    private javax.swing.JLabel labelG2;
+    private javax.swing.JLabel labelG3;
     // End of variables declaration//GEN-END:variables
 
     private static Sala sala = new Sala();
