@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public final class BD {
     public List<String> sala() {
         List<String> sillas = new ArrayList<String>();
         ResultSet result = null;
-        
+
         try {
             PreparedStatement st = connect.prepareStatement("select Silla, Tipo, Estado from Cine1 where Funcion = '1'");
             result = st.executeQuery();
@@ -54,11 +55,11 @@ public final class BD {
         }
         return sillas;
     }
-    
+
     public List<String> cartelera() {
         List<String> cartelera = new ArrayList<String>();
         ResultSet result = null;
-        
+
         try {
             PreparedStatement st = connect.prepareStatement("select Id, Nombre, Descripcion, Puntuación from Pelicula");
             result = st.executeQuery();
@@ -72,6 +73,19 @@ public final class BD {
             System.err.println(ex.getMessage());
         }
         return cartelera;
+    }
+
+    public void modifEstado(String estado, String silla, String funcion) {
+        
+        Statement stmt = null;
+
+        try {
+            stmt = connect.createStatement();
+            stmt.executeUpdate("update Cine1 set Estado='" + estado + "' where Silla='1A2', Funcion='1';");
+            connect.commit();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     public static BD getInstance() {
