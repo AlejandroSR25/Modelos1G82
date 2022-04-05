@@ -25,13 +25,15 @@ public class SillasPanel extends javax.swing.JPanel {
     private static final int DESP_X = 16;
     private static final int DESP_Y = 26;
     private int funcion;
+    private static Sala sala = new Sala();
+    List<String> numero = new ArrayList<>();
 
     /**
      * Creates new form Comida
      */
     public SillasPanel(int funcion) {
-        
-        this.funcion=funcion;
+
+        this.funcion = funcion;
         initComponents();
         iniciar();
         labelSala.setText(baseDatos.fun(funcion, MainPage.getCineId()).get(0));
@@ -53,11 +55,6 @@ public class SillasPanel extends javax.swing.JPanel {
         SillasPanel.cantP = cantP;
     }
 
-    
-    
-    
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -218,6 +215,13 @@ public class SillasPanel extends javax.swing.JPanel {
         botonComprar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         botonComprar.setForeground(new java.awt.Color(255, 255, 255));
         botonComprar.setText("Comprar");
+        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonComprar.setEnabled(false);
+        botonComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonComprarActionPerformed(evt);
+            }
+        });
         jPanel3.add(botonComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 650, 150, 40));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
@@ -232,12 +236,12 @@ public class SillasPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("$15.000");
+        jLabel1.setText("$15.000 c/u");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 280, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("$11.000");
+        jLabel4.setText("$11.000 c/u");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 196, 120, 30));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 780));
@@ -245,19 +249,43 @@ public class SillasPanel extends javax.swing.JPanel {
 
     private void radioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonActionPerformed
         // TODO add your handling code here:
+        if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0)) {
+            botonComprar.setEnabled(true);
+        }
+
     }//GEN-LAST:event_radioBotonActionPerformed
 
     private void radioBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton1ActionPerformed
         // TODO add your handling code here:
+        if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0)) {
+            botonComprar.setEnabled(true);
+        }
     }//GEN-LAST:event_radioBoton1ActionPerformed
 
     private void radioBoton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton2ActionPerformed
         // TODO add your handling code here:
+        if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0)) {
+            botonComprar.setEnabled(true);
+        }
     }//GEN-LAST:event_radioBoton2ActionPerformed
 
     private void radioBoton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton3ActionPerformed
         // TODO add your handling code here:
+        if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0)) {
+            botonComprar.setEnabled(true);
+        }
     }//GEN-LAST:event_radioBoton3ActionPerformed
+
+    private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0; i < 60; i++) {
+            if (sala.getSillas().get(i).getType().getEstado().equals("Seleccionada")) {
+                String aux = "" + funcion;
+                baseDatos.modifEstado(MainPage.getCineId(), "Ocupada",numero.get(i), aux);
+                //System.out.print("update Cine" + MainPage.getCineId() + " set Estado='" + "Ocupada" + "' where Silla='" + numero.get(i) + "', Funcion='" + aux + "';");
+            }
+        }
+    }//GEN-LAST:event_botonComprarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,24 +318,17 @@ public class SillasPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton radioBoton3;
     // End of variables declaration//GEN-END:variables
 
-    
-    
-    private static Sala sala = new Sala();
-
     public static Sala getSala() {
         return sala;
     }
 
-    
-    
     public void iniciar() {
         sala = new Sala();
         sala.getAccio().clear();
         sala.getSillas().clear();
         int x = 0;
         int y = 0;
-        List<String> sillas = baseDatos.sala(funcion,MainPage.getCineId());
-        List<String> numero = new ArrayList<>();
+        List<String> sillas = baseDatos.sala(funcion, MainPage.getCineId());
         List<String> tipos = new ArrayList<>();
         List<String> estados = new ArrayList<>();
         for (int i = 0; i < 180; i += 3) {
@@ -322,7 +343,7 @@ public class SillasPanel extends javax.swing.JPanel {
         for (int i = 0; i < 60; i++) {
             sala.plantSilla(cambioColumna(numero.get(i)), cambioFila(numero.get(i)), tipos.get(i), estados.get(i));
         }
-        
+
         sala.setBounds(280, 110, 880, 530);
         sala.setVisible(true);
         jPanel3.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 15, 880, 750));

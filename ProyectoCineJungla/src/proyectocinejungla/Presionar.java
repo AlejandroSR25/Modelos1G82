@@ -29,12 +29,11 @@ public class Presionar implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         for (int i = 0; i < 60; i++) {
             if (me.getSource().equals(Sala.getAccio().get(i))) {
-                
-                System.out.print("Entra");
                 if (SillasPanel.getSala().getSillas().get(i).getType().getEstado().equals("Libre")) {
                     if (SillasPanel.getSala().getSillas().get(i).getType().getTipo().equals("General")) {
                         int aux = Integer.parseInt(SillasPanel.getCantG().getText());
                         SillasPanel.getCantG().setText("" + (aux + 1));
+                        
                     } else {
                         int aux = Integer.parseInt(SillasPanel.getCantP().getText());
                         SillasPanel.getCantP().setText("" + (aux + 1));

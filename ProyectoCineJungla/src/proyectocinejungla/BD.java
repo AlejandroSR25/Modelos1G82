@@ -93,13 +93,14 @@ public final class BD {
         return datos;
     }
 
-    public void modifEstado(String estado, String silla, String funcion) {
+    public void modifEstado(int cine, String estado, String silla, String funcion) {
         
         Statement stmt = null;
 
         try {
             stmt = connect.createStatement();
-            stmt.executeUpdate("update Cine1 set Estado='" + estado + "' where Silla='1A2', Funcion='1';");
+            //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
+            stmt.executeUpdate("update Cine" +cine+" set Estado='" + estado + "' where Silla='"+silla+"' and Funcion='"+funcion+"';");
             connect.commit();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
