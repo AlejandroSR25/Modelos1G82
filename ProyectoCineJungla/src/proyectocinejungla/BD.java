@@ -135,6 +135,8 @@ public final class BD {
                             sesion.setPersona(new Usuario(id));
                             sesion.setLogged(true);
                             
+                            
+                            
                             frame.dispose();
                         }
                     }

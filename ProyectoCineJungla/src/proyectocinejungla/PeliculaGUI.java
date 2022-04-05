@@ -190,6 +190,7 @@ public class PeliculaGUI extends javax.swing.JPanel {
             boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             boton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    
                     frame.getContentPane().removeAll();
                     frame.getContentPane().add(MainPage.getEncabezado()).setBounds(0, 0, 1920, 120);
                     frame.getContentPane().add(new SillasPanel(aux)).setBounds(0, 120, 1920, 960);

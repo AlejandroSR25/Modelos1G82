@@ -24,6 +24,7 @@ public class MainPage extends javax.swing.JFrame {
     private BD baseDatos;
     private Sesion sesion = Sesion.getInstance();
     private static JFrame frame;
+    private static JFrame framelogin;
     private static int cineId;
     private static int puntCine;
     List<Pelicula> peliculas = new ArrayList<>();
@@ -341,7 +342,7 @@ public class MainPage extends javax.swing.JFrame {
             Login frame_user_login = new Login();
             frame_user_login.setVisible(true);
             this.setEnabled(false);
-        } else {
+       } else {
             getContentPane().removeAll();
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
             getContentPane().add(new Perfil()).setBounds(0, 120, 1920, 960);
