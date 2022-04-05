@@ -92,6 +92,24 @@ public final class BD {
         }
         return datos;
     }
+    
+    public List<String> preciosComida(int id) {
+        List<String> datos = new ArrayList<String>();
+        ResultSet result = null;
+
+        try {
+            PreparedStatement st = connect.prepareStatement("select Id, Precio, [Cantidad Vendida] from [Comida] where Cine="+id);
+            result = st.executeQuery();
+            while (result.next()) {
+                datos.add(result.getString("Id"));
+                datos.add(result.getString("Precio"));
+                datos.add(result.getString("Cantidad Vendida"));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return datos;
+    }
 
     public void modifEstado(int cine, String estado, String silla, String funcion) {
         
@@ -101,6 +119,20 @@ public final class BD {
             stmt = connect.createStatement();
             //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
             stmt.executeUpdate("update Cine" +cine+" set Estado='" + estado + "' where Silla='"+silla+"' and Funcion='"+funcion+"';");
+            connect.commit();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void modifComida(String id, String cantidad) {
+        
+        Statement stmt = null;
+
+        try {
+            stmt = connect.createStatement();
+            //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
+            stmt.executeUpdate("update Comida set [Cantidad Vendida]='" + cantidad + "' where Id='"+id+"';");
             connect.commit();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());

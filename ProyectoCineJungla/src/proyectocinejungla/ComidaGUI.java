@@ -5,6 +5,10 @@
  */
 package proyectocinejungla;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JSpinner.DefaultEditor;
+
 /**
  *
  * @author USUARIO
@@ -14,8 +18,13 @@ public class ComidaGUI extends javax.swing.JPanel {
     /**
      * Creates new form Comida
      */
+    private BD baseDatos = BD.getInstance();
+    List<String> id = new ArrayList<>();
+    List<String> cantidades = new ArrayList<>();
+
     public ComidaGUI() {
         initComponents();
+        ponerPrecios();
     }
 
     /**
@@ -27,6 +36,7 @@ public class ComidaGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoRadioBoton = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         imgPopSal = new javax.swing.JLabel();
@@ -37,22 +47,37 @@ public class ComidaGUI extends javax.swing.JPanel {
         imgNac = new javax.swing.JLabel();
         imgJet = new javax.swing.JLabel();
         imgCho = new javax.swing.JLabel();
-        peqPopSal2 = new javax.swing.JLabel();
+        precioMaSa = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
-        peqPopSal3 = new javax.swing.JLabel();
+        precioAgua = new javax.swing.JLabel();
         titulo1 = new javax.swing.JLabel();
-        peqPopSal6 = new javax.swing.JLabel();
+        precioGas = new javax.swing.JLabel();
         titulo2 = new javax.swing.JLabel();
         titulo3 = new javax.swing.JLabel();
-        peqPopSal4 = new javax.swing.JLabel();
+        precioMaDu = new javax.swing.JLabel();
         titulo4 = new javax.swing.JLabel();
-        peqPopSal7 = new javax.swing.JLabel();
+        precioPerro = new javax.swing.JLabel();
         titulo5 = new javax.swing.JLabel();
-        peqPopSal8 = new javax.swing.JLabel();
+        precioNac = new javax.swing.JLabel();
         titulo6 = new javax.swing.JLabel();
-        peqPopSal9 = new javax.swing.JLabel();
-        peqPopSal10 = new javax.swing.JLabel();
+        precioJet = new javax.swing.JLabel();
+        precioSni = new javax.swing.JLabel();
         titulo7 = new javax.swing.JLabel();
+        cantMaSa = new javax.swing.JSpinner();
+        cantJet = new javax.swing.JSpinner();
+        cantMaDu = new javax.swing.JSpinner();
+        cantGas = new javax.swing.JSpinner();
+        cantPer = new javax.swing.JSpinner();
+        cantAgua = new javax.swing.JSpinner();
+        cantNac = new javax.swing.JSpinner();
+        cantSni = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        radioBoton = new javax.swing.JRadioButton();
+        radioBoton1 = new javax.swing.JRadioButton();
+        radioBoton2 = new javax.swing.JRadioButton();
+        botonComprar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -107,30 +132,30 @@ public class ComidaGUI extends javax.swing.JPanel {
         jPanel3.add(imgCho);
         imgCho.setBounds(900, 430, 200, 145);
 
-        peqPopSal2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal2.setText("Pequeñas:");
-        jPanel3.add(peqPopSal2);
-        peqPopSal2.setBounds(120, 270, 100, 16);
+        precioMaSa.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioMaSa.setText("Pequeñas:");
+        jPanel3.add(precioMaSa);
+        precioMaSa.setBounds(130, 270, 100, 16);
 
         titulo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo.setText("Maiz salado");
         jPanel3.add(titulo);
         titulo.setBounds(100, 240, 120, 23);
 
-        peqPopSal3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal3.setText("Pequeñas:");
-        jPanel3.add(peqPopSal3);
-        peqPopSal3.setBounds(370, 650, 110, 16);
+        precioAgua.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioAgua.setText("Pequeñas:");
+        jPanel3.add(precioAgua);
+        precioAgua.setBounds(380, 650, 110, 16);
 
         titulo1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo1.setText("Maiz dulce");
         jPanel3.add(titulo1);
         titulo1.setBounds(110, 570, 120, 23);
 
-        peqPopSal6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal6.setText("Pequeña:");
-        jPanel3.add(peqPopSal6);
-        peqPopSal6.setBounds(380, 270, 100, 16);
+        precioGas.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioGas.setText("Pequeña:");
+        jPanel3.add(precioGas);
+        precioGas.setBounds(390, 270, 100, 16);
 
         titulo2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo2.setText("Agua");
@@ -142,56 +167,236 @@ public class ComidaGUI extends javax.swing.JPanel {
         jPanel3.add(titulo3);
         titulo3.setBounds(370, 240, 120, 23);
 
-        peqPopSal4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal4.setText("Pequeñas:");
-        jPanel3.add(peqPopSal4);
-        peqPopSal4.setBounds(120, 600, 100, 16);
+        precioMaDu.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioMaDu.setText("Pequeñas:");
+        jPanel3.add(precioMaDu);
+        precioMaDu.setBounds(130, 600, 100, 16);
 
         titulo4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo4.setText("Perro caliente");
         jPanel3.add(titulo4);
         titulo4.setBounds(630, 240, 150, 23);
 
-        peqPopSal7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal7.setText("Pequeña:");
-        jPanel3.add(peqPopSal7);
-        peqPopSal7.setBounds(640, 270, 120, 16);
+        precioPerro.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioPerro.setText("Pequeña:");
+        jPanel3.add(precioPerro);
+        precioPerro.setBounds(650, 270, 120, 16);
 
         titulo5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo5.setText("Nachos");
         jPanel3.add(titulo5);
         titulo5.setBounds(660, 590, 120, 23);
 
-        peqPopSal8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal8.setText("Pequeña:");
-        jPanel3.add(peqPopSal8);
-        peqPopSal8.setBounds(660, 620, 90, 16);
+        precioNac.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioNac.setText("Pequeña:");
+        jPanel3.add(precioNac);
+        precioNac.setBounds(670, 620, 90, 16);
 
         titulo6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo6.setText("Jet");
         jPanel3.add(titulo6);
         titulo6.setBounds(960, 230, 40, 23);
 
-        peqPopSal9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal9.setText("Pequeña:");
-        jPanel3.add(peqPopSal9);
-        peqPopSal9.setBounds(940, 260, 140, 16);
+        precioJet.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioJet.setText("Pequeña:");
+        jPanel3.add(precioJet);
+        precioJet.setBounds(960, 260, 140, 16);
 
-        peqPopSal10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        peqPopSal10.setText("Pequeña:");
-        jPanel3.add(peqPopSal10);
-        peqPopSal10.setBounds(960, 610, 100, 16);
+        precioSni.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        precioSni.setText("Pequeña:");
+        jPanel3.add(precioSni);
+        precioSni.setBounds(970, 610, 100, 16);
 
         titulo7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo7.setText("Snickers");
         jPanel3.add(titulo7);
         titulo7.setBounds(950, 580, 120, 23);
 
+        cantMaSa.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantMaSa.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantMaSa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantMaSa.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantMaSa);
+        cantMaSa.setBounds(130, 300, 50, 26);
+
+        cantJet.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantJet.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantJet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantJet.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantJet);
+        cantJet.setBounds(950, 290, 50, 26);
+
+        cantMaDu.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantMaDu.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantMaDu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantMaDu.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantMaDu);
+        cantMaDu.setBounds(130, 630, 50, 26);
+
+        cantGas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantGas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantGas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantGas.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantGas);
+        cantGas.setBounds(390, 300, 50, 26);
+
+        cantPer.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantPer.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantPer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantPer.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantPer);
+        cantPer.setBounds(650, 300, 50, 26);
+
+        cantAgua.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantAgua.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantAgua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantAgua.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantAgua);
+        cantAgua.setBounds(380, 670, 50, 26);
+
+        cantNac.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantNac.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantNac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantNac.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantNac);
+        cantNac.setBounds(670, 650, 50, 26);
+
+        cantSni.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        cantSni.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        cantSni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ((DefaultEditor) cantSni.getEditor()).getTextField().setEditable(false);
+        jPanel3.add(cantSni);
+        cantSni.setBounds(970, 640, 50, 26);
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Pago:");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(1310, 160, 67, 31);
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Comida");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(1300, 80, 200, 60);
+
+        grupoRadioBoton.add(radioBoton);
+        radioBoton.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        radioBoton.setText("Tarjeta de credito");
+        radioBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBotonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(radioBoton);
+        radioBoton.setBounds(1310, 290, 151, 28);
+
+        grupoRadioBoton.add(radioBoton1);
+        radioBoton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        radioBoton1.setText("PSE");
+        radioBoton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBoton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(radioBoton1);
+        radioBoton1.setBounds(1310, 250, 54, 28);
+
+        grupoRadioBoton.add(radioBoton2);
+        radioBoton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        radioBoton2.setText("Efectivo (efecty,baloto,etc..)");
+        radioBoton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBoton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(radioBoton2);
+        radioBoton2.setBounds(1310, 210, 223, 28);
+
+        botonComprar.setBackground(new java.awt.Color(204, 0, 51));
+        botonComprar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        botonComprar.setForeground(new java.awt.Color(255, 255, 255));
+        botonComprar.setText("Comprar");
+        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonComprar.setEnabled(false);
+        botonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonComprarMouseEntered(evt);
+            }
+        });
+        botonComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonComprarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(botonComprar);
+        botonComprar.setBounds(1320, 340, 130, 35);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/jungle (1).png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(1480, 490, 200, 200);
+
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 730));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void radioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonActionPerformed
+        // TODO add your handling code here:
+        if ((Integer) cantMaSa.getValue() > 0 || (Integer) cantMaDu.getValue() > 0 || (Integer) cantGas.getValue() > 0 || (Integer) cantAgua.getValue() > 0 || (Integer) cantNac.getValue() > 0 || (Integer) cantPer.getValue() > 0 || (Integer) cantJet.getValue() > 0 || (Integer) cantSni.getValue() > 0) {
+            botonComprar.setEnabled(true);
+        }
+    }//GEN-LAST:event_radioBotonActionPerformed
+
+    private void radioBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton1ActionPerformed
+        // TODO add your handling code here:
+        if ((Integer) cantMaSa.getValue() > 0 || (Integer) cantMaDu.getValue() > 0 || (Integer) cantGas.getValue() > 0 || (Integer) cantAgua.getValue() > 0 || (Integer) cantNac.getValue() > 0 || (Integer) cantPer.getValue() > 0 || (Integer) cantJet.getValue() > 0 || (Integer) cantSni.getValue() > 0) {
+            botonComprar.setEnabled(true);
+        }
+    }//GEN-LAST:event_radioBoton1ActionPerformed
+
+    private void radioBoton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton2ActionPerformed
+        // TODO add your handling code here:
+        if ((Integer) cantMaSa.getValue() > 0 || (Integer) cantMaDu.getValue() > 0 || (Integer) cantGas.getValue() > 0 || (Integer) cantAgua.getValue() > 0 || (Integer) cantNac.getValue() > 0 || (Integer) cantPer.getValue() > 0 || (Integer) cantJet.getValue() > 0 || (Integer) cantSni.getValue() > 0) {
+            botonComprar.setEnabled(true);
+        }
+
+    }//GEN-LAST:event_radioBoton2ActionPerformed
+
+    private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
+        // TODO add your handling code here:
+        baseDatos.modifComida(id.get(0), "" + (Integer.parseInt(cantidades.get(0)) + (Integer)cantMaSa.getValue()));
+        baseDatos.modifComida(id.get(1), "" + (Integer.parseInt(cantidades.get(1)) + (Integer)cantMaDu.getValue()));
+        baseDatos.modifComida(id.get(2), "" + (Integer.parseInt(cantidades.get(2)) + (Integer)cantGas.getValue()));
+        baseDatos.modifComida(id.get(3), "" + (Integer.parseInt(cantidades.get(3)) + (Integer)cantAgua.getValue()));
+        baseDatos.modifComida(id.get(4), "" + (Integer.parseInt(cantidades.get(4)) + (Integer)cantPer.getValue()));
+        baseDatos.modifComida(id.get(5), "" + (Integer.parseInt(cantidades.get(5)) + (Integer)cantNac.getValue()));
+        baseDatos.modifComida(id.get(6), "" + (Integer.parseInt(cantidades.get(6)) + (Integer)cantJet.getValue()));
+        baseDatos.modifComida(id.get(7), "" + (Integer.parseInt(cantidades.get(7)) + (Integer)cantSni.getValue()));
+       
+            
+    }//GEN-LAST:event_botonComprarActionPerformed
+
+    private void botonComprarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMouseEntered
+        // TODO add your handling code here:
+        if (((Integer) cantMaSa.getValue() > 0 || (Integer) cantMaDu.getValue() > 0 || (Integer) cantGas.getValue() > 0 || (Integer) cantAgua.getValue() > 0 || (Integer) cantNac.getValue() > 0 || (Integer) cantPer.getValue() > 0 || (Integer) cantJet.getValue() > 0 || (Integer) cantSni.getValue() > 0) && (radioBoton.isSelected()==true || radioBoton1.isSelected()==true || radioBoton2.isSelected()==true)) {
+            botonComprar.setEnabled(true);
+        } else {
+            botonComprar.setEnabled(false);
+        }
+    }//GEN-LAST:event_botonComprarMouseEntered
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonComprar;
+    private javax.swing.JSpinner cantAgua;
+    private javax.swing.JSpinner cantGas;
+    private javax.swing.JSpinner cantJet;
+    private javax.swing.JSpinner cantMaDu;
+    private javax.swing.JSpinner cantMaSa;
+    private javax.swing.JSpinner cantNac;
+    private javax.swing.JSpinner cantPer;
+    private javax.swing.JSpinner cantSni;
+    private javax.swing.ButtonGroup grupoRadioBoton;
     private javax.swing.JLabel imgAgu;
     private javax.swing.JLabel imgCho;
     private javax.swing.JLabel imgGas;
@@ -200,16 +405,22 @@ public class ComidaGUI extends javax.swing.JPanel {
     private javax.swing.JLabel imgPer;
     private javax.swing.JLabel imgPopDul;
     private javax.swing.JLabel imgPopSal;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel peqPopSal10;
-    private javax.swing.JLabel peqPopSal2;
-    private javax.swing.JLabel peqPopSal3;
-    private javax.swing.JLabel peqPopSal4;
-    private javax.swing.JLabel peqPopSal6;
-    private javax.swing.JLabel peqPopSal7;
-    private javax.swing.JLabel peqPopSal8;
-    private javax.swing.JLabel peqPopSal9;
+    private javax.swing.JLabel precioAgua;
+    private javax.swing.JLabel precioGas;
+    private javax.swing.JLabel precioJet;
+    private javax.swing.JLabel precioMaDu;
+    private javax.swing.JLabel precioMaSa;
+    private javax.swing.JLabel precioNac;
+    private javax.swing.JLabel precioPerro;
+    private javax.swing.JLabel precioSni;
+    private javax.swing.JRadioButton radioBoton;
+    private javax.swing.JRadioButton radioBoton1;
+    private javax.swing.JRadioButton radioBoton2;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel titulo1;
     private javax.swing.JLabel titulo2;
@@ -219,4 +430,26 @@ public class ComidaGUI extends javax.swing.JPanel {
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
     // End of variables declaration//GEN-END:variables
+
+    private void ponerPrecios() {
+        List<String> prec = new ArrayList<>();
+        for (int i = 0; i < baseDatos.preciosComida(MainPage.getCineId()).size(); i += 3) {
+            id.add(baseDatos.preciosComida(MainPage.getCineId()).get(i));
+        }
+        for (int i = 1; i < baseDatos.preciosComida(MainPage.getCineId()).size(); i += 3) {
+            prec.add(baseDatos.preciosComida(MainPage.getCineId()).get(i));
+        }
+        for (int i = 2; i < baseDatos.preciosComida(MainPage.getCineId()).size(); i += 3) {
+            cantidades.add(baseDatos.preciosComida(MainPage.getCineId()).get(i));
+        }
+        precioMaSa.setText("$" + prec.get(0));
+        precioMaDu.setText("$" + prec.get(1));
+        precioGas.setText("$" + prec.get(2));
+        precioAgua.setText("$" + prec.get(3));
+        precioPerro.setText("$" + prec.get(4));
+        precioNac.setText("$" + prec.get(5));
+        precioJet.setText("$" + prec.get(6));
+        precioSni.setText("$" + prec.get(7));
+    }
+
 }

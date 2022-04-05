@@ -217,6 +217,11 @@ public class SillasPanel extends javax.swing.JPanel {
         botonComprar.setText("Comprar");
         botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonComprar.setEnabled(false);
+        botonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonComprarMouseEntered(evt);
+            }
+        });
         botonComprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonComprarActionPerformed(evt);
@@ -274,6 +279,7 @@ public class SillasPanel extends javax.swing.JPanel {
         if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0)) {
             botonComprar.setEnabled(true);
         }
+        
     }//GEN-LAST:event_radioBoton3ActionPerformed
 
     private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
@@ -286,6 +292,15 @@ public class SillasPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_botonComprarActionPerformed
+
+    private void botonComprarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMouseEntered
+        // TODO add your handling code here:
+        if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0)) {
+            botonComprar.setEnabled(true);
+        }else{
+            botonComprar.setEnabled(false);
+        }
+    }//GEN-LAST:event_botonComprarMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
