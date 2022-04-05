@@ -342,6 +342,11 @@ public class MainPage extends javax.swing.JFrame {
             frame_user_login.setVisible(true);
             this.setEnabled(false);
         } else {
+            getContentPane().removeAll();
+            getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
+            getContentPane().add(new Perfil()).setBounds(0, 120, 1920, 960);
+            getContentPane().revalidate();
+            getContentPane().repaint();
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 

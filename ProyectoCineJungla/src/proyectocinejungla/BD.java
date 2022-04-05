@@ -26,8 +26,9 @@ public final class BD {
     private static BD instancia;
     private String url = "jdbc:sqlite:src//data//baseDeDatos.db";
     private Connection connect = null;
+    private Sesion sesion;
 
-    private BD() {
+    private BD(){
         // The following code emulates slow initialization.
         try {
             Class.forName("org.sqlite.JDBC");
@@ -120,15 +121,20 @@ public final class BD {
                         String nombre = result.getString(4);
 
                         if (jtf.getText().equals(email) && String.valueOf(jpf.getPassword()).equals(pw)){
-                            //System.out.println("Exito");
-                            System.out.println(jtf.getText().equals(email)+" "+String.valueOf(jpf.getPassword()).equals(pw));
+                            
                             JLabel account_label = new JLabel();
                             account_label.setText("Logged as: "+nombre);
                             account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
                             account_label.setForeground(new java.awt.Color(102, 0, 0));
                             account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                            
                             MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
                             MainPage.getFrame().setEnabled(true);
+                            
+                            sesion = Sesion.getInstance();
+                            sesion.setPersona(new Usuario(id));
+                            sesion.setLogged(true);
+                            
                             frame.dispose();
                         }
                     }

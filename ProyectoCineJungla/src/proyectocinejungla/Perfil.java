@@ -46,11 +46,12 @@ public class Perfil extends javax.swing.JPanel {
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
         setRequestFocusEnabled(false);
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel2.setText("PERFIL");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 260, 60));
+        add(jLabel2);
+        jLabel2.setBounds(100, 70, 260, 60);
 
         jPanel3.setPreferredSize(new java.awt.Dimension(1720, 2000));
 
@@ -172,7 +173,8 @@ public class Perfil extends javax.swing.JPanel {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 730));
+        add(jPanel3);
+        jPanel3.setBounds(100, 130, 1720, 730);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
