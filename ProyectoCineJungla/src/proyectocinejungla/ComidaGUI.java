@@ -29,6 +29,10 @@ public class ComidaGUI extends javax.swing.JPanel {
 
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        imgPopSal = new javax.swing.JLabel();
+        imgPopDul = new javax.swing.JLabel();
+        imgGas = new javax.swing.JLabel();
+        imgAgu = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -40,11 +44,38 @@ public class ComidaGUI extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 260, 60));
 
         jPanel3.setPreferredSize(new java.awt.Dimension(1720, 2000));
+        jPanel3.setLayout(null);
+
+        imgPopSal.setBackground(new java.awt.Color(255, 255, 255));
+        imgPopSal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/popcorn.png"))); // NOI18N
+        imgPopSal.setText("jLabel1");
+        jPanel3.add(imgPopSal);
+        imgPopSal.setBounds(60, 70, 200, 222);
+
+        imgPopDul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/popcorn-dulce.png"))); // NOI18N
+        imgPopDul.setText("jLabel1");
+        jPanel3.add(imgPopDul);
+        imgPopDul.setBounds(70, 440, 200, 190);
+
+        imgGas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/gaseosa.png"))); // NOI18N
+        imgGas.setText("jLabel1");
+        jPanel3.add(imgGas);
+        imgGas.setBounds(300, 90, 200, 180);
+
+        imgAgu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/agua.png"))); // NOI18N
+        imgAgu.setText("jLabel3");
+        jPanel3.add(imgAgu);
+        imgAgu.setBounds(310, 390, 200, 244);
+
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 730));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imgAgu;
+    private javax.swing.JLabel imgGas;
+    private javax.swing.JLabel imgPopDul;
+    private javax.swing.JLabel imgPopSal;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
