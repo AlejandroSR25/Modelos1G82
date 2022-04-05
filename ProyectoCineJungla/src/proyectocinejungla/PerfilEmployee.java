@@ -5,6 +5,7 @@
  */
 package proyectocinejungla;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -18,7 +19,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
     public PerfilEmployee(Empleado e) {
         this.e = e;
         initComponents();
-        crearLabels();
+        crearNuevosComponentes();
     }
 
     /**
@@ -46,7 +47,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -143,12 +144,12 @@ public class PerfilEmployee extends javax.swing.JPanel {
         add(jPanel3);
         jPanel3.setBounds(100, 130, 1720, 730);
 
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 0, 0));
-        jButton2.setText("CERRAR SESION");
-        jButton2.setFocusable(false);
-        add(jButton2);
-        jButton2.setBounds(1620, 880, 190, 50);
+        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 0, 0));
+        jButton3.setText("CERRAR SESION");
+        jButton3.setFocusable(false);
+        add(jButton3);
+        jButton3.setBounds(1620, 880, 190, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
@@ -159,7 +160,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void crearLabels() {
+    private void crearNuevosComponentes() {
         JLabel label_nombre_e = new JLabel();
         label_nombre_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
         label_nombre_e.setText(this.e.getNombre());
@@ -195,11 +196,21 @@ public class PerfilEmployee extends javax.swing.JPanel {
         label_cine_e.setText(String.valueOf(this.e.getCine_afiliado()));
         jPanel2.add(label_cine_e);
         label_cine_e.setBounds(990, 260, 480, 30);
+               
+        if("Director".equals(this.e.getCargo())) {
+            
+            JButton btn_reporte = new JButton();
+            btn_reporte.setFont(new java.awt.Font("Century Gothic", 1, 18));
+            btn_reporte.setText("GENERAR REPORTE");
+            btn_reporte.setFocusable(false);
+            add(btn_reporte);
+            btn_reporte.setBounds(870, 880, 190, 50);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

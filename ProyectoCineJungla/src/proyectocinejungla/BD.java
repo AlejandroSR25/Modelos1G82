@@ -30,7 +30,7 @@ public final class BD {
     private Connection connect = null;
     private Sesion sesion;
 
-    private BD(){
+    private BD() {
         // The following code emulates slow initialization.
         try {
             Class.forName("org.sqlite.JDBC");
@@ -46,7 +46,7 @@ public final class BD {
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement("select Silla, Tipo, Estado from Cine" +cine+" where Funcion ="+funcion);
+            PreparedStatement st = connect.prepareStatement("select Silla, Tipo, Estado from Cine" + cine + " where Funcion =" + funcion);
             result = st.executeQuery();
             while (result.next()) {
                 sillas.add(result.getString("Silla"));
@@ -77,13 +77,13 @@ public final class BD {
         }
         return cartelera;
     }
-    
+
     public List<String> cine(int id) {
         List<String> datos = new ArrayList<String>();
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement("select Nombre, Puntuacion from [Cine Jungla] where Id="+id);
+            PreparedStatement st = connect.prepareStatement("select Nombre, Puntuacion from [Cine Jungla] where Id=" + id);
             result = st.executeQuery();
             while (result.next()) {
                 datos.add(result.getString("Nombre"));
@@ -94,13 +94,13 @@ public final class BD {
         }
         return datos;
     }
-    
+
     public List<String> preciosComida(int id) {
         List<String> datos = new ArrayList<String>();
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement("select Id, Precio, [Cantidad Vendida] from [Comida] where Cine="+id);
+            PreparedStatement st = connect.prepareStatement("select Id, Precio, [Cantidad Vendida] from [Comida] where Cine=" + id);
             result = st.executeQuery();
             while (result.next()) {
                 datos.add(result.getString("Id"));
@@ -114,122 +114,121 @@ public final class BD {
     }
 
     public void modifEstado(int cine, String estado, String silla, String funcion) {
-        
+
         Statement stmt = null;
 
         try {
             stmt = connect.createStatement();
             //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
-            stmt.executeUpdate("update Cine" +cine+" set Estado='" + estado + "' where Silla='"+silla+"' and Funcion='"+funcion+"';");
+            stmt.executeUpdate("update Cine" + cine + " set Estado='" + estado + "' where Silla='" + silla + "' and Funcion='" + funcion + "';");
             connect.commit();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
-    
+
     public void modifComida(String id, String cantidad) {
-        
+
         Statement stmt = null;
 
         try {
             stmt = connect.createStatement();
             //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
-            stmt.executeUpdate("update Comida set [Cantidad Vendida]='" + cantidad + "' where Id='"+id+"';");
+            stmt.executeUpdate("update Comida set [Cantidad Vendida]='" + cantidad + "' where Id='" + id + "';");
             connect.commit();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
-    
-    public void Login(javax.swing.JTextField jtf, javax.swing.JPasswordField jpf, String person, javax.swing.JFrame frame){
+
+    public void Login(javax.swing.JTextField jtf, javax.swing.JPasswordField jpf, String person, javax.swing.JFrame frame) {
         boolean failed = true;
         switch (person) {
             case "User":
                 try {
-                    PreparedStatement st = connect.prepareStatement("SELECT Correo, Contraseña, Id, Nombre FROM Cliente");
-                    ResultSet result = st.executeQuery();
+                PreparedStatement st = connect.prepareStatement("SELECT Correo, Contraseña, Id, Nombre FROM Cliente");
+                ResultSet result = st.executeQuery();
 
-                    while (result.next()) {
-                        String email = result.getString(1);
-                        String pw = result.getString(2);
-                        int id = result.getInt(3);
-                        String nombre = result.getString(4);
+                while (result.next()) {
+                    String email = result.getString(1);
+                    String pw = result.getString(2);
+                    int id = result.getInt(3);
+                    String nombre = result.getString(4);
 
-                        if (jtf.getText().equals(email) && String.valueOf(jpf.getPassword()).equals(pw)){
-                            
-                            JLabel account_label = new JLabel();
-                            account_label.setText("Logged as: "+nombre);
-                            account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
-                            account_label.setForeground(new java.awt.Color(102, 0, 0));
-                            account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                            
-                            MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
-                            MainPage.getFrame().setEnabled(true);
-                            
-                            sesion = Sesion.getInstance();
-                            Persona u = new Usuario(id);
-                            u.rellenarDatos();
-                            sesion.setPersona(u);
-                            sesion.setLogged(true);
-                            failed = false;
-                            
-                            
-                            frame.dispose();
-                        }
+                    if (jtf.getText().equals(email) && String.valueOf(jpf.getPassword()).equals(pw)) {
+
+                        JLabel account_label = new JLabel();
+                        account_label.setText("Logged as: " + nombre);
+                        account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
+                        account_label.setForeground(new java.awt.Color(102, 0, 0));
+                        account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+                        MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
+                        MainPage.getFrame().setEnabled(true);
+
+                        sesion = Sesion.getInstance();
+                        Persona u = new Usuario(id);
+                        u.rellenarDatos();
+                        sesion.setPersona(u);
+                        sesion.setLogged(true);
+                        failed = false;
+
+                        frame.dispose();
                     }
-                } catch (SQLException ex) {
-                    System.err.println(ex.getMessage());
                 }
-                break;
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
+            break;
             case "Employee":
                 try {
-                    PreparedStatement st = connect.prepareStatement("SELECT Cedula, Contraseña, Id, Nombre FROM Empleado");
-                    ResultSet result = st.executeQuery();
+                PreparedStatement st = connect.prepareStatement("SELECT Cedula, Contraseña, Id, Nombre FROM Empleado");
+                ResultSet result = st.executeQuery();
 
-                    while (result.next()) {
-                        int cedula = result.getInt(1);
-                        String pw = result.getString(2);
-                        int id = result.getInt(3);
-                        String nombre = result.getString(4);
+                while (result.next()) {
+                    int cedula = result.getInt(1);
+                    String pw = result.getString(2);
+                    int id = result.getInt(3);
+                    String nombre = result.getString(4);
 
-                        if (Integer.parseInt(jtf.getText()) == cedula && String.valueOf(jpf.getPassword()).equals(pw)){
-                            
-                            JLabel account_label = new JLabel();
-                            account_label.setText("Logged as: "+nombre);
-                            account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
-                            account_label.setForeground(new java.awt.Color(102, 0, 0));
-                            account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                            
-                            MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
-                            MainPage.getFrame().setEnabled(true);
-                            
-                            sesion = Sesion.getInstance();
-                            Persona e = new Empleado(id);
-                            e.rellenarDatos();
-                            sesion.setPersona(e);
-                            sesion.setLogged(true);
-                            failed = false;
-                            
-                            
-                            frame.dispose();
-                        }
+                    if (Integer.parseInt(jtf.getText()) == cedula && String.valueOf(jpf.getPassword()).equals(pw)) {
+
+                        JLabel account_label = new JLabel();
+                        account_label.setText("Logged as: " + nombre);
+                        account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
+                        account_label.setForeground(new java.awt.Color(102, 0, 0));
+                        account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+                        MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
+                        MainPage.getFrame().setEnabled(true);
+
+                        sesion = Sesion.getInstance();
+                        Persona e = new Empleado(id);
+                        e.rellenarDatos();
+                        sesion.setPersona(e);
+                        sesion.setLogged(true);
+                        failed = false;
+
+                        frame.dispose();
                     }
-                } catch (SQLException ex) {
-                    System.err.println(ex.getMessage());
                 }
-                break;
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
+            break;
         }
-        if (failed == true)
+        if (failed == true) {
             JOptionPane.showMessageDialog(null, "Los datos introducidos son incorrectos");
-        
+        }
+
     }
-    
+
     public List<String> fun(int funcion, int cine) {
         List<String> sillas = new ArrayList<String>();
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement("select Sala from Cine" +cine+" where Funcion ="+funcion);
+            PreparedStatement st = connect.prepareStatement("select Sala from Cine" + cine + " where Funcion =" + funcion);
             result = st.executeQuery();
             while (result.next()) {
                 sillas.add(result.getString("Sala"));
@@ -239,13 +238,13 @@ public final class BD {
         }
         return sillas;
     }
-    
+
     public List<String> pelicula(int pelicula) {
         List<String> funciones = new ArrayList<String>();
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement("select [Hora Funcion], Id from Funcion where Pelicula="+pelicula);
+            PreparedStatement st = connect.prepareStatement("select [Hora Funcion], Id from Funcion where Pelicula=" + pelicula);
             result = st.executeQuery();
             while (result.next()) {
                 funciones.add(result.getString("Hora Funcion"));
@@ -256,50 +255,104 @@ public final class BD {
         }
         return funciones;
     }
-    
-    public List<String> solicitarDatosPersona(Persona p, int id){
+
+    public List<String> solicitarDatosPersona(Persona p, int id) {
         List<String> datos_persona = new ArrayList<>();
-        
+
         PreparedStatement st;
-        
+
         switch (p.getClass().getName()) {
             case "proyectocinejungla.Usuario":
                 
                 try {
-                    st = connect.prepareStatement("SELECT Nombre, Correo, Contraseña, Puntos, [Tiempo Obtencion] FROM Cliente Where Id ="+id);
-                    ResultSet result = st.executeQuery();
-                                        
-                    while(result.next()){
-                        datos_persona.add(result.getString(1));
-                        datos_persona.add(result.getString(2));
-                        datos_persona.add(result.getString(3));
-                        datos_persona.add(result.getString(4));
-                        datos_persona.add(result.getString(5));
-                    }
-                    
-                } catch (SQLException ex) {
+                st = connect.prepareStatement("SELECT Nombre, Correo, Contraseña, Puntos, [Tiempo Obtencion] FROM Cliente Where Id =" + id);
+                ResultSet result = st.executeQuery();
+
+                while (result.next()) {
+                    datos_persona.add(result.getString(1));
+                    datos_persona.add(result.getString(2));
+                    datos_persona.add(result.getString(3));
+                    datos_persona.add(result.getString(4));
+                    datos_persona.add(result.getString(5));
                 }
-                break;
+
+            } catch (SQLException ex) {
+            }
+            break;
             case "proyectocinejungla.Empleado":
                 try {
-                    st = connect.prepareStatement("SELECT Nombre, Cedula, Contraseña, Cargo, [Fecha Inicio Contrato], Salario, Cine FROM Empleado Where Id ="+id);
-                    ResultSet result = st.executeQuery();
-                    while(result.next()){
-                        datos_persona.add(result.getString(1));
-                        datos_persona.add(result.getString(2));
-                        datos_persona.add(result.getString(3));
-                        datos_persona.add(result.getString(4));
-                        datos_persona.add(result.getString(5));
-                        datos_persona.add(result.getString(6));
-                        datos_persona.add(result.getString(7));
-                    }
-                } catch (SQLException ex) {
+                st = connect.prepareStatement("SELECT Nombre, Cedula, Contraseña, Cargo, [Fecha Inicio Contrato], Salario, Cine FROM Empleado Where Id =" + id);
+                ResultSet result = st.executeQuery();
+                while (result.next()) {
+                    datos_persona.add(result.getString(1));
+                    datos_persona.add(result.getString(2));
+                    datos_persona.add(result.getString(3));
+                    datos_persona.add(result.getString(4));
+                    datos_persona.add(result.getString(5));
+                    datos_persona.add(result.getString(6));
+                    datos_persona.add(result.getString(7));
                 }
-                break;
+            } catch (SQLException ex) {
+            }
+            break;
         }
         return datos_persona;
     }
-    
+
+    public boolean registrarUsuario(String nombre, String correo, String contraseña) {
+        PreparedStatement st;
+        boolean failed = false;
+        try {
+            st = connect.prepareStatement("SELECT Correo, Id FROM Cliente");
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                if (result.getString(1).equals(correo)) {
+                    JOptionPane.showMessageDialog(null, "El correo ya se encuentra registrado");
+                    failed = true;
+                }
+            }
+
+            if (!failed) {
+                try {
+                    PreparedStatement pstmt = connect.prepareStatement("insert into Cliente(Nombre, Correo, Contraseña, Puntos, [Tiempo Obtencion]) values(?, ?, ?, ?, ?)");
+                    pstmt.setString(1, nombre);
+                    pstmt.setString(2, correo);
+                    pstmt.setString(3, contraseña);
+                    pstmt.setInt(4, 0);
+                    pstmt.setInt(5, 0);
+                    pstmt.executeUpdate();
+
+//                    JLabel account_label = new JLabel();
+//                    account_label.setText("Logged as: " + nombre);
+//                    account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
+//                    account_label.setForeground(new java.awt.Color(102, 0, 0));
+//                    account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+//
+//                    MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
+//                    MainPage.getFrame().setEnabled(true);
+
+                } catch (SQLException ex) {
+                }
+            }
+
+//            if (!failed) {
+//                System.out.println("asdasd");
+//                
+//                PreparedStatement stid = connect.prepareStatement("SELECT Id FROM Cliente WHERE Correo= "+correo);
+//                ResultSet rs = st.executeQuery();
+//                while (rs.next()) {
+//                    sesion = Sesion.getInstance();
+//                    Persona u = new Usuario(rs.getInt(1));
+//                    u.rellenarDatos();
+//                    sesion.setPersona(u);
+//                    sesion.setLogged(true);
+//                }
+//            }
+
+        } catch (SQLException ex) {
+        }
+        return failed;
+    }
 
     public static BD getInstance() {
         if (instancia == null) {
@@ -307,8 +360,8 @@ public final class BD {
         }
         return instancia;
     }
-    
-    public Connection getConnect(){
+
+    public Connection getConnect() {
         return this.connect;
     }
 }

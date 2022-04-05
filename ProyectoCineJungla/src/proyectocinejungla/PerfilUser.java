@@ -18,7 +18,7 @@ public class PerfilUser extends javax.swing.JPanel {
     public PerfilUser(Usuario u) {
         this.u = u;
         initComponents();
-        crearLabels();
+        crearNuevosComponentes();
     }
 
     /**
@@ -193,7 +193,7 @@ public class PerfilUser extends javax.swing.JPanel {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
-    private void crearLabels() {
+    private void crearNuevosComponentes() {
         JLabel label_nombre_u = new JLabel();
         label_nombre_u.setFont(new java.awt.Font("Century Gothic", 0, 18));
         label_nombre_u.setText(this.u.getNombre());
