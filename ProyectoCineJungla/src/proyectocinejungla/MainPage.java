@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -28,6 +29,7 @@ public class MainPage extends javax.swing.JFrame {
     private static int cineId;
     private static int puntCine;
     List<Pelicula> peliculas = new ArrayList<>();
+    public static JLabel account_label;
 
     public static int getCineId() {
         return cineId;
@@ -145,6 +147,7 @@ public class MainPage extends javax.swing.JFrame {
         getContentPane().add(cartelera);
         cartelera.setBounds(0, 120, 1920, 960);
 
+        account_label= new JLabel();;
         encabezado.setBackground(new java.awt.Color(189, 40, 47));
         encabezado.setPreferredSize(new java.awt.Dimension(1920, 120));
         encabezado.setLayout(null);
@@ -231,11 +234,11 @@ public class MainPage extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Estrella Roja.png"))); // NOI18N
-        jLabel7.setText("PUNTUA NUESTROS SERVICIOS");
+        jLabel7.setText("PUNTUAR CINEPLEX");
         jLabel7.setEnabled(false);
         jLabel7.setVisible(false);
         encabezado.add(jLabel7);
-        jLabel7.setBounds(967, 24, 349, 50);
+        jLabel7.setBounds(970, 30, 349, 50);
 
         getContentPane().add(encabezado);
         encabezado.setBounds(0, 0, 1920, 120);
@@ -273,7 +276,6 @@ public class MainPage extends javax.swing.JFrame {
         getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
         getContentPane().revalidate();
         getContentPane().repaint();
-
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -287,10 +289,30 @@ public class MainPage extends javax.swing.JFrame {
     public static JPanel getEncabezado() {
         return encabezado;
     }
+    
+    public static JPanel getCartelera() {
+        return cartelera;
+    }
 
     public static JFrame getFrame() {
         return frame;
     }
+    
+    public static javax.swing.JComboBox getJComboBox1(){
+        return jComboBox1;
+    }
+    
+    
+    public static void goMainPage(){
+        MainPage.getFrame().getContentPane().removeAll();
+        MainPage.getJComboBox1().setSelectedIndex(0);
+        MainPage.getFrame().getContentPane().add(MainPage.getEncabezado()).setBounds(0, 0, 1920, 120);
+        MainPage.getFrame().getContentPane().add(jPanel1).setBounds(0, 120, 1920, 960);
+        MainPage.getFrame().getContentPane().add(MainPage.getCartelera()).setBounds(0, 120, 1920, 960);
+        MainPage.getFrame().getContentPane().revalidate();
+        MainPage.getFrame().getContentPane().repaint();
+    }
+    
 
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -408,9 +430,9 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel cartelera;
+    private static javax.swing.JPanel cartelera;
     private static javax.swing.JPanel encabezado;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private static javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -419,7 +441,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    private static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 

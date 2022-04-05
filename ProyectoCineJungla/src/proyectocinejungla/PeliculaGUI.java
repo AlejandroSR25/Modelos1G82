@@ -94,7 +94,6 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jPanel2.setMinimumSize(new java.awt.Dimension(10, 400));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(10);
         jTextArea1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(51, 51, 51));
@@ -121,7 +120,7 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jPanel1.add(jPanel8);
         jPanel8.setBounds(0, 165, 1270, 45);
 
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
         jPanel1.add(jPanel4);
         jPanel4.setBounds(0, 430, 1270, 80);
 
@@ -134,7 +133,7 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PeliculaGUI/Estrella Dorada.png"))); // NOI18N
         jLabel10.setText("PUNTUA LA PELICULA");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 890, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 870, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -157,20 +157,21 @@ public final class BD {
 
                     if (jtf.getText().equals(email) && String.valueOf(jpf.getPassword()).equals(pw)) {
 
-                        JLabel account_label = new JLabel();
-                        account_label.setText("Logged as: " + nombre);
-                        account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
-                        account_label.setForeground(new java.awt.Color(102, 0, 0));
-                        account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-                        MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
-                        MainPage.getFrame().setEnabled(true);
-
                         sesion = Sesion.getInstance();
                         Persona u = new Usuario(id);
                         u.rellenarDatos();
                         sesion.setPersona(u);
                         sesion.setLogged(true);
+                        
+                        
+                        MainPage.account_label.setText("Logged as: " + u.getNombre());
+                        MainPage.account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
+                        MainPage.account_label.setForeground(new java.awt.Color(102, 0, 0));
+                        MainPage.account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+                        MainPage.getEncabezado().add(MainPage.account_label).setBounds(1680, 93, 200, 20);
+                        MainPage.getFrame().setEnabled(true);
+
                         failed = false;
 
                         frame.dispose();
@@ -193,20 +194,20 @@ public final class BD {
 
                     if (Integer.parseInt(jtf.getText()) == cedula && String.valueOf(jpf.getPassword()).equals(pw)) {
 
-                        JLabel account_label = new JLabel();
-                        account_label.setText("Logged as: " + nombre);
-                        account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
-                        account_label.setForeground(new java.awt.Color(102, 0, 0));
-                        account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-                        MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
-                        MainPage.getFrame().setEnabled(true);
-
                         sesion = Sesion.getInstance();
                         Persona e = new Empleado(id);
                         e.rellenarDatos();
                         sesion.setPersona(e);
-                        sesion.setLogged(true);
+                        sesion.setLogged(true);                        
+                        
+                        MainPage.account_label.setText("Logged as: " + e.getNombre());
+                        MainPage.account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
+                        MainPage.account_label.setForeground(new java.awt.Color(102, 0, 0));
+                        MainPage.account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+                        MainPage.getEncabezado().add(MainPage.account_label).setBounds(1680, 93, 200, 20);
+                        MainPage.getFrame().setEnabled(true);
+
                         failed = false;
 
                         frame.dispose();
@@ -260,6 +261,7 @@ public final class BD {
         List<String> datos_persona = new ArrayList<>();
 
         PreparedStatement st;
+        PreparedStatement st2;
 
         switch (p.getClass().getName()) {
             case "proyectocinejungla.Usuario":
@@ -281,19 +283,30 @@ public final class BD {
             break;
             case "proyectocinejungla.Empleado":
                 try {
-                st = connect.prepareStatement("SELECT Nombre, Cedula, Contraseña, Cargo, [Fecha Inicio Contrato], Salario, Cine FROM Empleado Where Id =" + id);
-                ResultSet result = st.executeQuery();
-                while (result.next()) {
-                    datos_persona.add(result.getString(1));
-                    datos_persona.add(result.getString(2));
-                    datos_persona.add(result.getString(3));
-                    datos_persona.add(result.getString(4));
-                    datos_persona.add(result.getString(5));
-                    datos_persona.add(result.getString(6));
-                    datos_persona.add(result.getString(7));
+                    st = connect.prepareStatement("SELECT Nombre, Cedula, Contraseña, Cargo, [Fecha Inicio Contrato], Salario, Cine FROM Empleado Where Id =" + id);
+                    ResultSet result = st.executeQuery();
+
+                    while (result.next()) {
+                        datos_persona.add(result.getString(1));
+                        datos_persona.add(result.getString(2));
+                        datos_persona.add(result.getString(3));
+                        datos_persona.add(result.getString(4));
+                        datos_persona.add(result.getString(5));
+                        datos_persona.add(result.getString(6));
+                        datos_persona.add(result.getString(7));
+                    }
+                    result.close();
+                    
+                    int id_cine = Integer.parseInt(datos_persona.get(6));                    
+
+                    st2 = connect.prepareStatement("select Nombre from [Cine Jungla] WHERE Id =" + id_cine);
+                    ResultSet result2 = st2.executeQuery();
+                    while (result2.next()) {
+                        datos_persona.add(result2.getString(1));
+                    }
+
+                } catch (SQLException ex) {
                 }
-            } catch (SQLException ex) {
-            }
             break;
         }
         return datos_persona;
@@ -322,36 +335,37 @@ public final class BD {
                     pstmt.setInt(5, 0);
                     pstmt.executeUpdate();
 
-//                    JLabel account_label = new JLabel();
-//                    account_label.setText("Logged as: " + nombre);
-//                    account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
-//                    account_label.setForeground(new java.awt.Color(102, 0, 0));
-//                    account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-//
-//                    MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
-//                    MainPage.getFrame().setEnabled(true);
-
                 } catch (SQLException ex) {
                 }
             }
 
-//            if (!failed) {
-//                System.out.println("asdasd");
-//                
-//                PreparedStatement stid = connect.prepareStatement("SELECT Id FROM Cliente WHERE Correo= "+correo);
-//                ResultSet rs = st.executeQuery();
-//                while (rs.next()) {
-//                    sesion = Sesion.getInstance();
-//                    Persona u = new Usuario(rs.getInt(1));
-//                    u.rellenarDatos();
-//                    sesion.setPersona(u);
-//                    sesion.setLogged(true);
-//                }
-//            }
-
         } catch (SQLException ex) {
         }
         return failed;
+    }
+
+    public void cambiarContraseña(int id, String contraseña, String tabla) {
+        PreparedStatement statement;
+
+        try {
+            statement = connect.prepareStatement("update " + tabla + " set Contraseña=? where Id=?");
+            statement.setString(1, contraseña);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+        }
+    }
+    
+    public void cambiarCorreo(int id, String correo){
+        PreparedStatement statement;
+
+        try {
+            statement = connect.prepareStatement("update Cliente set Correo=? where Id=?");
+            statement.setString(1, correo);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+        }
     }
 
     public static BD getInstance() {

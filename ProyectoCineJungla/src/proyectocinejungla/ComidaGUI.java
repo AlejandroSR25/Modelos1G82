@@ -214,68 +214,66 @@ public class ComidaGUI extends javax.swing.JPanel {
 
         cantMaSa.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantMaSa.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantMaSa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantMaSa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantMaSa.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantMaSa);
-        cantMaSa.setBounds(130, 300, 50, 26);
+        cantMaSa.setBounds(130, 300, 50, 20);
 
         cantJet.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantJet.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantJet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantJet.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantJet.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantJet);
-        cantJet.setBounds(950, 290, 50, 26);
+        cantJet.setBounds(950, 290, 50, 20);
 
         cantMaDu.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantMaDu.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantMaDu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantMaDu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantMaDu.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantMaDu);
-        cantMaDu.setBounds(130, 630, 50, 26);
+        cantMaDu.setBounds(130, 630, 50, 20);
 
         cantGas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantGas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantGas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantGas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantGas.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantGas);
-        cantGas.setBounds(390, 300, 50, 26);
+        cantGas.setBounds(390, 300, 50, 20);
 
         cantPer.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantPer.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantPer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantPer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantPer.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantPer);
-        cantPer.setBounds(650, 300, 50, 26);
+        cantPer.setBounds(650, 300, 50, 20);
 
         cantAgua.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantAgua.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantAgua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantAgua.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantAgua.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantAgua);
-        cantAgua.setBounds(380, 670, 50, 26);
+        cantAgua.setBounds(380, 670, 50, 20);
 
         cantNac.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantNac.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantNac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantNac.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantNac.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantNac);
-        cantNac.setBounds(670, 650, 50, 26);
+        cantNac.setBounds(670, 650, 50, 20);
 
         cantSni.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         cantSni.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        cantSni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cantSni.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ((DefaultEditor) cantSni.getEditor()).getTextField().setEditable(false);
         jPanel3.add(cantSni);
-        cantSni.setBounds(970, 640, 50, 26);
+        cantSni.setBounds(970, 640, 50, 20);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Pago:");
         jPanel3.add(jLabel6);
         jLabel6.setBounds(1310, 160, 67, 31);
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Comida");
         jPanel3.add(jLabel7);
         jLabel7.setBounds(1300, 80, 200, 60);
@@ -289,7 +287,7 @@ public class ComidaGUI extends javax.swing.JPanel {
             }
         });
         jPanel3.add(radioBoton);
-        radioBoton.setBounds(1310, 290, 151, 28);
+        radioBoton.setBounds(1310, 290, 145, 27);
 
         grupoRadioBoton.add(radioBoton1);
         radioBoton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -300,7 +298,7 @@ public class ComidaGUI extends javax.swing.JPanel {
             }
         });
         jPanel3.add(radioBoton1);
-        radioBoton1.setBounds(1310, 250, 54, 28);
+        radioBoton1.setBounds(1310, 250, 47, 27);
 
         grupoRadioBoton.add(radioBoton2);
         radioBoton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -311,14 +309,15 @@ public class ComidaGUI extends javax.swing.JPanel {
             }
         });
         jPanel3.add(radioBoton2);
-        radioBoton2.setBounds(1310, 210, 223, 28);
+        radioBoton2.setBounds(1310, 210, 217, 27);
 
         botonComprar.setBackground(new java.awt.Color(204, 0, 51));
         botonComprar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         botonComprar.setForeground(new java.awt.Color(255, 255, 255));
         botonComprar.setText("Comprar");
-        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonComprar.setEnabled(false);
+        botonComprar.setFocusable(false);
         botonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonComprarMouseEntered(evt);
@@ -330,7 +329,7 @@ public class ComidaGUI extends javax.swing.JPanel {
             }
         });
         jPanel3.add(botonComprar);
-        botonComprar.setBounds(1320, 340, 130, 35);
+        botonComprar.setBounds(1320, 340, 130, 27);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/jungle (1).png"))); // NOI18N
         jLabel1.setText("jLabel1");

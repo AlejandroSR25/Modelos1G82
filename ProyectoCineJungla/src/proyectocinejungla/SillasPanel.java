@@ -108,12 +108,10 @@ public class SillasPanel extends javax.swing.JPanel {
         jPanel3.add(imgG, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 100, 100));
 
         labelG.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        labelG.setForeground(new java.awt.Color(0, 0, 0));
         labelG.setText("Silla General");
         jPanel3.add(labelG, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 100, 30));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Convencion");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 190, 30));
 
@@ -121,7 +119,6 @@ public class SillasPanel extends javax.swing.JPanel {
         jPanel3.add(imgG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 100, 100));
 
         labelG1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        labelG1.setForeground(new java.awt.Color(0, 0, 0));
         labelG1.setText("Silla Preferencial");
         jPanel3.add(labelG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 130, 30));
 
@@ -129,7 +126,6 @@ public class SillasPanel extends javax.swing.JPanel {
         jPanel3.add(imgG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 100, 100));
 
         labelG2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        labelG2.setForeground(new java.awt.Color(0, 0, 0));
         labelG2.setText("Silla Seleccionada");
         jPanel3.add(labelG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 140, 30));
 
@@ -137,36 +133,29 @@ public class SillasPanel extends javax.swing.JPanel {
         jPanel3.add(imgG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 100, 100));
 
         labelG3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        labelG3.setForeground(new java.awt.Color(0, 0, 0));
         labelG3.setText("Silla Ocupada");
         jPanel3.add(labelG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 660, 120, 30));
 
         cantG.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        cantG.setForeground(new java.awt.Color(0, 0, 0));
         cantG.setText("0");
         jPanel3.add(cantG, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 130, 70, 70));
 
         labelSala.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        labelSala.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(labelSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 320, 90, 70));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Generales:");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 130, 140, 70));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Pago:");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 370, 180, 70));
 
         cantP.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        cantP.setForeground(new java.awt.Color(0, 0, 0));
         cantP.setText("0");
         jPanel3.add(cantP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1410, 220, 70, 70));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Preferenciales:");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 220, 180, 70));
 
@@ -215,8 +204,9 @@ public class SillasPanel extends javax.swing.JPanel {
         botonComprar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         botonComprar.setForeground(new java.awt.Color(255, 255, 255));
         botonComprar.setText("Comprar");
-        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonComprar.setEnabled(false);
+        botonComprar.setFocusable(false);
         botonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonComprarMouseEntered(evt);
@@ -230,12 +220,10 @@ public class SillasPanel extends javax.swing.JPanel {
         jPanel3.add(botonComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 650, 150, 40));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Entradas");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 280, 70));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Sala:");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 320, 90, 70));
 

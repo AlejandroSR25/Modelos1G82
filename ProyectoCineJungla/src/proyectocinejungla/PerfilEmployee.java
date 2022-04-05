@@ -7,6 +7,7 @@ package proyectocinejungla;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -135,6 +136,11 @@ public class PerfilEmployee extends javax.swing.JPanel {
 
         jButton1.setText("CAMBIAR");
         jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton1);
         jButton1.setBounds(720, 280, 90, 23);
 
@@ -148,6 +154,11 @@ public class PerfilEmployee extends javax.swing.JPanel {
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("CERRAR SESION");
         jButton3.setFocusable(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         add(jButton3);
         jButton3.setBounds(1620, 880, 190, 50);
     }// </editor-fold>//GEN-END:initComponents
@@ -159,6 +170,20 @@ public class PerfilEmployee extends javax.swing.JPanel {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (String.valueOf(jPasswordField1.getPassword()).equals(String.valueOf(jPasswordField2.getPassword())) && !String.valueOf(jPasswordField1.getPassword()).equals("") && !String.valueOf(jPasswordField2.getPassword()).equals("")) {
+            BD.getInstance().cambiarContraseña(this.e.getId(), String.valueOf(jPasswordField1.getPassword()), "Empleado");
+            JOptionPane.showMessageDialog(null, "La contraseña se modifico correctamente");
+        } else
+            JOptionPane.showMessageDialog(null, "Los campos no coinciden o estan vacios");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Sesion.getInstance().LogOut();
+        MainPage.goMainPage();
+        MainPage.account_label.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void crearNuevosComponentes() {
         JLabel label_nombre_e = new JLabel();
@@ -193,12 +218,12 @@ public class PerfilEmployee extends javax.swing.JPanel {
 
         JLabel label_cine_e = new JLabel();
         label_cine_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
-        label_cine_e.setText(String.valueOf(this.e.getCine_afiliado()));
+        label_cine_e.setText(this.e.getCine_afiliado());
         jPanel2.add(label_cine_e);
         label_cine_e.setBounds(990, 260, 480, 30);
-               
-        if("Director".equals(this.e.getCargo())) {
-            
+
+        if ("Director".equals(this.e.getCargo())) {
+
             JButton btn_reporte = new JButton();
             btn_reporte.setFont(new java.awt.Font("Century Gothic", 1, 18));
             btn_reporte.setText("GENERAR REPORTE");

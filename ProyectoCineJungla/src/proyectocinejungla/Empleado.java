@@ -9,7 +9,7 @@ public class Empleado extends Persona{
     private String cargo;
     private int Salario; 
     private String fecha_inicio_contrato;
-    private int cine_afiliado;
+    private String cine_afiliado;
     
     public Empleado(int id){
         super(id);
@@ -55,11 +55,11 @@ public class Empleado extends Persona{
         this.fecha_inicio_contrato = fecha_inicio_contrato;
     }
 
-    public int getCine_afiliado() {
+    public String getCine_afiliado() {
         return cine_afiliado;
     }
 
-    public void setCine_afiliado(int cine_afiliado) {
+    public void setCine_afiliado(String cine_afiliado) {
         this.cine_afiliado = cine_afiliado;
     }
 
@@ -72,7 +72,7 @@ public class Empleado extends Persona{
         this.setCargo(datos.get(3));
         this.setFecha_inicio_contrato(datos.get(4));
         this.setSalario(Integer.parseInt(datos.get(5)));
-        this.setCine_afiliado(Integer.parseInt(datos.get(6)));
+        this.setCine_afiliado(datos.get(7));
     }
     
 }

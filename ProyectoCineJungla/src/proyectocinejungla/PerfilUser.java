@@ -6,6 +6,7 @@
 package proyectocinejungla;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -101,6 +102,11 @@ public class PerfilUser extends javax.swing.JPanel {
 
         jButton1.setText("CAMBIAR");
         jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(320, 290, 90, 23);
 
@@ -161,6 +167,11 @@ public class PerfilUser extends javax.swing.JPanel {
 
         jButton2.setText("CAMBIAR");
         jButton2.setFocusable(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton2);
         jButton2.setBounds(320, 280, 90, 23);
 
@@ -174,6 +185,11 @@ public class PerfilUser extends javax.swing.JPanel {
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("CERRAR SESION");
         jButton3.setFocusable(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         add(jButton3);
         jButton3.setBounds(1630, 880, 190, 50);
     }// </editor-fold>//GEN-END:initComponents
@@ -193,6 +209,28 @@ public class PerfilUser extends javax.swing.JPanel {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(String.valueOf(jPasswordField1.getPassword()).equals(String.valueOf(jPasswordField2.getPassword())) && !String.valueOf(jPasswordField1.getPassword()).equals("") && !String.valueOf(jPasswordField2.getPassword()).equals("")){
+            BD.getInstance().cambiarContraseña(this.u.getId(), String.valueOf(jPasswordField1.getPassword()), "Cliente");
+            JOptionPane.showMessageDialog(null, "La contraseña se modificó correctamente");
+        }else
+            JOptionPane.showMessageDialog(null, "Los campos no coinciden o estan vacios");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Sesion.getInstance().LogOut();
+        MainPage.goMainPage();
+        MainPage.account_label.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField5.getText().equals(jTextField6.getText()) && !jTextField5.getText().equals("") && !jTextField6.getText().equals("")){
+            BD.getInstance().cambiarCorreo(this.u.getId(), jTextField5.getText());
+            JOptionPane.showMessageDialog(null, "El correo se modificó correctamente");
+        }else
+            JOptionPane.showMessageDialog(null, "Los campos no coinciden o estan vacios");
+    }//GEN-LAST:event_jButton1ActionPerformed
     private void crearNuevosComponentes() {
         JLabel label_nombre_u = new JLabel();
         label_nombre_u.setFont(new java.awt.Font("Century Gothic", 0, 18));
