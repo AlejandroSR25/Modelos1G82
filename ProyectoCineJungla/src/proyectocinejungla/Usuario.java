@@ -1,5 +1,7 @@
 package proyectocinejungla;
 
+import java.util.List;
+
 
 public class Usuario extends Persona{
     
@@ -7,10 +9,11 @@ public class Usuario extends Persona{
     private String contraseña;
     private int puntos;
     private int tiempo_obtencion_puntos; //en dias
-
+    
     public Usuario(int id){
-        setId(id);
+        super(id);
     }
+    
     public String getCorreo() {
         return correo;
     }
@@ -41,5 +44,16 @@ public class Usuario extends Persona{
 
     public void setTiempo_obtencion_puntos(int tiempo_obtencion_puntos) {
         this.tiempo_obtencion_puntos = tiempo_obtencion_puntos;
+    }
+
+    @Override
+    public void rellenarDatos() {
+        
+        List<String> datos = BD.getInstance().solicitarDatosPersona(this, this.getId());
+        super.setNombre(datos.get(0));
+        this.setCorreo(datos.get(1));
+        this.setContraseña(datos.get(2));
+        this.setPuntos(Integer.parseInt(datos.get(3)));
+        this.setTiempo_obtencion_puntos(Integer.parseInt(datos.get(4)));
     }
 }

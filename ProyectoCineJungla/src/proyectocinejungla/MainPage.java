@@ -37,8 +37,6 @@ public class MainPage extends javax.swing.JFrame {
         return frameLogin;
     }
 
-    
-    
     public MainPage() {
         this.frame = this;
         initComponents();
@@ -346,11 +344,20 @@ public class MainPage extends javax.swing.JFrame {
             frameLogin.setVisible(true);
             this.setEnabled(false);
         } else {
-            getContentPane().removeAll();
-            getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
-            getContentPane().add(new PerfilUser()).setBounds(0, 120, 1920, 960);
-            getContentPane().revalidate();
-            getContentPane().repaint();
+            if (sesion.getPersona().getClass().getName() == "proyectocinejungla.Usuario") {
+                getContentPane().removeAll();
+                getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
+                getContentPane().add(new PerfilUser((Usuario) sesion.getPersona())).setBounds(0, 120, 1920, 960);
+                getContentPane().revalidate();
+                getContentPane().repaint();
+            }else{
+                getContentPane().removeAll();
+                getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
+                getContentPane().add(new PerfilEmployee((Empleado) sesion.getPersona())).setBounds(0, 120, 1920, 960);
+                getContentPane().revalidate();
+                getContentPane().repaint();
+            }
+
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 

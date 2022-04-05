@@ -47,7 +47,7 @@ public class Sala extends JPanel {
         acciones();
 
     }
-
+    
     public void acciones() {
         Presionar pre = new Presionar();
         accio.clear();

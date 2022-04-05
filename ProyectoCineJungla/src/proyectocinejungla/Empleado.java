@@ -1,22 +1,25 @@
 package proyectocinejungla;
 
+import java.util.List;
+
 public class Empleado extends Persona{
     
-    private String cedula;
+    private int cedula;
     private String contraseña;
     private String cargo;
-    private String Salario; 
+    private int Salario; 
     private String fecha_inicio_contrato;
+    private int cine_afiliado;
     
     public Empleado(int id){
-        setId(id);
+        super(id);
     }
     
-    public String getCedula() {
+    public int getCedula() {
         return cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
     }
 
@@ -36,11 +39,11 @@ public class Empleado extends Persona{
         this.cargo = cargo;
     }
 
-    public String getSalario() {
+    public int getSalario() {
         return Salario;
     }
 
-    public void setSalario(String Salario) {
+    public void setSalario(int Salario) {
         this.Salario = Salario;
     }
 
@@ -52,13 +55,24 @@ public class Empleado extends Persona{
         this.fecha_inicio_contrato = fecha_inicio_contrato;
     }
 
-    public String getCine_afiliado() {
+    public int getCine_afiliado() {
         return cine_afiliado;
     }
 
-    public void setCine_afiliado(String cine_afiliado) {
+    public void setCine_afiliado(int cine_afiliado) {
         this.cine_afiliado = cine_afiliado;
     }
-    String cine_afiliado;
+
+    @Override
+    public void rellenarDatos() {
+        List<String> datos = BD.getInstance().solicitarDatosPersona(this, this.getId());
+        super.setNombre(datos.get(0));
+        this.setCedula(Integer.parseInt(datos.get(1)));
+        this.setContraseña(datos.get(2));
+        this.setCargo(datos.get(3));
+        this.setFecha_inicio_contrato(datos.get(4));
+        this.setSalario(Integer.parseInt(datos.get(5)));
+        this.setCine_afiliado(Integer.parseInt(datos.get(6)));
+    }
     
 }

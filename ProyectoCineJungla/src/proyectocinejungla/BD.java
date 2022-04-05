@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -165,9 +167,11 @@ public final class BD {
                             MainPage.getFrame().setEnabled(true);
                             
                             sesion = Sesion.getInstance();
-                            sesion.setPersona(new Usuario(id));
+                            Persona u = new Usuario(id);
+                            u.rellenarDatos();
+                            sesion.setPersona(u);
                             sesion.setLogged(true);
-                            
+                            failed = false;
                             
                             
                             frame.dispose();
@@ -179,17 +183,35 @@ public final class BD {
                 break;
             case "Employee":
                 try {
-                    PreparedStatement st = connect.prepareStatement("SELECT Cedula, Contraseña FROM Empleado");
+                    PreparedStatement st = connect.prepareStatement("SELECT Cedula, Contraseña, Id, Nombre FROM Empleado");
                     ResultSet result = st.executeQuery();
 
                     while (result.next()) {
-                        String cc = result.getString(1);
+                        int cedula = result.getInt(1);
                         String pw = result.getString(2);
+                        int id = result.getInt(3);
+                        String nombre = result.getString(4);
 
-                        if (jtf.getText().equals(cc) && String.valueOf(jpf.getPassword()).equals(pw)) {
-                            System.out.println("Exito");
-                        } else {
-                            JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectas");
+                        if (Integer.parseInt(jtf.getText()) == cedula && String.valueOf(jpf.getPassword()).equals(pw)){
+                            
+                            JLabel account_label = new JLabel();
+                            account_label.setText("Logged as: "+nombre);
+                            account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
+                            account_label.setForeground(new java.awt.Color(102, 0, 0));
+                            account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                            
+                            MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
+                            MainPage.getFrame().setEnabled(true);
+                            
+                            sesion = Sesion.getInstance();
+                            Persona e = new Empleado(id);
+                            e.rellenarDatos();
+                            sesion.setPersona(e);
+                            sesion.setLogged(true);
+                            failed = false;
+                            
+                            
+                            frame.dispose();
                         }
                     }
                 } catch (SQLException ex) {
@@ -197,7 +219,7 @@ public final class BD {
                 }
                 break;
         }
-        if (failed == false)
+        if (failed == true)
             JOptionPane.showMessageDialog(null, "Los datos introducidos son incorrectos");
         
     }
@@ -233,6 +255,49 @@ public final class BD {
             System.err.println(ex.getMessage());
         }
         return funciones;
+    }
+    
+    public List<String> solicitarDatosPersona(Persona p, int id){
+        List<String> datos_persona = new ArrayList<>();
+        
+        PreparedStatement st;
+        
+        switch (p.getClass().getName()) {
+            case "proyectocinejungla.Usuario":
+                
+                try {
+                    st = connect.prepareStatement("SELECT Nombre, Correo, Contraseña, Puntos, [Tiempo Obtencion] FROM Cliente Where Id ="+id);
+                    ResultSet result = st.executeQuery();
+                                        
+                    while(result.next()){
+                        datos_persona.add(result.getString(1));
+                        datos_persona.add(result.getString(2));
+                        datos_persona.add(result.getString(3));
+                        datos_persona.add(result.getString(4));
+                        datos_persona.add(result.getString(5));
+                    }
+                    
+                } catch (SQLException ex) {
+                }
+                break;
+            case "proyectocinejungla.Empleado":
+                try {
+                    st = connect.prepareStatement("SELECT Nombre, Cedula, Contraseña, Cargo, [Fecha Inicio Contrato], Salario, Cine FROM Empleado Where Id ="+id);
+                    ResultSet result = st.executeQuery();
+                    while(result.next()){
+                        datos_persona.add(result.getString(1));
+                        datos_persona.add(result.getString(2));
+                        datos_persona.add(result.getString(3));
+                        datos_persona.add(result.getString(4));
+                        datos_persona.add(result.getString(5));
+                        datos_persona.add(result.getString(6));
+                        datos_persona.add(result.getString(7));
+                    }
+                } catch (SQLException ex) {
+                }
+                break;
+        }
+        return datos_persona;
     }
     
 

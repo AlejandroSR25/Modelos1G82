@@ -5,17 +5,20 @@
  */
 package proyectocinejungla;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author USUARIO
  */
 public class PerfilEmployee extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Comida
-     */
-    public PerfilEmployee() {
+    Empleado e;
+
+    public PerfilEmployee(Empleado e) {
+        this.e = e;
         initComponents();
+        crearLabels();
     }
 
     /**
@@ -43,6 +46,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -77,7 +81,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel5.setText("Cedula:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(720, 80, 230, 31);
+        jLabel5.setBounds(720, 80, 100, 31);
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel10.setText("Cargo:");
@@ -138,6 +142,13 @@ public class PerfilEmployee extends javax.swing.JPanel {
 
         add(jPanel3);
         jPanel3.setBounds(100, 130, 1720, 730);
+
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 0, 0));
+        jButton2.setText("CERRAR SESION");
+        jButton2.setFocusable(false);
+        add(jButton2);
+        jButton2.setBounds(1620, 880, 190, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
@@ -148,9 +159,47 @@ public class PerfilEmployee extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
+    private void crearLabels() {
+        JLabel label_nombre_e = new JLabel();
+        label_nombre_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_nombre_e.setText(this.e.getNombre());
+        jPanel2.add(label_nombre_e);
+        label_nombre_e.setBounds(160, 80, 530, 30);
+
+        JLabel label_cc_e = new JLabel();
+        label_cc_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_cc_e.setText(String.valueOf(this.e.getCedula()));
+        jPanel2.add(label_cc_e);
+        label_cc_e.setBounds(990, 80, 480, 30);
+
+        JLabel label_cargo_e = new JLabel();
+        label_cargo_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_cargo_e.setText(this.e.getCargo());
+        jPanel2.add(label_cargo_e);
+        label_cargo_e.setBounds(160, 170, 530, 30);
+
+        JLabel label_fecha_contrato_e = new JLabel();
+        label_fecha_contrato_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_fecha_contrato_e.setText(this.e.getFecha_inicio_contrato());
+        jPanel2.add(label_fecha_contrato_e);
+        label_fecha_contrato_e.setBounds(990, 170, 480, 30);
+
+        JLabel label_salario_e = new JLabel();
+        label_salario_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_salario_e.setText(String.valueOf(this.e.getSalario()));
+        jPanel2.add(label_salario_e);
+        label_salario_e.setBounds(160, 260, 530, 30);
+
+        JLabel label_cine_e = new JLabel();
+        label_cine_e.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_cine_e.setText(String.valueOf(this.e.getCine_afiliado()));
+        jPanel2.add(label_cine_e);
+        label_cine_e.setBounds(990, 260, 480, 30);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

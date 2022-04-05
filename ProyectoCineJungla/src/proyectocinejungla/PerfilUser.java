@@ -5,17 +5,20 @@
  */
 package proyectocinejungla;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author USUARIO
  */
 public class PerfilUser extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Comida
-     */
-    public PerfilUser() {
+    Usuario u;
+
+    public PerfilUser(Usuario u) {
+        this.u = u;
         initComponents();
+        crearLabels();
     }
 
     /**
@@ -46,6 +49,7 @@ public class PerfilUser extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -165,6 +169,13 @@ public class PerfilUser extends javax.swing.JPanel {
 
         add(jPanel3);
         jPanel3.setBounds(100, 130, 1720, 730);
+
+        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 0, 0));
+        jButton3.setText("CERRAR SESION");
+        jButton3.setFocusable(false);
+        add(jButton3);
+        jButton3.setBounds(1630, 880, 190, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
@@ -182,11 +193,30 @@ public class PerfilUser extends javax.swing.JPanel {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+    private void crearLabels() {
+        JLabel label_nombre_u = new JLabel();
+        label_nombre_u.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_nombre_u.setText(this.u.getNombre());
+        jPanel2.add(label_nombre_u);
+        label_nombre_u.setBounds(170, 100, 520, 30);
 
+        JLabel label_correo_u = new JLabel();
+        label_correo_u.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_correo_u.setText(this.u.getCorreo());
+        jPanel2.add(label_correo_u);
+        label_correo_u.setBounds(290, 170, 410, 30);
+
+        JLabel label_puntos_u = new JLabel();
+        label_puntos_u.setFont(new java.awt.Font("Century Gothic", 0, 18));
+        label_puntos_u.setText(String.valueOf(this.u.getPuntos()));
+        jPanel2.add(label_puntos_u);
+        label_puntos_u.setBounds(140, 240, 560, 30);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
