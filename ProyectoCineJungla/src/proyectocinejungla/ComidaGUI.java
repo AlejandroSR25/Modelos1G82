@@ -44,6 +44,15 @@ public class ComidaGUI extends javax.swing.JPanel {
         peqPopSal6 = new javax.swing.JLabel();
         titulo2 = new javax.swing.JLabel();
         titulo3 = new javax.swing.JLabel();
+        peqPopSal4 = new javax.swing.JLabel();
+        titulo4 = new javax.swing.JLabel();
+        peqPopSal7 = new javax.swing.JLabel();
+        titulo5 = new javax.swing.JLabel();
+        peqPopSal8 = new javax.swing.JLabel();
+        titulo6 = new javax.swing.JLabel();
+        peqPopSal9 = new javax.swing.JLabel();
+        peqPopSal10 = new javax.swing.JLabel();
+        titulo7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -101,7 +110,7 @@ public class ComidaGUI extends javax.swing.JPanel {
         peqPopSal2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         peqPopSal2.setText("Pequeñas:");
         jPanel3.add(peqPopSal2);
-        peqPopSal2.setBounds(120, 270, 70, 16);
+        peqPopSal2.setBounds(120, 270, 100, 16);
 
         titulo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo.setText("Maiz salado");
@@ -111,7 +120,7 @@ public class ComidaGUI extends javax.swing.JPanel {
         peqPopSal3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         peqPopSal3.setText("Pequeñas:");
         jPanel3.add(peqPopSal3);
-        peqPopSal3.setBounds(50, 620, 70, 16);
+        peqPopSal3.setBounds(370, 650, 110, 16);
 
         titulo1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo1.setText("Maiz dulce");
@@ -121,7 +130,7 @@ public class ComidaGUI extends javax.swing.JPanel {
         peqPopSal6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         peqPopSal6.setText("Pequeña:");
         jPanel3.add(peqPopSal6);
-        peqPopSal6.setBounds(310, 290, 70, 16);
+        peqPopSal6.setBounds(380, 270, 100, 16);
 
         titulo2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo2.setText("Agua");
@@ -132,6 +141,51 @@ public class ComidaGUI extends javax.swing.JPanel {
         titulo3.setText("Gaseosa");
         jPanel3.add(titulo3);
         titulo3.setBounds(370, 240, 120, 23);
+
+        peqPopSal4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal4.setText("Pequeñas:");
+        jPanel3.add(peqPopSal4);
+        peqPopSal4.setBounds(120, 600, 100, 16);
+
+        titulo4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo4.setText("Perro caliente");
+        jPanel3.add(titulo4);
+        titulo4.setBounds(630, 240, 150, 23);
+
+        peqPopSal7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal7.setText("Pequeña:");
+        jPanel3.add(peqPopSal7);
+        peqPopSal7.setBounds(640, 270, 120, 16);
+
+        titulo5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo5.setText("Nachos");
+        jPanel3.add(titulo5);
+        titulo5.setBounds(660, 590, 120, 23);
+
+        peqPopSal8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal8.setText("Pequeña:");
+        jPanel3.add(peqPopSal8);
+        peqPopSal8.setBounds(660, 620, 90, 16);
+
+        titulo6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo6.setText("Jet");
+        jPanel3.add(titulo6);
+        titulo6.setBounds(960, 230, 40, 23);
+
+        peqPopSal9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal9.setText("Pequeña:");
+        jPanel3.add(peqPopSal9);
+        peqPopSal9.setBounds(940, 260, 140, 16);
+
+        peqPopSal10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal10.setText("Pequeña:");
+        jPanel3.add(peqPopSal10);
+        peqPopSal10.setBounds(960, 610, 100, 16);
+
+        titulo7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo7.setText("Snickers");
+        jPanel3.add(titulo7);
+        titulo7.setBounds(950, 580, 120, 23);
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 730));
     }// </editor-fold>//GEN-END:initComponents
@@ -148,12 +202,21 @@ public class ComidaGUI extends javax.swing.JPanel {
     private javax.swing.JLabel imgPopSal;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel peqPopSal10;
     private javax.swing.JLabel peqPopSal2;
     private javax.swing.JLabel peqPopSal3;
+    private javax.swing.JLabel peqPopSal4;
     private javax.swing.JLabel peqPopSal6;
+    private javax.swing.JLabel peqPopSal7;
+    private javax.swing.JLabel peqPopSal8;
+    private javax.swing.JLabel peqPopSal9;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel titulo1;
     private javax.swing.JLabel titulo2;
     private javax.swing.JLabel titulo3;
+    private javax.swing.JLabel titulo4;
+    private javax.swing.JLabel titulo5;
+    private javax.swing.JLabel titulo6;
+    private javax.swing.JLabel titulo7;
     // End of variables declaration//GEN-END:variables
 }

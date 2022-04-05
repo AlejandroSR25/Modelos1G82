@@ -29,6 +29,11 @@ public class SillaTipo {
         this.estado = estado;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    
    
 
     public SillaTipo(String tipo, String estado) {

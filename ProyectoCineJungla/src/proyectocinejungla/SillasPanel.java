@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 
 /**
  *
@@ -33,8 +34,30 @@ public class SillasPanel extends javax.swing.JPanel {
         this.funcion=funcion;
         initComponents();
         iniciar();
+        labelSala.setText(baseDatos.fun(funcion, MainPage.getCineId()).get(0));
     }
 
+    public static JLabel getCantG() {
+        return cantG;
+    }
+
+    public static void setCantG(JLabel cantG) {
+        SillasPanel.cantG = cantG;
+    }
+
+    public static JLabel getCantP() {
+        return cantP;
+    }
+
+    public static void setCantP(JLabel cantP) {
+        SillasPanel.cantP = cantP;
+    }
+
+    
+    
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +67,7 @@ public class SillasPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoBotones = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         imgG = new javax.swing.JLabel();
@@ -55,6 +79,21 @@ public class SillasPanel extends javax.swing.JPanel {
         labelG2 = new javax.swing.JLabel();
         imgG3 = new javax.swing.JLabel();
         labelG3 = new javax.swing.JLabel();
+        cantG = new javax.swing.JLabel();
+        labelSala = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cantP = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        radioBoton = new javax.swing.JRadioButton();
+        radioBoton1 = new javax.swing.JRadioButton();
+        radioBoton2 = new javax.swing.JRadioButton();
+        radioBoton3 = new javax.swing.JRadioButton();
+        botonComprar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -105,24 +144,154 @@ public class SillasPanel extends javax.swing.JPanel {
         labelG3.setText("Silla Ocupada");
         jPanel3.add(labelG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 660, 120, 30));
 
+        cantG.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        cantG.setForeground(new java.awt.Color(0, 0, 0));
+        cantG.setText("0");
+        jPanel3.add(cantG, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 130, 70, 70));
+
+        labelSala.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        labelSala.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(labelSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 320, 90, 70));
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Generales:");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 130, 140, 70));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Pago:");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 370, 180, 70));
+
+        cantP.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        cantP.setForeground(new java.awt.Color(0, 0, 0));
+        cantP.setText("0");
+        jPanel3.add(cantP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1410, 220, 70, 70));
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Preferenciales:");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 220, 180, 70));
+
+        grupoBotones.add(radioBoton);
+        radioBoton.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        radioBoton.setText("Tarjeta de credito");
+        radioBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBotonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(radioBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 440, 170, 40));
+
+        grupoBotones.add(radioBoton1);
+        radioBoton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        radioBoton1.setText("PSE");
+        radioBoton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBoton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(radioBoton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 480, 170, 40));
+
+        grupoBotones.add(radioBoton2);
+        radioBoton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        radioBoton2.setText("Efectivo (efecty,baloto,etc..)");
+        radioBoton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBoton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(radioBoton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 520, 230, 40));
+
+        grupoBotones.add(radioBoton3);
+        radioBoton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        radioBoton3.setText("Redencion de puntos Cine Junlga (100 pts)");
+        radioBoton3.setEnabled(false);
+        radioBoton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBoton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(radioBoton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 560, 330, 40));
+
+        botonComprar.setBackground(new java.awt.Color(204, 0, 51));
+        botonComprar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        botonComprar.setForeground(new java.awt.Color(255, 255, 255));
+        botonComprar.setText("Comprar");
+        jPanel3.add(botonComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 650, 150, 40));
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Entradas");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 280, 70));
+
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Sala:");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 320, 90, 70));
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("$15.000");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 280, 120, 30));
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("$11.000");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 196, 120, 30));
+
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 780));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void radioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioBotonActionPerformed
+
+    private void radioBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioBoton1ActionPerformed
+
+    private void radioBoton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioBoton2ActionPerformed
+
+    private void radioBoton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBoton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioBoton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonComprar;
+    private static javax.swing.JLabel cantG;
+    private static javax.swing.JLabel cantP;
+    private javax.swing.ButtonGroup grupoBotones;
     private javax.swing.JLabel imgG;
     private javax.swing.JLabel imgG1;
     private javax.swing.JLabel imgG2;
     private javax.swing.JLabel imgG3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelG;
     private javax.swing.JLabel labelG1;
     private javax.swing.JLabel labelG2;
     private javax.swing.JLabel labelG3;
+    private javax.swing.JLabel labelSala;
+    private javax.swing.JRadioButton radioBoton;
+    private javax.swing.JRadioButton radioBoton1;
+    private javax.swing.JRadioButton radioBoton2;
+    private javax.swing.JRadioButton radioBoton3;
     // End of variables declaration//GEN-END:variables
 
+    
+    
     private static Sala sala = new Sala();
 
     public static Sala getSala() {

@@ -169,6 +169,21 @@ public final class BD {
         
     }
     
+    public List<String> fun(int funcion, int cine) {
+        List<String> sillas = new ArrayList<String>();
+        ResultSet result = null;
+
+        try {
+            PreparedStatement st = connect.prepareStatement("select Sala from Cine" +cine+" where Funcion ="+funcion);
+            result = st.executeQuery();
+            while (result.next()) {
+                sillas.add(result.getString("Sala"));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return sillas;
+    }
     
     public List<String> pelicula(int pelicula) {
         List<String> funciones = new ArrayList<String>();

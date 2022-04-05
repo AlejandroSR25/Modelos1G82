@@ -22,26 +22,38 @@ import java.text.AttributedCharacterIterator;
  * @author User
  */
 public class Presionar implements MouseListener {
-    
-    
+
     private BD baseDatos = BD.getInstance();
 
     @Override
     public void mouseClicked(MouseEvent me) {
         for (int i = 0; i < 60; i++) {
             if (me.getSource().equals(Sala.getAccio().get(i))) {
-                if(SillasPanel.getSala().getSillas().get(i).getType().getEstado().equals("Libre"))
-                {
-                     //baseDatos.modifEstado("Seleccionada", Sala.getAccio().get(i).getText(), 1);
-                     SillasPanel.getSala().getSillas().get(i).getType().setEstado("Seleccionada");
-                     SillasPanel.getSala().repaint();
-                     
-                }else{
+                if (SillasPanel.getSala().getSillas().get(i).getType().getEstado().equals("Libre")) {
+                    if (SillasPanel.getSala().getSillas().get(i).getType().getTipo().equals("General")) {
+                        int aux = Integer.parseInt(SillasPanel.getCantG().getText());
+                        SillasPanel.getCantG().setText("" + (aux + 1));
+                    } else {
+                        int aux = Integer.parseInt(SillasPanel.getCantP().getText());
+                        SillasPanel.getCantP().setText("" + (aux + 1));
+                    }
+
+                    //baseDatos.modifEstado("Seleccionada", Sala.getAccio().get(i).getText(), 1);
+                    SillasPanel.getSala().getSillas().get(i).getType().setEstado("Seleccionada");
+                    SillasPanel.getSala().repaint();
+
+                } else {
+                    if (SillasPanel.getSala().getSillas().get(i).getType().getTipo().equals("General")) {
+                        int aux = Integer.parseInt(SillasPanel.getCantG().getText());
+                        SillasPanel.getCantG().setText("" + (aux - 1));
+                    } else {
+                        int aux = Integer.parseInt(SillasPanel.getCantP().getText());
+                        SillasPanel.getCantP().setText("" + (aux - 1));
+                    }
                     SillasPanel.getSala().getSillas().get(i).getType().setEstado("Libre");
-                     //baseDatos.modifEstado("Libre", Sala.getAccio().get(i).getText(), 1);
-                     SillasPanel.getSala().repaint();
-                     //SillasPanel.getSala().getContentPane().revalidate();
-                     
+                    //baseDatos.modifEstado("Libre", Sala.getAccio().get(i).getText(), 1);
+                    SillasPanel.getSala().repaint();
+
                 }
                 break;
             }
