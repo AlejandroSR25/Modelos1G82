@@ -9,12 +9,12 @@ package proyectocinejungla;
  *
  * @author USUARIO
  */
-public class PerfilUser extends javax.swing.JPanel {
+public class PerfilEmployee extends javax.swing.JPanel {
 
     /**
      * Creates new form Comida
      */
-    public PerfilUser() {
+    public PerfilEmployee() {
         initComponents();
     }
 
@@ -30,22 +30,19 @@ public class PerfilUser extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -64,65 +61,41 @@ public class PerfilUser extends javax.swing.JPanel {
         jPanel3.add(jLabel4);
         jLabel4.setBounds(59, 705, 383, 0);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CAMBIAR CORREO ELECTRONICO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 24))); // NOI18N
-        jPanel1.setLayout(null);
-
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(140, 130, 440, 34);
-
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Nuevo Correo Electronico:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(140, 80, 440, 31);
-
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Confirmar Correo Electronico:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(140, 180, 440, 31);
-
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField6);
-        jTextField6.setBounds(140, 230, 440, 34);
-
-        jButton1.setText("CAMBIAR");
-        jButton1.setFocusable(false);
-        jPanel1.add(jButton1);
-        jButton1.setBounds(320, 290, 90, 23);
-
-        jPanel3.add(jPanel1);
-        jPanel1.setBounds(490, 370, 735, 350);
-
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMACION PERSONAL", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 24))); // NOI18N
         jPanel2.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel1.setText("Puntos:");
+        jLabel1.setText("Cine Afiliado:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(50, 240, 90, 31);
+        jLabel1.setBounds(720, 260, 160, 31);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel8.setText("Nombre:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(50, 100, 110, 31);
+        jLabel8.setBounds(50, 80, 110, 31);
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel5.setText("Correo Electronico:");
+        jLabel5.setText("Cedula:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(50, 170, 230, 31);
+        jLabel5.setBounds(720, 80, 230, 31);
+
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel10.setText("Cargo:");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(50, 170, 90, 31);
+
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel11.setText("Fecha Inicio Contrato:");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(720, 170, 270, 31);
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel6.setText("Salario:");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(50, 260, 100, 30);
 
         jPanel3.add(jPanel2);
-        jPanel2.setBounds(100, 10, 735, 350);
+        jPanel2.setBounds(100, 0, 1520, 350);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CAMBIAR CONTRASEÑA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 24))); // NOI18N
         jPanel4.setLayout(null);
@@ -131,7 +104,7 @@ public class PerfilUser extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Contraseña:");
         jPanel4.add(jLabel3);
-        jLabel3.setBounds(150, 70, 440, 31);
+        jLabel3.setBounds(550, 70, 440, 31);
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,13 +112,13 @@ public class PerfilUser extends javax.swing.JPanel {
             }
         });
         jPanel4.add(jPasswordField1);
-        jPasswordField1.setBounds(150, 120, 440, 34);
+        jPasswordField1.setBounds(550, 120, 440, 34);
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Confirmar Contraseña:");
         jPanel4.add(jLabel9);
-        jLabel9.setBounds(150, 170, 440, 31);
+        jLabel9.setBounds(550, 170, 440, 31);
 
         jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,23 +126,19 @@ public class PerfilUser extends javax.swing.JPanel {
             }
         });
         jPanel4.add(jPasswordField2);
-        jPasswordField2.setBounds(150, 220, 440, 34);
+        jPasswordField2.setBounds(550, 220, 440, 34);
 
-        jButton2.setText("CAMBIAR");
-        jButton2.setFocusable(false);
-        jPanel4.add(jButton2);
-        jButton2.setBounds(320, 280, 90, 23);
+        jButton1.setText("CAMBIAR");
+        jButton1.setFocusable(false);
+        jPanel4.add(jButton1);
+        jButton1.setBounds(720, 280, 90, 23);
 
         jPanel3.add(jPanel4);
-        jPanel4.setBounds(880, 10, 735, 350);
+        jPanel4.setBounds(100, 360, 1520, 350);
 
         add(jPanel3);
         jPanel3.setBounds(100, 130, 1720, 730);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
         // TODO add your handling code here:
@@ -179,30 +148,23 @@ public class PerfilUser extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
