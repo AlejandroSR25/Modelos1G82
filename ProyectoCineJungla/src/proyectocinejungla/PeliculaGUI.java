@@ -25,6 +25,8 @@ public class PeliculaGUI extends javax.swing.JPanel {
     private JFrame frame;
     private static List<JButton> botones = new ArrayList<>();
 
+    private Sesion sesion;
+
     public PeliculaGUI(Pelicula peli, JFrame frame) {
         initComponents();
         this.frame = frame;
@@ -170,10 +172,11 @@ public class PeliculaGUI extends javax.swing.JPanel {
     }
 
     public void funciones() {
+        sesion = Sesion.getInstance();
         char pelicu = peli.getDirectorio_img().charAt(peli.getDirectorio_img().length() - 5);
         List<String> funci = baseDatos.pelicula(Character.getNumericValue(pelicu));
         List<Integer> id = new ArrayList<>();
-        
+
         List<String> funcion = new ArrayList<>();
         for (int i = 1; i < funci.size(); i += 2) {
             id.add(Integer.parseInt(funci.get(i)));
@@ -182,7 +185,7 @@ public class PeliculaGUI extends javax.swing.JPanel {
             funcion.add(funci.get(i));
         }
         for (int i = 0; i < funcion.size(); i++) {
-            int aux=id.get(i);
+            int aux = id.get(i);
             JButton boton = new JButton();
             boton.setBackground(new java.awt.Color(255, 255, 255));
             boton.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -190,12 +193,17 @@ public class PeliculaGUI extends javax.swing.JPanel {
             boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             boton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    
-                    frame.getContentPane().removeAll();
-                    frame.getContentPane().add(MainPage.getEncabezado()).setBounds(0, 0, 1920, 120);
-                    frame.getContentPane().add(new SillasPanel(aux)).setBounds(0, 120, 1920, 960);
-                    frame.getContentPane().revalidate();
-                    frame.getContentPane().repaint();
+                    if (sesion.isLogged()) {
+                        frame.getContentPane().removeAll();
+                        frame.getContentPane().add(MainPage.getEncabezado()).setBounds(0, 0, 1920, 120);
+                        frame.getContentPane().add(new SillasPanel(aux)).setBounds(0, 120, 1920, 960);
+                        frame.getContentPane().revalidate();
+                        frame.getContentPane().repaint();
+                    } else {
+                        MainPage.getFrameLogin().setVisible(true);
+                        frame.setEnabled(false);
+                    }
+
                 }
             });
             jPanel4.add(boton);

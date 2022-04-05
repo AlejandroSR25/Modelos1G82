@@ -24,13 +24,17 @@ public class MainPage extends javax.swing.JFrame {
     private BD baseDatos;
     private Sesion sesion = Sesion.getInstance();
     private static JFrame frame;
-    private static JFrame framelogin;
+    private static JFrame frameLogin = new Login();
     private static int cineId;
     private static int puntCine;
     List<Pelicula> peliculas = new ArrayList<>();
 
     public static int getCineId() {
         return cineId;
+    }
+
+    public static JFrame getFrameLogin() {
+        return frameLogin;
     }
 
     
@@ -284,8 +288,8 @@ public class MainPage extends javax.swing.JFrame {
     public static JPanel getEncabezado() {
         return encabezado;
     }
-    
-    public static JFrame getFrame(){
+
+    public static JFrame getFrame() {
         return frame;
     }
 
@@ -310,7 +314,7 @@ public class MainPage extends javax.swing.JFrame {
 
             baseDatos = BD.getInstance();
             List<String> datos = baseDatos.cine(jComboBox1.getSelectedIndex());
-            
+
             List<String> nombre = new ArrayList<>();
             List<String> puntuacion = new ArrayList<>();
             for (int i = 1; i < datos.size(); i += 2) {
@@ -319,7 +323,7 @@ public class MainPage extends javax.swing.JFrame {
             for (int i = 0; i < datos.size(); i += 2) {
                 nombre.add(datos.get(i));
             }
-            cineId =jComboBox1.getSelectedIndex();
+            cineId = jComboBox1.getSelectedIndex();
 
             getContentPane().remove(jPanel1);
 
@@ -339,10 +343,9 @@ public class MainPage extends javax.swing.JFrame {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
 
         if (!sesion.isLogged()) {
-            Login frame_user_login = new Login();
-            frame_user_login.setVisible(true);
+            frameLogin.setVisible(true);
             this.setEnabled(false);
-       } else {
+        } else {
             getContentPane().removeAll();
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
             getContentPane().add(new Perfil()).setBounds(0, 120, 1920, 960);
@@ -357,10 +360,10 @@ public class MainPage extends javax.swing.JFrame {
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
             getContentPane().add(new PeliculaGUI(peli, this)).setBounds(0, 120, 1920, 960);
             getContentPane().revalidate();
-            getContentPane().repaint();            
+            getContentPane().repaint();
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
