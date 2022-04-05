@@ -49,6 +49,8 @@ public class Sala extends JPanel {
     }
 
     public void acciones() {
+        Presionar pre = new Presionar();
+        accio.clear();
         for (int i = 0; i < 60; i++) {
             if (sillas.get(i).getType().getEstado().equals("Ocupada")) {
                 JLabel accion = new JLabel();
