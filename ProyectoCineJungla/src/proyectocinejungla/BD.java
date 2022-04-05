@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -103,21 +105,31 @@ public final class BD {
         }
     }
     
-    public void Login(javax.swing.JTextField jtf, javax.swing.JPasswordField jpf, String person){
+    public void Login(javax.swing.JTextField jtf, javax.swing.JPasswordField jpf, String person, javax.swing.JFrame frame){
+        boolean failed = true;
         switch (person) {
             case "User":
                 try {
-                    PreparedStatement st = connect.prepareStatement("SELECT Correo, Contraseña FROM Cliente");
+                    PreparedStatement st = connect.prepareStatement("SELECT Correo, Contraseña, Id, Nombre FROM Cliente");
                     ResultSet result = st.executeQuery();
 
                     while (result.next()) {
                         String email = result.getString(1);
                         String pw = result.getString(2);
+                        int id = result.getInt(3);
+                        String nombre = result.getString(4);
 
-                        if (jtf.getText().equals(email) && String.valueOf(jpf.getPassword()).equals(pw)) {
-                            System.out.println("Exito");
-                        } else {
-                            JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectas");
+                        if (jtf.getText().equals(email) && String.valueOf(jpf.getPassword()).equals(pw)){
+                            //System.out.println("Exito");
+                            System.out.println(jtf.getText().equals(email)+" "+String.valueOf(jpf.getPassword()).equals(pw));
+                            JLabel account_label = new JLabel();
+                            account_label.setText("Logged as: "+nombre);
+                            account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
+                            account_label.setForeground(new java.awt.Color(102, 0, 0));
+                            account_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                            MainPage.getEncabezado().add(account_label).setBounds(1680, 93, 200, 20);
+                            MainPage.getFrame().setEnabled(true);
+                            frame.dispose();
                         }
                     }
                 } catch (SQLException ex) {
@@ -144,6 +156,8 @@ public final class BD {
                 }
                 break;
         }
+        if (failed == false)
+            JOptionPane.showMessageDialog(null, "Los datos introducidos son incorrectos");
         
     }
     

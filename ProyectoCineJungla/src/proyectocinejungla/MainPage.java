@@ -23,7 +23,7 @@ public class MainPage extends javax.swing.JFrame {
      */
     private BD baseDatos;
     private Sesion sesion = Sesion.getInstance();
-    private JFrame frame;
+    private static JFrame frame;
     private static int cineId;
     private static int puntCine;
     List<Pelicula> peliculas = new ArrayList<>();
@@ -111,8 +111,6 @@ public class MainPage extends javax.swing.JFrame {
         flowLayout1.setAlignOnBaseline(true);
         jPanel3.setLayout(flowLayout1);
 
-        
-
         javax.swing.GroupLayout carteleraLayout = new javax.swing.GroupLayout(cartelera);
         cartelera.setLayout(carteleraLayout);
         carteleraLayout.setHorizontalGroup(
@@ -145,12 +143,15 @@ public class MainPage extends javax.swing.JFrame {
 
         encabezado.setBackground(new java.awt.Color(189, 40, 47));
         encabezado.setPreferredSize(new java.awt.Dimension(1920, 120));
+        encabezado.setLayout(null);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Header.png"))); // NOI18N
+        encabezado.add(jLabel1);
+        jLabel1.setBounds(19, 20, 617, 94);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/UserIcon/UserIcon.png"))); // NOI18N
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -162,9 +163,11 @@ public class MainPage extends javax.swing.JFrame {
                 jLabel5MouseExited(evt);
             }
         });
+        encabezado.add(jLabel5);
+        jLabel5.setBounds(1749, 24, 50, 58);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/Cartelera_button.png"))); // NOI18N
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel3.setEnabled(false);
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -177,9 +180,12 @@ public class MainPage extends javax.swing.JFrame {
                 jLabel3MouseExited(evt);
             }
         });
+        jLabel3.setVisible(false);
+        encabezado.add(jLabel3);
+        jLabel3.setBounds(1396, 24, 114, 58);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Buttons/Comidas_button.png"))); // NOI18N
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel4.setEnabled(false);
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -192,13 +198,16 @@ public class MainPage extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
+        jLabel4.setVisible(false);;
+        encabezado.add(jLabel4);
+        jLabel4.setBounds(1567, 24, 100, 58);
 
         jComboBox1.setBackground(new java.awt.Color(189, 40, 47));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Titan", "Unicentro", "Plaza Central", "Gran Estación", "Embajador", "Las Americas" }));
         jComboBox1.setToolTipText("");
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jComboBox1.setFocusable(false);
         jComboBox1.setOpaque(false);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -206,61 +215,23 @@ public class MainPage extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        encabezado.add(jComboBox1);
+        jComboBox1.setBounds(806, 43, 151, 23);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("MULTIPLEX");
+        encabezado.add(jLabel6);
+        jLabel6.setBounds(672, 24, 104, 58);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Estrella Roja.png"))); // NOI18N
         jLabel7.setText("PUNTUA NUESTROS SERVICIOS");
         jLabel7.setEnabled(false);
-
-        jLabel3.setVisible(false);
-        jLabel4.setVisible(false);;
         jLabel7.setVisible(false);
-
-        javax.swing.GroupLayout encabezadoLayout = new javax.swing.GroupLayout(encabezado);
-        encabezado.setLayout(encabezadoLayout);
-        encabezadoLayout.setHorizontalGroup(
-            encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(encabezadoLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jLabel6)
-                .addGap(30, 30, 30)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(57, 57, 57)
-                .addComponent(jLabel4)
-                .addGap(82, 82, 82)
-                .addComponent(jLabel5)
-                .addGap(121, 121, 121))
-        );
-        encabezadoLayout.setVerticalGroup(
-            encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(encabezadoLayout.createSequentialGroup()
-                .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(encabezadoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(encabezadoLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, encabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(23, 23, 23))
-        );
+        encabezado.add(jLabel7);
+        jLabel7.setBounds(967, 24, 349, 50);
 
         getContentPane().add(encabezado);
         encabezado.setBounds(0, 0, 1920, 120);
@@ -311,6 +282,10 @@ public class MainPage extends javax.swing.JFrame {
 
     public static JPanel getEncabezado() {
         return encabezado;
+    }
+    
+    public static JFrame getFrame(){
+        return frame;
     }
 
 
@@ -376,10 +351,10 @@ public class MainPage extends javax.swing.JFrame {
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
             getContentPane().add(new PeliculaGUI(peli, this)).setBounds(0, 120, 1920, 960);
             getContentPane().revalidate();
-            getContentPane().repaint();
+            getContentPane().repaint();            
         }
     }
-
+    
     /**
      * @param args the command line arguments
      */

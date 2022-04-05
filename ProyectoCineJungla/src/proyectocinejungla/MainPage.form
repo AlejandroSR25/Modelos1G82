@@ -7,7 +7,7 @@
       <Rectangle value="[0, 0, 0, 0]"/>
     </Property>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-      <Color id="Cursor Por defecto"/>
+      <Color id="Default Cursor"/>
     </Property>
     <Property name="extendedState" type="int" value="6"/>
     <Property name="resizable" type="boolean" value="false"/>
@@ -151,9 +151,6 @@
               <Dimension value="[1720, 2000]"/>
             </Property>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="for(int i=0;i&lt;3;i++){&#xa;    jPanel3.add(new ProductoConcretoPanel(new Pelicula(&quot;Morbius &quot;+ (i+1), &quot;/Imagenes/Productos/Pelicula/IMGMorbius.jpg&quot;, &quot;Desc&quot;)));    &#xa;}&#xa;&#xa;Component[] cmp = jPanel3.getComponents();&#xa;        &#xa;for(int i=0;i&lt;3;i++){&#xa;    if(cmp[i] instanceof javax.swing.JPanel){&#xa;        cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {&#xa;            public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;                JPanelPeliculaMouseClicked(evt);&#xa;            }&#xa;        });&#x9;&#xa;    }&#xa;}"/>
-          </AuxValues>
           <LayoutCode>
             <CodeStatement>
               <CodeExpression id="1_flowLayout1">
@@ -241,54 +238,8 @@
         </Constraint>
       </Constraints>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="617" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" pref="151" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="80" max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="94" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel7" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -298,6 +249,11 @@
               <Image iconType="3" name="/Imagenes/MainPage/Header.png"/>
             </Property>
           </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="19" y="20" width="617" height="94"/>
+            </Constraint>
+          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -305,7 +261,7 @@
               <Image iconType="3" name="/Imagenes/MainPage/Buttons/UserIcon/UserIcon.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor de Mano"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -313,6 +269,11 @@
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseEntered"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseExited"/>
           </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="1749" y="24" width="-1" height="58"/>
+            </Constraint>
+          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -320,7 +281,7 @@
               <Image iconType="3" name="/Imagenes/MainPage/Buttons/Cartelera_button.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor de Mano"/>
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -332,6 +293,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="jLabel3.setVisible(false);"/>
           </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="1396" y="24" width="-1" height="58"/>
+            </Constraint>
+          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -339,7 +305,7 @@
               <Image iconType="3" name="/Imagenes/MainPage/Buttons/Comidas_button.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor de Mano"/>
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -351,6 +317,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="jLabel4.setVisible(false);;"/>
           </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="1567" y="24" width="-1" height="58"/>
+            </Constraint>
+          </Constraints>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
@@ -376,7 +347,7 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor de Mano"/>
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="false"/>
@@ -387,6 +358,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="806" y="43" width="151" height="-1"/>
+            </Constraint>
+          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -398,6 +374,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="MULTIPLEX"/>
           </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="672" y="24" width="-1" height="58"/>
+            </Constraint>
+          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -416,6 +397,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="jLabel7.setVisible(false);"/>
           </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="967" y="24" width="-1" height="50"/>
+            </Constraint>
+          </Constraints>
         </Component>
       </SubComponents>
     </Container>
