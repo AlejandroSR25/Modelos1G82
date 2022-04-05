@@ -33,6 +33,17 @@ public class ComidaGUI extends javax.swing.JPanel {
         imgPopDul = new javax.swing.JLabel();
         imgGas = new javax.swing.JLabel();
         imgAgu = new javax.swing.JLabel();
+        imgPer = new javax.swing.JLabel();
+        imgNac = new javax.swing.JLabel();
+        imgJet = new javax.swing.JLabel();
+        imgCho = new javax.swing.JLabel();
+        peqPopSal2 = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        peqPopSal3 = new javax.swing.JLabel();
+        titulo1 = new javax.swing.JLabel();
+        peqPopSal6 = new javax.swing.JLabel();
+        titulo2 = new javax.swing.JLabel();
+        titulo3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(229, 227, 227));
         setPreferredSize(new java.awt.Dimension(1920, 960));
@@ -50,22 +61,77 @@ public class ComidaGUI extends javax.swing.JPanel {
         imgPopSal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/popcorn.png"))); // NOI18N
         imgPopSal.setText("jLabel1");
         jPanel3.add(imgPopSal);
-        imgPopSal.setBounds(60, 70, 200, 222);
+        imgPopSal.setBounds(60, 20, 200, 222);
 
         imgPopDul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/popcorn-dulce.png"))); // NOI18N
         imgPopDul.setText("jLabel1");
         jPanel3.add(imgPopDul);
-        imgPopDul.setBounds(70, 440, 200, 190);
+        imgPopDul.setBounds(70, 380, 200, 190);
 
         imgGas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/gaseosa.png"))); // NOI18N
         imgGas.setText("jLabel1");
         jPanel3.add(imgGas);
-        imgGas.setBounds(300, 90, 200, 180);
+        imgGas.setBounds(310, 50, 200, 180);
 
         imgAgu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/agua.png"))); // NOI18N
         imgAgu.setText("jLabel3");
         jPanel3.add(imgAgu);
-        imgAgu.setBounds(310, 390, 200, 244);
+        imgAgu.setBounds(310, 370, 200, 244);
+
+        imgPer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/hotdog.png"))); // NOI18N
+        imgPer.setText("jLabel1");
+        jPanel3.add(imgPer);
+        imgPer.setBounds(580, 120, 200, 116);
+
+        imgNac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/nachos.png"))); // NOI18N
+        imgNac.setText("jLabel3");
+        jPanel3.add(imgNac);
+        imgNac.setBounds(590, 450, 200, 123);
+
+        imgJet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/jet.png"))); // NOI18N
+        imgJet.setText("jLabel1");
+        jPanel3.add(imgJet);
+        imgJet.setBounds(860, 140, 200, 70);
+
+        imgCho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos/Comida/chocolatina.png"))); // NOI18N
+        imgCho.setText("jLabel3");
+        jPanel3.add(imgCho);
+        imgCho.setBounds(900, 430, 200, 145);
+
+        peqPopSal2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal2.setText("Pequeñas:");
+        jPanel3.add(peqPopSal2);
+        peqPopSal2.setBounds(120, 270, 70, 16);
+
+        titulo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo.setText("Maiz salado");
+        jPanel3.add(titulo);
+        titulo.setBounds(100, 240, 120, 23);
+
+        peqPopSal3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal3.setText("Pequeñas:");
+        jPanel3.add(peqPopSal3);
+        peqPopSal3.setBounds(50, 620, 70, 16);
+
+        titulo1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo1.setText("Maiz dulce");
+        jPanel3.add(titulo1);
+        titulo1.setBounds(110, 570, 120, 23);
+
+        peqPopSal6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        peqPopSal6.setText("Pequeña:");
+        jPanel3.add(peqPopSal6);
+        peqPopSal6.setBounds(310, 290, 70, 16);
+
+        titulo2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo2.setText("Agua");
+        jPanel3.add(titulo2);
+        titulo2.setBounds(380, 620, 70, 23);
+
+        titulo3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        titulo3.setText("Gaseosa");
+        jPanel3.add(titulo3);
+        titulo3.setBounds(370, 240, 120, 23);
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1720, 730));
     }// </editor-fold>//GEN-END:initComponents
@@ -73,10 +139,21 @@ public class ComidaGUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imgAgu;
+    private javax.swing.JLabel imgCho;
     private javax.swing.JLabel imgGas;
+    private javax.swing.JLabel imgJet;
+    private javax.swing.JLabel imgNac;
+    private javax.swing.JLabel imgPer;
     private javax.swing.JLabel imgPopDul;
     private javax.swing.JLabel imgPopSal;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel peqPopSal2;
+    private javax.swing.JLabel peqPopSal3;
+    private javax.swing.JLabel peqPopSal6;
+    private javax.swing.JLabel titulo;
+    private javax.swing.JLabel titulo1;
+    private javax.swing.JLabel titulo2;
+    private javax.swing.JLabel titulo3;
     // End of variables declaration//GEN-END:variables
 }
