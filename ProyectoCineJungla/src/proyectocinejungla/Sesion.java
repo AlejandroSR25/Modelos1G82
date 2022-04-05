@@ -2,12 +2,22 @@ package proyectocinejungla;
 
 public final class Sesion {
     
-    boolean logged;
+    private boolean logged;
+    private Persona persona;
     
     static Sesion s = null;
     
     private Sesion(){
         this.logged = false;
+        this.persona = null;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     
     public static Sesion getInstance(){
