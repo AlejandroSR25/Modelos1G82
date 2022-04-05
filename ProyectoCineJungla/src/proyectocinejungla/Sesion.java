@@ -34,4 +34,9 @@ public final class Sesion {
     public void setLogged(boolean logged) {
         this.logged = logged;
     }
+    
+    public void LogOut(){
+        this.logged = false;
+        this.persona = null;
+    }
 }
