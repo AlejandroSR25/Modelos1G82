@@ -226,7 +226,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
 
             JButton btn_reporte = new JButton();
             btn_reporte.setFont(new java.awt.Font("Century Gothic", 1, 18));
-            btn_reporte.setText("GENERAR REPORTE");
+            btn_reporte.setText("GENERAR REPORTES");
             btn_reporte.setFocusable(false);
             add(btn_reporte);
             btn_reporte.setBounds(870, 880, 190, 50);
