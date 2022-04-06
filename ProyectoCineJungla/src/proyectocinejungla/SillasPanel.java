@@ -273,12 +273,21 @@ public class SillasPanel extends javax.swing.JPanel {
 
     private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
         // TODO add your handling code here:
+        int contador=0;
         for (int i = 0; i < 60; i++) {
             if (sala.getSillas().get(i).getType().getEstado().equals("Seleccionada")) {
                 String aux = "" + funcion;
                 baseDatos.modifEstado(MainPage.getCineId(), "Ocupada",numero.get(i), aux);
                 //System.out.print("update Cine" + MainPage.getCineId() + " set Estado='" + "Ocupada" + "' where Silla='" + numero.get(i) + "', Funcion='" + aux + "';");
+                contador++;
             }
+        }
+        if(radioBoton3.isSelected())
+        {
+           int puntAct=PerfilUser.getU().getPuntos();
+        }else{
+            int puntAct=PerfilUser.getU().getPuntos();
+            int puntos=10*contador;
         }
         JFrame exito = new CompraExitosa();
         exito.setVisible(true);
@@ -350,7 +359,11 @@ public class SillasPanel extends javax.swing.JPanel {
         for (int i = 0; i < 60; i++) {
             sala.plantSilla(cambioColumna(numero.get(i)), cambioFila(numero.get(i)), tipos.get(i), estados.get(i));
         }
-
+        
+        if(PerfilUser.getU().getPuntos()>=100)
+        {
+            radioBoton3.setEnabled(true);
+        }
         sala.setBounds(280, 110, 880, 530);
         sala.setVisible(true);
         jPanel3.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 15, 880, 750));

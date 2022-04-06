@@ -14,13 +14,19 @@ import javax.swing.JOptionPane;
  */
 public class PerfilUser extends javax.swing.JPanel {
 
-    Usuario u;
+    static Usuario u;
 
     public PerfilUser(Usuario u) {
         this.u = u;
         initComponents();
         crearNuevosComponentes();
     }
+
+    public static Usuario getU() {
+        return u;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

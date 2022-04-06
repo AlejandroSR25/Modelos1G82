@@ -140,6 +140,33 @@ public final class BD {
             System.err.println(ex.getMessage());
         }
     }
+    
+    public void modifPuntos(String id, String puntos) {
+
+        Statement stmt = null;
+
+        try {
+            stmt = connect.createStatement();
+            //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
+            stmt.executeUpdate("update Cliente set [Puntos]='" + puntos + "' where Id='" + id + "';");
+            connect.commit();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    public void modifFecha(String id, String fecha) {
+
+        Statement stmt = null;
+
+        try {
+            stmt = connect.createStatement();
+            //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
+            stmt.executeUpdate("update Cliente set [Fecha Obtencion]='" + fecha + "' where Id='" + id + "';");
+            connect.commit();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
 
     public void Login(javax.swing.JTextField jtf, javax.swing.JPasswordField jpf, String person, javax.swing.JFrame frame) {
         boolean failed = true;
