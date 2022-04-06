@@ -154,6 +154,11 @@ public class MainPage extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Header.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         encabezado.add(jLabel1);
         jLabel1.setBounds(19, 20, 617, 94);
 
@@ -398,6 +403,10 @@ public class MainPage extends javax.swing.JFrame {
         puntuar.setVisible(true);
         puntuar.setLocationRelativeTo(null);
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        goMainPage();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli, JFrame frame, int indx) {
         if (cartelera.isEnabled()) {
