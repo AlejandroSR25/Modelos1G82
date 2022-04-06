@@ -236,6 +236,11 @@ public class MainPage extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MainPage/Estrella Roja.png"))); // NOI18N
         jLabel7.setText("PUNTUAR CINEPLEX");
         jLabel7.setEnabled(false);
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         jLabel7.setVisible(false);
         encabezado.add(jLabel7);
         jLabel7.setBounds(970, 30, 349, 50);
@@ -384,11 +389,17 @@ public class MainPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli, JFrame frame) {
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        JFrame puntuar = new Puntuar("Multiplex", MainPage.getJComboBox1().getSelectedIndex());
+        puntuar.setVisible(true);
+        puntuar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void JPanelPeliculaMouseClicked(java.awt.event.MouseEvent evt, Pelicula peli, JFrame frame, int indx) {
         if (cartelera.isEnabled()) {
             getContentPane().removeAll();
             getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
-            getContentPane().add(new PeliculaGUI(peli, this)).setBounds(0, 120, 1920, 960);
+            getContentPane().add(new PeliculaGUI(peli, this, indx)).setBounds(0, 120, 1920, 960);
             getContentPane().revalidate();
             getContentPane().repaint();
         }
@@ -468,11 +479,12 @@ public class MainPage extends javax.swing.JFrame {
 
         for (int i = 0; i < 4; i++) {
             Pelicula aux = peliculas.get(i);
+            int indx = i+1;
             if (cmp[i] instanceof javax.swing.JPanel) {
                 cmp[i].setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        JPanelPeliculaMouseClicked(evt, aux, frame);
+                        JPanelPeliculaMouseClicked(evt, aux, frame, indx);
                     }
                 });
             }

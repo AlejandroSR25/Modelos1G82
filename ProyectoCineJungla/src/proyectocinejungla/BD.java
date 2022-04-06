@@ -162,8 +162,7 @@ public final class BD {
                         u.rellenarDatos();
                         sesion.setPersona(u);
                         sesion.setLogged(true);
-                        
-                        
+
                         MainPage.account_label.setText("Logged as: " + u.getNombre());
                         MainPage.account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
                         MainPage.account_label.setForeground(new java.awt.Color(102, 0, 0));
@@ -198,8 +197,8 @@ public final class BD {
                         Persona e = new Empleado(id);
                         e.rellenarDatos();
                         sesion.setPersona(e);
-                        sesion.setLogged(true);                        
-                        
+                        sesion.setLogged(true);
+
                         MainPage.account_label.setText("Logged as: " + e.getNombre());
                         MainPage.account_label.setFont(new java.awt.Font("Century Gothic", 1, 14));
                         MainPage.account_label.setForeground(new java.awt.Color(102, 0, 0));
@@ -283,30 +282,30 @@ public final class BD {
             break;
             case "proyectocinejungla.Empleado":
                 try {
-                    st = connect.prepareStatement("SELECT Nombre, Cedula, Contraseña, Cargo, [Fecha Inicio Contrato], Salario, Cine FROM Empleado Where Id =" + id);
-                    ResultSet result = st.executeQuery();
+                st = connect.prepareStatement("SELECT Nombre, Cedula, Contraseña, Cargo, [Fecha Inicio Contrato], Salario, Cine FROM Empleado Where Id =" + id);
+                ResultSet result = st.executeQuery();
 
-                    while (result.next()) {
-                        datos_persona.add(result.getString(1));
-                        datos_persona.add(result.getString(2));
-                        datos_persona.add(result.getString(3));
-                        datos_persona.add(result.getString(4));
-                        datos_persona.add(result.getString(5));
-                        datos_persona.add(result.getString(6));
-                        datos_persona.add(result.getString(7));
-                    }
-                    result.close();
-                    
-                    int id_cine = Integer.parseInt(datos_persona.get(6));                    
-
-                    st2 = connect.prepareStatement("select Nombre from [Cine Jungla] WHERE Id =" + id_cine);
-                    ResultSet result2 = st2.executeQuery();
-                    while (result2.next()) {
-                        datos_persona.add(result2.getString(1));
-                    }
-
-                } catch (SQLException ex) {
+                while (result.next()) {
+                    datos_persona.add(result.getString(1));
+                    datos_persona.add(result.getString(2));
+                    datos_persona.add(result.getString(3));
+                    datos_persona.add(result.getString(4));
+                    datos_persona.add(result.getString(5));
+                    datos_persona.add(result.getString(6));
+                    datos_persona.add(result.getString(7));
                 }
+                result.close();
+
+                int id_cine = Integer.parseInt(datos_persona.get(6));
+
+                st2 = connect.prepareStatement("select Nombre from [Cine Jungla] WHERE Id =" + id_cine);
+                ResultSet result2 = st2.executeQuery();
+                while (result2.next()) {
+                    datos_persona.add(result2.getString(1));
+                }
+
+            } catch (SQLException ex) {
+            }
             break;
         }
         return datos_persona;
@@ -355,8 +354,8 @@ public final class BD {
         } catch (SQLException ex) {
         }
     }
-    
-    public void cambiarCorreo(int id, String correo){
+
+    public void cambiarCorreo(int id, String correo) {
         PreparedStatement statement;
 
         try {
@@ -364,6 +363,58 @@ public final class BD {
             statement.setString(1, correo);
             statement.setInt(2, id);
             statement.executeUpdate();
+        } catch (SQLException ex) {
+        }
+    }
+
+    public void actualizarPuntuacion(String puntuado, float puntuacion, int indx) {
+        PreparedStatement statement2;
+        ResultSet rs;
+        float puntuacion_total = 0;
+        int veces_puntuado  = 0;
+        float puntuacion_nueva = 0;
+        try {
+            switch (puntuado) {
+                case "Multiplex":
+                    statement2 = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from [Cine Jungla] where Id="+indx);
+                    rs = statement2.executeQuery();
+                    while(rs.next()){
+                        puntuacion_total = rs.getFloat(1)+puntuacion;
+                        veces_puntuado = rs.getInt(2)+1;
+                        puntuacion_nueva = puntuacion_total/veces_puntuado;
+                    }
+                    
+                    statement2 = connect.prepareStatement("update [Cine Jungla] set Puntuacion=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
+                    statement2.setFloat(1, puntuacion_nueva);
+                    statement2.setFloat(2, puntuacion_total);
+                    statement2.setInt(3, veces_puntuado);
+                    statement2.setInt(4, indx);
+                    statement2.executeUpdate();
+                    rs.close();
+                    break;
+                case "Pelicula":
+                    
+                    statement2 = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from Pelicula where Id="+indx);
+                    rs = statement2.executeQuery();
+                    System.out.println(indx);
+                    while(rs.next()){
+                        puntuacion_total = rs.getFloat(1)+puntuacion;
+                        veces_puntuado = rs.getInt(2)+1;
+                        puntuacion_nueva = puntuacion_total/veces_puntuado;
+                    }
+                    
+                    statement2 = connect.prepareStatement("update Pelicula set Puntuacion=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
+                    statement2.setFloat(1, puntuacion_nueva);
+                    statement2.setFloat(2, puntuacion_total);
+                    statement2.setInt(3, veces_puntuado);
+                    statement2.setInt(4, indx);
+                    statement2.executeUpdate();
+                    rs.close();
+                    break;
+            
+            }
+         
+            
         } catch (SQLException ex) {
         }
     }

@@ -21,16 +21,18 @@ public class PeliculaGUI extends javax.swing.JPanel {
      * Creates new form Comida
      */
     Pelicula peli;
+    int peli_id;
     private BD baseDatos = BD.getInstance();
     private JFrame frame;
     private static List<JButton> botones = new ArrayList<>();
 
     private Sesion sesion;
 
-    public PeliculaGUI(Pelicula peli, JFrame frame) {
+    public PeliculaGUI(Pelicula peli, JFrame frame, int peli_id) {
         initComponents();
         this.frame = frame;
         this.peli = peli;
+        this.peli_id = peli_id;
         info();
         funciones();
     }
@@ -133,8 +135,19 @@ public class PeliculaGUI extends javax.swing.JPanel {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PeliculaGUI/Estrella Dorada.png"))); // NOI18N
         jLabel10.setText("PUNTUA LA PELICULA");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 870, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        JFrame puntuar = new Puntuar("Pelicula", this.peli_id);
+        puntuar.setVisible(true);
+        puntuar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jLabel10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
