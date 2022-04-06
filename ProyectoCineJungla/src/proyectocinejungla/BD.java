@@ -368,48 +368,52 @@ public final class BD {
     }
 
     public void actualizarPuntuacion(String puntuado, float puntuacion, int indx) {
+        PreparedStatement statement;
         PreparedStatement statement2;
         ResultSet rs;
+        ResultSet rs2;
         float puntuacion_total = 0;
         int veces_puntuado  = 0;
         float puntuacion_nueva = 0;
         try {
             switch (puntuado) {
                 case "Multiplex":
-                    statement2 = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from [Cine Jungla] where Id="+indx);
-                    rs = statement2.executeQuery();
+                    statement = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from [Cine Jungla] where Id="+indx);
+                    rs = statement.executeQuery();
                     while(rs.next()){
                         puntuacion_total = rs.getFloat(1)+puntuacion;
                         veces_puntuado = rs.getInt(2)+1;
                         puntuacion_nueva = puntuacion_total/veces_puntuado;
                     }
                     
-                    statement2 = connect.prepareStatement("update [Cine Jungla] set Puntuacion=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
-                    statement2.setFloat(1, puntuacion_nueva);
-                    statement2.setFloat(2, puntuacion_total);
-                    statement2.setInt(3, veces_puntuado);
-                    statement2.setInt(4, indx);
-                    statement2.executeUpdate();
+                    statement = connect.prepareStatement("update [Cine Jungla] set Puntuación=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
+                    statement.setFloat(1, puntuacion_nueva);
+                    statement.setFloat(2, puntuacion_total);
+                    statement.setInt(3, veces_puntuado);
+                    statement.setInt(4, indx);
+                    statement.executeUpdate();
                     rs.close();
                     break;
                 case "Pelicula":
                     
                     statement2 = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from Pelicula where Id="+indx);
-                    rs = statement2.executeQuery();
-                    System.out.println(indx);
-                    while(rs.next()){
-                        puntuacion_total = rs.getFloat(1)+puntuacion;
-                        veces_puntuado = rs.getInt(2)+1;
+                    rs2 = statement2.executeQuery();
+                    
+                    while(rs2.next()){
+                        puntuacion_total = rs2.getFloat(1)+puntuacion;
+                        veces_puntuado = rs2.getInt(2)+1;
                         puntuacion_nueva = puntuacion_total/veces_puntuado;
+                        
                     }
                     
-                    statement2 = connect.prepareStatement("update Pelicula set Puntuacion=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
+                    statement2 = connect.prepareStatement("update Pelicula set Puntuación=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
+                    System.out.println(indx);
                     statement2.setFloat(1, puntuacion_nueva);
                     statement2.setFloat(2, puntuacion_total);
                     statement2.setInt(3, veces_puntuado);
                     statement2.setInt(4, indx);
                     statement2.executeUpdate();
-                    rs.close();
+                    rs2.close();
                     break;
             
             }
