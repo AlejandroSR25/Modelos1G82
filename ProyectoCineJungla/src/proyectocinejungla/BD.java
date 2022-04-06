@@ -126,6 +126,7 @@ public final class BD {
             System.err.println(ex.getMessage());
         }
     }
+
     public void modifFecha(String id, String fecha) {
 
         Statement stmt = null;
@@ -139,8 +140,7 @@ public final class BD {
             System.err.println(ex.getMessage());
         }
     }
-    
-    
+
     public void modifEstado(int cine, String estado, String silla, String funcion) {
 
         Statement stmt = null;
@@ -401,19 +401,19 @@ public final class BD {
         ResultSet rs;
         ResultSet rs2;
         float puntuacion_total = 0;
-        int veces_puntuado  = 0;
+        int veces_puntuado = 0;
         float puntuacion_nueva = 0;
         try {
             switch (puntuado) {
                 case "Multiplex":
-                    statement = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from [Cine Jungla] where Id="+indx);
+                    statement = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from [Cine Jungla] where Id=" + indx);
                     rs = statement.executeQuery();
-                    while(rs.next()){
-                        puntuacion_total = rs.getFloat(1)+puntuacion;
-                        veces_puntuado = rs.getInt(2)+1;
-                        puntuacion_nueva = puntuacion_total/veces_puntuado;
+                    while (rs.next()) {
+                        puntuacion_total = rs.getFloat(1) + puntuacion;
+                        veces_puntuado = rs.getInt(2) + 1;
+                        puntuacion_nueva = puntuacion_total / veces_puntuado;
                     }
-                    
+
                     statement = connect.prepareStatement("update [Cine Jungla] set Puntuación=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
                     statement.setFloat(1, puntuacion_nueva);
                     statement.setFloat(2, puntuacion_total);
@@ -423,17 +423,17 @@ public final class BD {
                     rs.close();
                     break;
                 case "Pelicula":
-                    
-                    statement2 = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from Pelicula where Id="+indx);
+
+                    statement2 = connect.prepareStatement("Select [Puntuacion Total], [Veces Puntuado] from Pelicula where Id=" + indx);
                     rs2 = statement2.executeQuery();
-                    
-                    while(rs2.next()){
-                        puntuacion_total = rs2.getFloat(1)+puntuacion;
-                        veces_puntuado = rs2.getInt(2)+1;
-                        puntuacion_nueva = puntuacion_total/veces_puntuado;
-                        
+
+                    while (rs2.next()) {
+                        puntuacion_total = rs2.getFloat(1) + puntuacion;
+                        veces_puntuado = rs2.getInt(2) + 1;
+                        puntuacion_nueva = puntuacion_total / veces_puntuado;
+
                     }
-                    
+
                     statement2 = connect.prepareStatement("update Pelicula set Puntuación=?, [Puntuacion Total]=?, [Veces Puntuado]=? where Id=?");
                     System.out.println(indx);
                     statement2.setFloat(1, puntuacion_nueva);
@@ -443,12 +443,70 @@ public final class BD {
                     statement2.executeUpdate();
                     rs2.close();
                     break;
-            
+
             }
-         
-            
+
         } catch (SQLException ex) {
         }
+    }
+
+    public String StringOperaciones() {
+        PreparedStatement statement;
+        ResultSet rs;
+        List<Integer> contadores_ingresos = new ArrayList();
+        List<Integer> contadores_sillas = new ArrayList();
+                
+        int ingresos = 0;
+        int sillas = 0;
+        
+        int ingresos_comida = 0;
+        int comida_comprada = 0;
+        
+        for (int i = 1; i <= 6; i++) {
+            try {
+                statement = connect.prepareStatement("Select Precio From Cine" + i + " where Estado='Ocupada'");
+                rs = statement.executeQuery();
+                while (rs.next()) {
+                    ingresos += rs.getInt(1);
+                    sillas += 1;
+                }
+                contadores_ingresos.add(ingresos);
+                contadores_sillas.add(sillas);
+                ingresos = 0;
+                sillas = 0;
+            } catch (SQLException ex) {
+                Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        for (int i = 1; i <= 48; i++) {
+            try {
+                statement = connect.prepareStatement("Select Precio, [Cantidad Vendida] From Comida where Id="+i);
+                rs = statement.executeQuery();
+                while (rs.next()) {
+                    ingresos_comida += rs.getInt(1);
+                    comida_comprada += rs.getInt(2);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        String texto = "--------------------------------------------------------------------------\n"
+                + "Ingresos por cine de boletas\n"
+                + "Cine Titan: $" + contadores_ingresos.get(0)+"     Cantidad Sillas Vendidas: "+contadores_sillas.get(0) + "\n"
+                + "Cine Unicentro: $" + contadores_ingresos.get(1)+"     Cantidad Sillas Vendidas: "+contadores_sillas.get(1) + "\n"
+                + "Cine Plaza Central: $" + contadores_ingresos.get(2)+"     Cantidad Sillas Vendidas: "+contadores_sillas.get(2) + "\n"
+                + "Cine Gran Estacion: $" + contadores_ingresos.get(3)+"     Cantidad Sillas Vendidas: "+contadores_sillas.get(3) + "\n"
+                + "Cine Embajador: $" + contadores_ingresos.get(4)+"     Cantidad Sillas Vendidas: "+contadores_sillas.get(4) + "\n"
+                + "Cine Las Americas: $" + contadores_ingresos.get(5)+"     Cantidad Sillas Vendidas: "+contadores_sillas.get(5) + "\n"
+                + "----------------------------------------------------------\n"
+                + "Ingresos totales por Comidas\n"
+                + "Se vendieron un total: "+comida_comprada+" productos y generaron un total de: $"+ingresos_comida+" en todos los cines\n"
+                + "-----------------------------------------------------------------------------";
+        return texto;
     }
 
     public static BD getInstance() {

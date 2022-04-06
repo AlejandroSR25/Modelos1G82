@@ -235,7 +235,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
             btn_reporte.setText("GENERAR REPORTES");
             btn_reporte.setFocusable(false);
             add(btn_reporte);
-            btn_reporte.setBounds(870, 880, 190, 50);
+            btn_reporte.setBounds(865, 880, 200, 50);
             
             btn_reporte.addActionListener(new ActionListener() {
                 @Override
@@ -253,7 +253,7 @@ public class PerfilEmployee extends javax.swing.JPanel {
         File archivo = new File(fc.getSelectedFile()+".txt");
         try{
             BufferedWriter salida = new BufferedWriter(new FileWriter(archivo));
-            salida.write("");
+            salida.write(BD.getInstance().StringOperaciones());
             salida.close();
         }catch(Exception ex){
         }
