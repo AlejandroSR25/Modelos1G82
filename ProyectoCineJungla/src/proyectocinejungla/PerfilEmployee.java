@@ -5,7 +5,13 @@
  */
 package proyectocinejungla;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -230,6 +236,26 @@ public class PerfilEmployee extends javax.swing.JPanel {
             btn_reporte.setFocusable(false);
             add(btn_reporte);
             btn_reporte.setBounds(870, 880, 190, 50);
+            
+            btn_reporte.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    btn_reporteActionPerformed(e);
+                }
+            });
+        }
+    }
+    
+    public void btn_reporteActionPerformed(ActionEvent e){
+        JFileChooser fc = new JFileChooser();
+        fc.setApproveButtonText("Guardar");
+        fc.showSaveDialog(null);
+        File archivo = new File(fc.getSelectedFile()+".txt");
+        try{
+            BufferedWriter salida = new BufferedWriter(new FileWriter(archivo));
+            salida.write("");
+            salida.close();
+        }catch(Exception ex){
         }
     }
 
