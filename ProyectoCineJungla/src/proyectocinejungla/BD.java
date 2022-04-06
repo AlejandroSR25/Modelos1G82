@@ -113,6 +113,34 @@ public final class BD {
         return datos;
     }
 
+    public void modifPuntos(String id, int puntos) {
+
+        Statement stmt = null;
+
+        try {
+            stmt = connect.createStatement();
+            //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
+            stmt.executeUpdate("update Cliente set [Puntos]='" + puntos + "' where Id='" + id + "';");
+            connect.commit();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    public void modifFecha(String id, String fecha) {
+
+        Statement stmt = null;
+
+        try {
+            stmt = connect.createStatement();
+            //stmt.executeUpdate("update Cine1 set Estado='Ocupada' where Silla='1A4', Funcion='1';");
+            stmt.executeUpdate("update Cliente set [Tiempo Obtencion]='" + fecha + "' where Id='" + id + "';");
+            connect.commit();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    
     public void modifEstado(int cine, String estado, String silla, String funcion) {
 
         Statement stmt = null;

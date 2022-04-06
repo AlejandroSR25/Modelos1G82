@@ -5,6 +5,7 @@
  */
 package proyectocinejungla;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
@@ -22,6 +23,7 @@ public class ComidaGUI extends javax.swing.JPanel {
     private BD baseDatos = BD.getInstance();
     List<String> id = new ArrayList<>();
     List<String> cantidades = new ArrayList<>();
+    PerfilUser user = new PerfilUser((Usuario) Sesion.getInstance().getPersona());
 
     public ComidaGUI() {
         initComponents();
@@ -372,6 +374,22 @@ public class ComidaGUI extends javax.swing.JPanel {
         baseDatos.modifComida(id.get(5), "" + (Integer.parseInt(cantidades.get(5)) + (Integer) cantNac.getValue()));
         baseDatos.modifComida(id.get(6), "" + (Integer.parseInt(cantidades.get(6)) + (Integer) cantJet.getValue()));
         baseDatos.modifComida(id.get(7), "" + (Integer.parseInt(cantidades.get(7)) + (Integer) cantSni.getValue()));
+        int contador = 0;
+        contador += (Integer) cantMaSa.getValue();
+        contador += (Integer) cantMaDu.getValue();
+        contador += (Integer) cantGas.getValue();
+        contador += (Integer) cantAgua.getValue();
+        contador += (Integer) cantPer.getValue();
+        contador += (Integer) cantNac.getValue();
+        contador += (Integer) cantJet.getValue();
+        int puntAct = user.getU().getPuntos();
+        int puntos = 5 * contador;
+        baseDatos.modifPuntos("" + user.getU().getId(), puntAct + puntos);
+        user.getU().setPuntos(puntAct + puntos);
+        if (puntAct + puntos >= 100) {
+            LocalDate fecha = LocalDate.now();
+            baseDatos.modifFecha("" + user.getU().getId(), "" + fecha);
+        }
         JFrame exito = new CompraExitosa();
         exito.setVisible(true);
         exito.setLocationRelativeTo(null);

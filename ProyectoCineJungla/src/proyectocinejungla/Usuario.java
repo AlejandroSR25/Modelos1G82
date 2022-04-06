@@ -8,7 +8,7 @@ public class Usuario extends Persona{
     private String correo;
     private String contraseña;
     private int puntos;
-    private int tiempo_obtencion_puntos; //en dias
+    private String tiempo_obtencion_puntos; //en dias
     
     public Usuario(int id){
         super(id);
@@ -31,18 +31,18 @@ public class Usuario extends Persona{
     }
 
     public int getPuntos() {
-        return puntos;
+        return this.puntos;
     }
 
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
 
-    public int getTiempo_obtencion_puntos() {
+    public String getTiempo_obtencion_puntos() {
         return tiempo_obtencion_puntos;
     }
 
-    public void setTiempo_obtencion_puntos(int tiempo_obtencion_puntos) {
+    public void setTiempo_obtencion_puntos(String tiempo_obtencion_puntos) {
         this.tiempo_obtencion_puntos = tiempo_obtencion_puntos;
     }
 
@@ -54,6 +54,6 @@ public class Usuario extends Persona{
         this.setCorreo(datos.get(1));
         this.setContraseña(datos.get(2));
         this.setPuntos(Integer.parseInt(datos.get(3)));
-        this.setTiempo_obtencion_puntos(Integer.parseInt(datos.get(4)));
+        this.setTiempo_obtencion_puntos((datos.get(4)));
     }
 }

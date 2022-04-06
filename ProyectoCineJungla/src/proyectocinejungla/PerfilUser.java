@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class PerfilUser extends javax.swing.JPanel {
 
-    Usuario u;
+    static Usuario u;
 
     public PerfilUser(Usuario u) {
         this.u = u;
@@ -22,6 +22,16 @@ public class PerfilUser extends javax.swing.JPanel {
         crearNuevosComponentes();
     }
 
+    public static Usuario getU() {
+        return u;
+    }
+
+    public static void setU(Usuario u) {
+        PerfilUser.u = u;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

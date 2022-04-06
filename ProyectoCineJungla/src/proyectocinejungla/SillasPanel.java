@@ -7,6 +7,7 @@ package proyectocinejungla;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
@@ -25,9 +26,11 @@ public class SillasPanel extends javax.swing.JPanel {
     private static final int INICIO_Y = 53;
     private static final int DESP_X = 16;
     private static final int DESP_Y = 26;
+    PerfilUser user = new PerfilUser((Usuario) Sesion.getInstance().getPersona());
     private int funcion;
     private static Sala sala = new Sala();
     List<String> numero = new ArrayList<>();
+    
 
     /**
      * Creates new form Comida
@@ -38,6 +41,7 @@ public class SillasPanel extends javax.swing.JPanel {
         initComponents();
         iniciar();
         labelSala.setText(baseDatos.fun(funcion, MainPage.getCineId()).get(0));
+        
     }
 
     public static JLabel getCantG() {
@@ -194,6 +198,11 @@ public class SillasPanel extends javax.swing.JPanel {
         radioBoton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         radioBoton3.setText("Redencion de puntos Cine Junlga (100 pts)");
         radioBoton3.setEnabled(false);
+        radioBoton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                radioBoton3MouseEntered(evt);
+            }
+        });
         radioBoton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioBoton3ActionPerformed(evt);
@@ -273,13 +282,39 @@ public class SillasPanel extends javax.swing.JPanel {
 
     private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
         // TODO add your handling code here:
+        int contador=0;
         for (int i = 0; i < 60; i++) {
             if (sala.getSillas().get(i).getType().getEstado().equals("Seleccionada")) {
                 String aux = "" + funcion;
                 baseDatos.modifEstado(MainPage.getCineId(), "Ocupada",numero.get(i), aux);
                 //System.out.print("update Cine" + MainPage.getCineId() + " set Estado='" + "Ocupada" + "' where Silla='" + numero.get(i) + "', Funcion='" + aux + "';");
+                contador++;
+            }
+            
+        }
+        
+       
+        
+        if(radioBoton3.isSelected())
+        {
+           int puntAct=user.getU().getPuntos();
+           baseDatos.modifPuntos(""+user.getU().getId(), puntAct-100);
+           user.getU().setPuntos(puntAct-100);
+           baseDatos.modifFecha(""+user.getU().getId(), "0");
+        }else{
+            int puntAct=user.getU().getPuntos();
+            int puntos=10*contador;
+            baseDatos.modifPuntos(""+user.getU().getId(), puntAct+puntos);
+            
+           user.getU().setPuntos(puntAct+puntos);
+            if(puntAct+puntos>=100)
+            {
+                LocalDate fecha = LocalDate.now();
+                baseDatos.modifFecha(""+user.getU().getId(), ""+fecha);
             }
         }
+        
+        
         JFrame exito = new CompraExitosa();
         exito.setVisible(true);
         exito.setLocationRelativeTo(null);
@@ -287,12 +322,21 @@ public class SillasPanel extends javax.swing.JPanel {
 
     private void botonComprarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMouseEntered
         // TODO add your handling code here:
-        if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0)) {
+        if ((Integer.parseInt(cantG.getText()) > 0) || (Integer.parseInt(cantP.getText()) > 0) &&(radioBoton.isSelected() ||radioBoton1.isSelected() ||radioBoton2.isSelected()||radioBoton3.isSelected() )) {
             botonComprar.setEnabled(true);
         }else{
             botonComprar.setEnabled(false);
         }
+        
     }//GEN-LAST:event_botonComprarMouseEntered
+
+    private void radioBoton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioBoton3MouseEntered
+        // TODO add your handling code here:
+        if(user.getU().getPuntos()>=100)
+        {
+            radioBoton3.setEnabled(true);
+        }
+    }//GEN-LAST:event_radioBoton3MouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -350,7 +394,13 @@ public class SillasPanel extends javax.swing.JPanel {
         for (int i = 0; i < 60; i++) {
             sala.plantSilla(cambioColumna(numero.get(i)), cambioFila(numero.get(i)), tipos.get(i), estados.get(i));
         }
-
+        
+        if(user.getU().getPuntos()>=100)
+        {
+            radioBoton3.setEnabled(true);
+        }
+        
+        
         sala.setBounds(280, 110, 880, 530);
         sala.setVisible(true);
         jPanel3.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 15, 880, 750));
