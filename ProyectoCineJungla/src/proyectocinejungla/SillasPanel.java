@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
@@ -279,6 +280,9 @@ public class SillasPanel extends javax.swing.JPanel {
                 //System.out.print("update Cine" + MainPage.getCineId() + " set Estado='" + "Ocupada" + "' where Silla='" + numero.get(i) + "', Funcion='" + aux + "';");
             }
         }
+        JFrame exito = new CompraExitosa();
+        exito.setVisible(true);
+        exito.setLocationRelativeTo(null);
     }//GEN-LAST:event_botonComprarActionPerformed
 
     private void botonComprarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMouseEntered

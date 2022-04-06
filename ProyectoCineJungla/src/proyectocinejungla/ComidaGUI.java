@@ -7,6 +7,7 @@ package proyectocinejungla;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JSpinner.DefaultEditor;
 
 /**
@@ -363,21 +364,23 @@ public class ComidaGUI extends javax.swing.JPanel {
 
     private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
         // TODO add your handling code here:
-        baseDatos.modifComida(id.get(0), "" + (Integer.parseInt(cantidades.get(0)) + (Integer)cantMaSa.getValue()));
-        baseDatos.modifComida(id.get(1), "" + (Integer.parseInt(cantidades.get(1)) + (Integer)cantMaDu.getValue()));
-        baseDatos.modifComida(id.get(2), "" + (Integer.parseInt(cantidades.get(2)) + (Integer)cantGas.getValue()));
-        baseDatos.modifComida(id.get(3), "" + (Integer.parseInt(cantidades.get(3)) + (Integer)cantAgua.getValue()));
-        baseDatos.modifComida(id.get(4), "" + (Integer.parseInt(cantidades.get(4)) + (Integer)cantPer.getValue()));
-        baseDatos.modifComida(id.get(5), "" + (Integer.parseInt(cantidades.get(5)) + (Integer)cantNac.getValue()));
-        baseDatos.modifComida(id.get(6), "" + (Integer.parseInt(cantidades.get(6)) + (Integer)cantJet.getValue()));
-        baseDatos.modifComida(id.get(7), "" + (Integer.parseInt(cantidades.get(7)) + (Integer)cantSni.getValue()));
-       
-            
+        baseDatos.modifComida(id.get(0), "" + (Integer.parseInt(cantidades.get(0)) + (Integer) cantMaSa.getValue()));
+        baseDatos.modifComida(id.get(1), "" + (Integer.parseInt(cantidades.get(1)) + (Integer) cantMaDu.getValue()));
+        baseDatos.modifComida(id.get(2), "" + (Integer.parseInt(cantidades.get(2)) + (Integer) cantGas.getValue()));
+        baseDatos.modifComida(id.get(3), "" + (Integer.parseInt(cantidades.get(3)) + (Integer) cantAgua.getValue()));
+        baseDatos.modifComida(id.get(4), "" + (Integer.parseInt(cantidades.get(4)) + (Integer) cantPer.getValue()));
+        baseDatos.modifComida(id.get(5), "" + (Integer.parseInt(cantidades.get(5)) + (Integer) cantNac.getValue()));
+        baseDatos.modifComida(id.get(6), "" + (Integer.parseInt(cantidades.get(6)) + (Integer) cantJet.getValue()));
+        baseDatos.modifComida(id.get(7), "" + (Integer.parseInt(cantidades.get(7)) + (Integer) cantSni.getValue()));
+        JFrame exito = new CompraExitosa();
+        exito.setVisible(true);
+        exito.setLocationRelativeTo(null);
+
     }//GEN-LAST:event_botonComprarActionPerformed
 
     private void botonComprarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMouseEntered
         // TODO add your handling code here:
-        if (((Integer) cantMaSa.getValue() > 0 || (Integer) cantMaDu.getValue() > 0 || (Integer) cantGas.getValue() > 0 || (Integer) cantAgua.getValue() > 0 || (Integer) cantNac.getValue() > 0 || (Integer) cantPer.getValue() > 0 || (Integer) cantJet.getValue() > 0 || (Integer) cantSni.getValue() > 0) && (radioBoton.isSelected()==true || radioBoton1.isSelected()==true || radioBoton2.isSelected()==true)) {
+        if (((Integer) cantMaSa.getValue() > 0 || (Integer) cantMaDu.getValue() > 0 || (Integer) cantGas.getValue() > 0 || (Integer) cantAgua.getValue() > 0 || (Integer) cantNac.getValue() > 0 || (Integer) cantPer.getValue() > 0 || (Integer) cantJet.getValue() > 0 || (Integer) cantSni.getValue() > 0) && (radioBoton.isSelected() == true || radioBoton1.isSelected() == true || radioBoton2.isSelected() == true)) {
             botonComprar.setEnabled(true);
         } else {
             botonComprar.setEnabled(false);

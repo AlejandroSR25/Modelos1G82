@@ -276,11 +276,17 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        getContentPane().removeAll();
-        getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
-        getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
-        getContentPane().revalidate();
-        getContentPane().repaint();
+        if (sesion.isLogged()) {
+            getContentPane().removeAll();
+            getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
+            getContentPane().add(new ComidaGUI()).setBounds(0, 120, 1920, 960);
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        } else {
+            getFrameLogin().setVisible(true);
+            frame.setEnabled(false);
+        }
+
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -294,7 +300,7 @@ public class MainPage extends javax.swing.JFrame {
     public static JPanel getEncabezado() {
         return encabezado;
     }
-    
+
     public static JPanel getCartelera() {
         return cartelera;
     }
@@ -302,13 +308,12 @@ public class MainPage extends javax.swing.JFrame {
     public static JFrame getFrame() {
         return frame;
     }
-    
-    public static javax.swing.JComboBox getJComboBox1(){
+
+    public static javax.swing.JComboBox getJComboBox1() {
         return jComboBox1;
     }
-    
-    
-    public static void goMainPage(){
+
+    public static void goMainPage() {
         MainPage.getFrame().getContentPane().removeAll();
         MainPage.getJComboBox1().setSelectedIndex(0);
         MainPage.getFrame().getContentPane().add(MainPage.getEncabezado()).setBounds(0, 0, 1920, 120);
@@ -317,7 +322,6 @@ public class MainPage extends javax.swing.JFrame {
         MainPage.getFrame().getContentPane().revalidate();
         MainPage.getFrame().getContentPane().repaint();
     }
-    
 
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -378,7 +382,7 @@ public class MainPage extends javax.swing.JFrame {
                 getContentPane().add(new PerfilUser((Usuario) sesion.getPersona())).setBounds(0, 120, 1920, 960);
                 getContentPane().revalidate();
                 getContentPane().repaint();
-            }else{
+            } else {
                 getContentPane().removeAll();
                 getContentPane().add(encabezado).setBounds(0, 0, 1920, 120);
                 getContentPane().add(new PerfilEmployee((Empleado) sesion.getPersona())).setBounds(0, 120, 1920, 960);
@@ -479,7 +483,7 @@ public class MainPage extends javax.swing.JFrame {
 
         for (int i = 0; i < 4; i++) {
             Pelicula aux = peliculas.get(i);
-            int indx = i+1;
+            int indx = i + 1;
             if (cmp[i] instanceof javax.swing.JPanel) {
                 cmp[i].setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 cmp[i].addMouseListener(new java.awt.event.MouseAdapter() {
